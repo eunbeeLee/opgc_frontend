@@ -1,21 +1,41 @@
-import Head from "next/head";
 import styled from "styled-components";
-import { Button } from 'antd';
+import { Input } from "antd";
+const { Search } = Input;
 
 const Container = styled.div`
-  background: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 500px;
+`;
+
+const SSearch = styled(Search)`
+  margin-top: 20px;
+  width: 500px;
+`;
+
+const Logo = styled.div`
+  text-align: center;
+  color: white;
+  background-color: #5383e8;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function Home() {
   return (
     <Container>
-      <Head>
-        <title>OPGC</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <h1>Over Powered Good Coding!</h1>
-      <Button>gg</Button>
-      <h2>Made By DirtyBoyz</h2>
+      <Logo>OPGC LOGO</Logo>
+      <SSearch
+        placeholder="input github account"
+        onSearch={(value) => console.log(value)}
+        size="large"
+        enterButton
+      />
     </Container>
   );
 }
