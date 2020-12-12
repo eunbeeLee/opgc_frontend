@@ -1,0 +1,5 @@
+/* reset css: remove default styles) */
+@import url("./reset.css");
+
+/* Global variables: such as theme, used colors, size */
+@import url("./root.css");
