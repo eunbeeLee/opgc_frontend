@@ -1,0 +1,13 @@
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  cursor: default;
+}
