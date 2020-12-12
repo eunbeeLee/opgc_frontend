@@ -1,8 +1,6 @@
-/* reset: remove default styles) */
 @import "./reset.css";
+@import "./variables.css";
+@import "./global.css";
 
-/* global variables: such as theme, used colors, size */
-@import "./init.css";
-
-/* layout */
 @import "./layout.css";
+@import "./search.css";
