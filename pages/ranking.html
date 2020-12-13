@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPGC: Over Programmed Good Coding</title>
+
+    <link rel="icon" type="image/png" href="/imgs/logo.png">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- opgc css -->
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <h1 class="header__title">
+            <img class="header__title__img" src="/imgs/logo-white.png" width=35/>
+            <span class="header__title__text">OPGC</span>
+        </h1>
+        
+        <nav class="header__navbar navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__item"><a>Search</a></li>
+                <li class="navbar__item active"><a>Ranking</a></li>
+                <li class="navbar__item"><a>TestMenu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main id="content">
+        <section id="ranking">
+            <div class="ranking__header">
+                <p class="ranking__help-text">
+                    OPGC에 총 324,234명의 개발자가 있습니다.<br>
+                    <span>랭킹은 주기적으로 갱신됩니다.</span>
+                </p>
+                <form class="ranking__search-form">
+                    <input type="text" placeholder="User ID"/>
+                    <input type="submit" value="Search" />
+                </form>
+            </div>
+            <div class="ranking__content">
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Ranking</th>
+                            <th>Name</th>
+                            <th>Commit Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <a class="ranking-user">
+                                    <img class="ranking-user__avatar" src="/imgs/logo.png"/>
+                                    <span class="ranking-user__text">
+                                        jay
+                                    </span>
+                                </a>
+                            </td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <a class="ranking-user">
+                                    <img class="ranking-user__avatar" src="/imgs/logo.png"/>
+                                    <span class="ranking-user__text">
+                                        jay
+                                    </span>
+                                </a>
+                            </td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <a class="ranking-user">
+                                    <img class="ranking-user__avatar" src="/imgs/logo.png"/>
+                                    <span class="ranking-user__text">
+                                        jay
+                                    </span>
+                                </a>
+                            </td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <a class="ranking-user">
+                                    <img class="ranking-user__avatar" src="/imgs/logo.png"/>
+                                    <span class="ranking-user__text">
+                                        jay
+                                    </span>
+                                </a>
+                            </td>
+                            <td>35</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="footer__desc">
+            © 2020-now OPGC,<br>
+            Created by Jay, Chun<br>
+            BLAHBLAH
+
+        </p>
+        <ul class="footer__links">
+            <li class="footer__links__item">
+                <a><i class="fab fa-github-square"></i></a>
+            </li>
+            <li class="footer__links__item">
+                <a><i class="far fa-envelope"></i></a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
