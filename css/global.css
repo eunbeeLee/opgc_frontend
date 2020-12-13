@@ -1,10 +1,20 @@
 html,
 body {
   font-family: "Open Sans", sans-serif;
+  color: var(--color-dark-grey);
   height: 100%;
   position: relative;
   margin: 0px;
   padding: 0px;
+}
+
+a,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input[type="text"] {
+  cursor: text;
 }
 
 * {

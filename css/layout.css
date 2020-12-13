@@ -67,6 +67,11 @@ body {
   min-height: calc(100vh - var(--height-footer));
 }
 
+#content > section {
+  max-width: var(--size-max-width);
+  padding: 30px 50px;
+}
+
 /* Footer */
 #footer {
   display: flex;
@@ -74,6 +79,7 @@ body {
   justify-content: center;
   align-items: center;
   border-top: solid 1.5px var(--color-dark-white);
+  background-color: var(--color-light-white);
   color: var(--color-dark-grey);
   height: var(--height-footer);
 }
