@@ -19,11 +19,11 @@
   /* Theme */
   --theme-color: var(--color-green);
   --theme-color-2: var(--color-white);
-  --font-color: var(--color-light-grey)
+  --font-color: var(--color-light-grey);
 
   /* Font size */
   --font-large: 48px;
-  --font-medium: 25px;
+  --font-medium: 30px;
   --font-regular: 18px;
   --font-small: 16px;
   --font-micro: 14px;
