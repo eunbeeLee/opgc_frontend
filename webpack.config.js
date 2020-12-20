@@ -1,5 +1,7 @@
-const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const path = require('path');
+const srcPath = require('path').resolve(__dirname, 'src');
+const distPath = require('path').resolve(__dirname, 'dist');
 
 module.exports = {
     name: 'opgc',
@@ -9,11 +11,17 @@ module.exports = {
     devtool: 'eval',
 
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+            '@': srcPath,
+            '~': srcPath,
+            '@@': srcPath,
+            '~~': srcPath,
+          },
     },
 
     entry: {
-        app: ['./index']
+        app: ['./src/index']
     },
 
     module: {
@@ -45,7 +53,7 @@ module.exports = {
     ],
 
     output: {
-        path: path.join(__dirname, 'dist'), // __dirname - 환경변수로 현재 프로젝트의 절대경로
+        path: distPath, // __dirname - 환경변수로 현재 프로젝트의 절대경로
         filename: 'app.js',
         publicPath: '/dist/',
     },
