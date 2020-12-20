@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "webpack serve --env development"
+    "dev": "webpack serve --env development",
+    "tsc:init": "typescript --init"
   },
   "repository": {
     "type": "git",
@@ -28,8 +29,12 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "babel-loader": "^8.2.2",
     "react-refresh": "^0.9.0",
+    "ts-loader": "^8.0.12",
+    "typescript": "^4.1.3",
     "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"

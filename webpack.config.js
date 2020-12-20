@@ -9,7 +9,7 @@ module.exports = {
     devtool: 'eval',
 
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
 
     entry: {
@@ -35,7 +35,8 @@ module.exports = {
                         'react-refresh/babel'
                     ]                
                 }
-            }
+            },
+            { test: /\.tsx?$/, loader: "ts-loader" },
         ]
     },
 
