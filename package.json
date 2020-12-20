@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/DirtyBoyz/opgc_frontend/issues"
   },
-  "homepage": "https://github.com/DirtyBoyz/opgc_frontend#readme"
+  "homepage": "https://github.com/DirtyBoyz/opgc_frontend#readme",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
 }
