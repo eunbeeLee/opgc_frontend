@@ -16,6 +16,13 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+a,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: var(--color-dark-grey);
+}
+
 input[type="text"] {
   cursor: text;
 }

@@ -1,8 +1,3 @@
 @import "./reset.css";
 @import "./variables.css";
 @import "./global.css";
-
-@import "./layout.css";
-@import "./search.css";
-@import "./ranking.css";
-@import "./userInfo.css";

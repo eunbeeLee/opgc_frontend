@@ -1,5 +1,5 @@
-#user-info {
-}
+/* #user-info {
+} */
 
 .user-info__refresh button {
   border: none;
@@ -10,11 +10,11 @@
   border-radius: 5px;
 }
 
-.user-info__refresh button i {
+.user-info__refresh .user-info__refresh-btn {
   transition: transform 800ms ease-in-out;
 }
 
-.user-info__refresh button:hover i {
+.user-info__refresh button:hover .user-info__refresh-btn {
   transform: rotate(360deg);
 }
 
