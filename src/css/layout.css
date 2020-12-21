@@ -32,7 +32,10 @@ body {
   cursor: pointer;
 }
 
-.header__title__text {
+.header__title img {
+  width: 35px;
+}
+.header__title span {
   padding: 0 3px;
   color: var(--color-white);
   font-size: var(--font-regular);

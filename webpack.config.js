@@ -44,7 +44,8 @@ module.exports = {
                     ]                
                 }
             },
-            { test: /\.tsx?$/, loader: "ts-loader" },
+            { test: /\.tsx?$/, loader: 'ts-loader' },
+            { test: /\.css/, use: [ 'style-loader', 'css-loader' ]}
         ]
     },
 
@@ -59,7 +60,9 @@ module.exports = {
     },
 
     devServer: {
+        contentBase: path.join(__dirname, 'public'),
         publicPath: '/dist/',
-        hot: true
+        hot: true,
+        historyApiFallback: true
     }
 };
