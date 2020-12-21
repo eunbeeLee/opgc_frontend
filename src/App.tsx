@@ -12,7 +12,6 @@ const App = () => {
             </Route>
             <Route path="/login" render={() => <h1>Login Page</h1>} />
         </Switch>
-        
     )
 };
 
