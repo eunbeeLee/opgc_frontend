@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import '@/css/ranking.css';
+import { changeSearchId, getUsers } from '@/modules/ranking';
 
-export const Ranking = () => {
+const Ranking = ({ 
+    users,
+    totalUsersCnt,
+    getUsers
+}) => {
+    useEffect(() => {
+        getUsers();
+    }, []);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        getUsers('jay');
+    };
+
     return (
         <div id="ranking">
             <div className="ranking__header">
                 <p className="ranking__help-text">
-                    OPGC에 총 324,234명의 개발자가 있습니다.<br />
+                    OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다.<br />
                     <span>랭킹은 주기적으로 갱신됩니다.</span>
                 </p>
-                <form className="ranking__search-form">
-                    <input type="text" placeholder="User ID"/>
+                <form className="ranking__search-form" onSubmit={handleSubmit}>
+                    <input 
+                        type="text" 
+                        name="serach_id"
+                        placeholder="User ID"
+                    />
                     <input type="submit" value="Search" />
                 </form>
             </div>
@@ -24,57 +43,38 @@ export const Ranking = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a className="ranking-user">
-                                    <img className="ranking-user__avatar" src="/imgs/logo.png"/>
-                                    <span className="ranking-user__text">
-                                        jay
-                                    </span>
-                                </a>
-                            </td>
-                            <td>35</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a className="ranking-user">
-                                    <img className="ranking-user__avatar" src="/imgs/logo.png"/>
-                                    <span className="ranking-user__text">
-                                        jay
-                                    </span>
-                                </a>
-                            </td>
-                            <td>35</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a className="ranking-user">
-                                    <img className="ranking-user__avatar" src="/imgs/logo.png"/>
-                                    <span className="ranking-user__text">
-                                        jay
-                                    </span>
-                                </a>
-                            </td>
-                            <td>35</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a className="ranking-user">
-                                    <img className="ranking-user__avatar" src="/imgs/logo.png"/>
-                                    <span className="ranking-user__text">
-                                        jay
-                                    </span>
-                                </a>
-                            </td>
-                            <td>35</td>
-                        </tr>
+                        {
+                            users.map(user => (
+                                <tr key={user.id}>
+                                    <td>{user.rank}</td>
+                                    <td>
+                                        <a className="ranking-user">
+                                            <img className="ranking-user__avatar" src="/imgs/logo.png"/>
+                                            <span className="ranking-user__text">
+                                                {user.id}
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td>{user.commitCnt}</td>        
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     )
 };
+
+const mapStateToProps = ({ ranking: { users, searchId, totalUsersCnt } }) => ({
+    users,
+    searchId,
+    totalUsersCnt
+});
+
+const mapDispatchToProps = {
+    changeSearchId,
+    getUsers
+};
+
+export const RankingPage = connect(mapStateToProps, mapDispatchToProps)(Ranking);

@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { action1 } from '@/modules/user';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
 
 import '@/css/user.css';
 
-export const User = () => {
+const User = () => {
     return (
         <div id="user-info">
             <div className="user-info__refresh">
@@ -139,3 +142,5 @@ export const User = () => {
         </div>
     );
 }
+
+export const UserPage = connect(state => ({}), { action1 })(User);
