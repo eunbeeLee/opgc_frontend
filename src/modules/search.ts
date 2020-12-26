@@ -1,18 +1,13 @@
-const GET_USER = 'user/GET_USER';
+import { handleActions, createAction } from 'redux-actions';
 
-export const getUser = () => ({ type: GET_USER });
+const ACTION1 = 'search/ACTION1';
 
-const initialState = null;
+export const action1 = createAction(ACTION1);
 
-function search (state = initialState, action) {
-    switch (action.type) {
-        case GET_USER: 
-            return {
-                name: 'ginameee'
-            }
-        default:
-            return state;
-    }
-}
+const initialState = {};
+
+const search = handleActions({
+    [ACTION1]: (state, action) => ({ ...state })
+}, initialState);
 
 export default search;

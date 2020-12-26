@@ -7,9 +7,7 @@ import '@/css/index.css';
 const App = () => {
     return (
         <Switch>
-            <Route path="/main">
-                <DefaultLayout menuList={MAIN_MENU_LIST} />
-            </Route>
+            <Route path="/main"><DefaultLayout menuList={MAIN_MENU_LIST} /></Route>
             <Route path="/login" render={() => <h1>Login Page</h1>} />
         </Switch>
     )

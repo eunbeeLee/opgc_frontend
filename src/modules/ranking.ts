@@ -1,19 +1,32 @@
-const GET_RANKING = 'ranking/GET_RANKING';
+import { handleActions, createAction } from 'redux-actions';
 
-export const getUser = () => ({ type: GET_RANKING });
+const GET_USERS = 'ranking/GET_USERS';
+const CHANGE_SEARCH_ID = 'ranking/CHANGE_SEARCH_ID';
 
-const initialState = [];
+export const getUsers = createAction(GET_USERS);
+export const changeSearchId = createAction(CHANGE_SEARCH_ID);
 
-function ranking (state = initialState, action) {
-    switch (action.type) {
-        case GET_RANKING: 
-            return [
-                { name: 'ginameee' },
-                { name: 'jayji' },
-            ]
-        default:
-            return state;
-    }
-}
+
+const initialState = {
+    searchId: '',
+    totalUsersCnt: 535325,
+    users: []
+};
+
+const users = [
+    { rank: 1, id: 'jay', commitCnt: 35 },
+    { rank: 3, id: 'ginameee', commitCnt: 34 },
+    { rank: 2, id: 'ginameee2', commitCnt: 33 },
+    { rank: 4, id: 'ginameee3', commitCnt: 31 },
+    { rank: 5, id: 'ginameee4', commitCnt: 20 },
+    
+];
+
+const ranking = handleActions({
+    [GET_USERS]: (state, { userId }) => ({
+        ...state,
+        users: (userId) ? users.filter(user => user.id === userId) : users
+    })
+}, initialState);
 
 export default ranking;
