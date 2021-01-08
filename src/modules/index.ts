@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import ranking from '@/modules/ranking';
 import search from '@/modules/search';
-import user from '@/modules/user';
+import user, { userSaga } from '@/modules/user';
 import { all } from 'redux-saga/effects';
 
 const rootReducer = combineReducers({
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
 });
 
 export function* rootSaga() {
-    yield all([]);
+    yield all([ userSaga() ]);
 }
 
 export default rootReducer;
