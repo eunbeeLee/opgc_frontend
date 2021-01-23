@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { action1 } from '@/modules/user';
+import { getUser } from '@/modules/user';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
 
 import '@/css/user.css';
+import { ActionFunction1 } from 'redux-actions';
+import { Action } from 'redux';
 
-const User = () => {
+interface IProps {
+    getUser: ActionFunction1<string, Action<string>> ;
+}
+
+const User: React.FC<IProps> = ({ getUser }) => {
+
+    useEffect(() => {
+        getUser('ginameee');
+    }, [])
     return (
         <div id="user-info">
             <div className="user-info__refresh">
@@ -143,4 +153,4 @@ const User = () => {
     );
 }
 
-export const UserPage = connect(state => ({}), { action1 })(User);
+export const UserPage = connect(state => ({}), { getUser })(User);
