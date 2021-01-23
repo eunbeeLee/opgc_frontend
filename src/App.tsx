@@ -4,7 +4,7 @@ import DefaultLayout from '@/layouts/defaultLayout'
 import { MAIN_MENU_LIST } from '@/constants/menu';
 import '@/css/index.css';
 
-const App = () => {
+const App: React.FC = () => {
     return (
         <Switch>
             <Route path="/main"><DefaultLayout menuList={MAIN_MENU_LIST} /></Route>

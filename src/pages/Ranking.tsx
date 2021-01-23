@@ -2,8 +2,16 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import '@/css/ranking.css';
 import { changeSearchId, getUsers } from '@/modules/ranking';
+import {  ActionFunctionAny } from 'redux-actions';
+import { Action } from 'redux';
 
-const Ranking = ({ 
+interface IProps {
+    users: IUser[];
+    totalUsersCnt: number;
+    getUsers: ActionFunctionAny<Action<any>>;
+}
+
+const Ranking: React.FC<IProps> = ({ 
     users,
     totalUsersCnt,
     getUsers
@@ -55,7 +63,7 @@ const Ranking = ({
                                             </span>
                                         </a>
                                     </td>
-                                    <td>{user.commitCnt}</td>        
+                                    {/* <td>{user.commitCnt}</td>         */}
                                 </tr>
                             ))
                         }
@@ -66,7 +74,7 @@ const Ranking = ({
     )
 };
 
-const mapStateToProps = ({ ranking: { users, searchId, totalUsersCnt } }) => ({
+const mapStateToProps = ({ ranking: { users, searchId, totalUsersCnt } }): Object => ({
     users,
     searchId,
     totalUsersCnt
