@@ -1,12 +1,12 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { SERVER, TIMEOUT } from '@/constants/api.config';
+import { SERVER_HOST, TIMEOUT } from '@/constants/api.config';
 
 interface IRequestParamsData {
     params?: any;
     data?: any;
 }
 
-axios.defaults.baseURL = SERVER;
+axios.defaults.baseURL = SERVER_HOST;
 axios.defaults.timeout = TIMEOUT;
 
 axios.interceptors.request.use(
@@ -67,7 +67,6 @@ function logResponseError (error: AxiosError): void {
         console.info(...getTag('ERR', 'black', 'red'), error);
     }
 }
-
 
 function getRequestParamsData (config: AxiosRequestConfig, responseStatus: number = 0): Array<IRequestParamsData | string | undefined> {
     if (config) {
