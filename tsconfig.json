@@ -4,7 +4,7 @@
             "dom",
             "es2015"
         ],
-        "typeRoots" : ["node_modules/@types", "src/types"],
+        "typeRoots" : ["node_modules/@types", "src/types/**/*"],
         "jsx": "react",
         "esModuleInterop": true,
         "baseUrl": "src",
@@ -17,6 +17,10 @@
       "src/**/*"
     ],
     "exclude": [
+      "dist",
+      ".idea",
+      ".git",
+      ".vscode",
       "node_modules"
     ]
   }
