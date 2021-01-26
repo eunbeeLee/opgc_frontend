@@ -1,4 +1,5 @@
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const path = require('path');
 const srcPath = require('path').resolve(__dirname, 'src');
 const distPath = require('path').resolve(__dirname, 'dist');
@@ -21,7 +22,7 @@ module.exports = {
     },
 
     entry: {
-        app: ['./src/index']
+        app: [path.join(srcPath, '/index')]
     },
 
     module: {
@@ -50,19 +51,21 @@ module.exports = {
     },
 
     plugins: [
-        new ReactRefreshWebpackPlugin()
+        new ReactRefreshWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, '/public/index.html'),
+        })
     ],
 
     output: {
-        path: distPath, // __dirname - 환경변수로 현재 프로젝트의 절대경로
+        path: distPath,
         filename: 'app.js',
-        publicPath: '/dist/',
     },
 
     devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        publicPath: '/dist/',
+        contentBase: path.join(__dirname, '/public'),
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        port: 52203
     }
 };
