@@ -50,3 +50,46 @@ export class User {
     get updated (): string { return this._updated }
     get username (): string { return this._username }
 }
+
+export class Repository {
+    _contribution: number;
+    _created: string;
+    _full_name: string;
+    _github_user: number;
+    _id: number;
+    _language: string;
+    _name: string;
+    _organization: string;
+    _owner: string;
+    _updated: string;
+
+    constructor(repo: IRepository) {
+        this._contribution = repo.contribution;
+        this._created = repo.created;
+        this._full_name = repo.full_name;
+        this._github_user = repo.github_user;
+        this._id = repo.id;
+        this._language = repo.language;
+        this._name = repo.name;
+        this._organization = repo.organization;
+        this._owner = repo.owner;
+        this._updated = repo.updated;
+    };
+
+    get contribution (): number { return this._contribution; }
+    get created () : string { return this._created; }
+    get fullName () : string { return this._full_name; }
+    get githubUser (): number { return this.githubUser; }
+    get id (): number { return this._id;};
+    get name (): string { return this._name };
+    get organization (): string { return this._organization; }
+    get owner(): string { return this._owner; }
+    get updated(): string { return this._updated; }
+
+    /**
+     * 조율이 필요한 항목들
+     */
+    get languages (): string[] { return [ this._language ]; } // 빈도순으로 최대 3개까지 내려주기 
+    get commitCnt (): number { return 10; }
+    get desc (): string { return `This is ${this.name} Repository`; } //어떤 값을 줄지 조율
+}

@@ -8,11 +8,10 @@ interface IProps {
 const RepoList: React.FC<IProps> = ({ repos }) => {
     return (
         <>
-            <h1>Repositories</h1>
             <div className="user-info__repos">
                 {
                     repos.map(repo => (
-                        <RepoCard repo={repo} key={repo.id}/>
+                        <RepoCard data={repo} key={repo.id}/>
                     ))
                 }
             </div>

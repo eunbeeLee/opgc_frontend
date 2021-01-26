@@ -1,39 +1,39 @@
-import React from 'react';
+import { Repository } from '@/services/user';
+import React, { useMemo } from 'react';
 
 interface IProps {
-    repo: IRepository
+    data: IRepository
 }
 
-const RepoCard: React.FC<IProps> = ({ repo }) => {
+const RepoCard: React.FC<IProps> = ({ data }) => {
+    const repo = useMemo<Repository>(() => new Repository(data), [data]);
     return (
         <div className="user-info-repo">
             <div className="user-info-repo__title">
                 <h2>{repo.name}</h2>
-                <span>this is 5boon Rest API</span>
+                <span>{repo.desc}</span>
             </div>
             <div className="user-info-repo__detail">
                 <p className="user-info-repo__commits">
                     <label>Commits</label>
-                    <span>344</span>
+                    <span>{repo.commitCnt}</span>
                 </p>
                 <ul className="user-info-repo__langauges">
                     <label>Langauge</label>
-                    <li className="user-info-repo-langauge">
-                        <h3>CSS</h3>
-                        <div className="user-info-repo-langauge__color--css"></div>
-                    </li>
-                    <li className="user-info-repo-langauge">
-                        <h3>JS</h3>
-                        <div className="user-info-repo-langauge__color--js"></div>
-                    </li>
-                    <li className="user-info-repo-langauge">
-                        <h3>Python</h3>
-                        <div className="user-info-repo-langauge__color--python"></div>
-                    </li>
+                    {
+                        repo.languages.map(
+                            language => (
+                                <li className="user-info-repo-langauge">
+                                    <h3>{language}</h3>
+                                    <div className={`user-info-repo-langauge__color--${language.toLowerCase()}`}></div>
+                                </li>
+                            )
+                        )
+                    }
                 </ul>
             </div>
         </div>
     )
 };
 
-export default React.memo(RepoCard);
+export default React.memo(RepoCard); 

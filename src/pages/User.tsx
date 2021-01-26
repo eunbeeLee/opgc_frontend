@@ -10,13 +10,14 @@ import { ActionFunction1 } from 'redux-actions';
 import { Action } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import RepoList from '@/components/user/RepoList';
+import { User as UserClass } from '@/services/user'
 
 interface IMatchParams {
     userId: string;
 }
 
 interface IProps extends RouteComponentProps<IMatchParams>{
-    user: User;
+    user: UserClass;
     getUser: ActionFunction1<string, Action<string>> ;
 }
 
@@ -25,8 +26,8 @@ const User: React.FC<IProps> = ({ match, user, getUser }) => {
 
     useEffect(() => {
         getUser(userId);
-    }, []);
-    
+    }, [userId]);
+
     return (
         <div id="user-info">
             <div className="user-info__refresh">
@@ -76,7 +77,10 @@ const User: React.FC<IProps> = ({ match, user, getUser }) => {
             
             {/* Bottom */}
             <section className="user-info__detail">
-                <RepoList repos={user?.repositories}/>
+                <section>
+                    <h1>Repositories</h1>
+                    <RepoList repos={user?.repositories}/>
+                </section>
             </section>
         </div>
     );
