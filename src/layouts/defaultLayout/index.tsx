@@ -8,7 +8,7 @@ import '@/css/layout.css';
 const DefaultLayout = ({ menuList }) => {
     return (
         <>
-            <Header menuList={menuList}/>
+            <Header menuList={menuList.filter(m => m.visible)}/>
             <main id="content">
                 <Switch>  
                     { 

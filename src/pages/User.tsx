@@ -8,54 +8,69 @@ import { faSync } from '@fortawesome/free-solid-svg-icons'
 import '@/css/user.css';
 import { ActionFunction1 } from 'redux-actions';
 import { Action } from 'redux';
+import { RouteComponentProps } from 'react-router';
+import RepoList from '@/components/user/RepoList';
+import { User as UserClass } from '@/services/user'
 
-interface IProps {
+interface IMatchParams {
+    userId: string;
+}
+
+interface IProps extends RouteComponentProps<IMatchParams>{
+    user: UserClass;
     getUser: ActionFunction1<string, Action<string>> ;
 }
 
-const User: React.FC<IProps> = ({ getUser }) => {
+const User: React.FC<IProps> = ({ match, user, getUser }) => {
+    const { userId } = match.params;
 
     useEffect(() => {
-        getUser('ginameee');
-    }, [])
+        getUser(userId);
+    }, [userId]);
+
     return (
         <div id="user-info">
             <div className="user-info__refresh">
                 <button><FontAwesomeIcon icon={faSync} className="user-info__refresh-btn"/></button>
-                <span className="user-info__refresh-date">Last updated: 2020-02-01 19:22:10</span>
+                <span className="user-info__refresh-date">Last updated: {user.updated}</span>
             </div>
             {/* Top */}
             <section className="user-info__summary">
             <div className="user-info-account">
                 <div className="user-info-account__profile">
                     <div className="user-info-account__profile__column">
-                        <img className="user-info-account__avatar" src="/imgs/logo.png" alt="JayJi Photo" />
+                        <img 
+                            className="user-info-account__avatar" 
+                            width="100" 
+                            src={user.profileImgUrl || '/imgs/logo.png'}
+                            alt={`${user.username}'s photo`} 
+                        />
                     </div>
                     <div className="user-info-account__profile__column">
-                        <div className="user-info-account__name">JayJi</div><br/>
-                        <div className="user-info-account__id">jay-chan9yu</div>
+                        <div className="user-info-account__name">{user.username}</div><br/>
+                        <div className="user-info-account__id">{userId}</div>
                     </div>
                 </div>
                 <p className="user-info-account__desc">
-                    Fitware(Fitness + Software) Developer Republic of Korea
+                    {user.desc}
                 </p>
             </div>
             <div className="user-info__counts">
-                <div className="user-info__count">
+                {/* <div className="user-info__count">
                     <h3>Commits</h3>
                     <span>478</span>
-                </div>
+                </div> */}
                 <div className="user-info__count">
                     <h3>Repositories</h3>
-                    <span>478</span>
+                    <span>{user.repositories.length}</span>
                 </div>
                 <div className="user-info__count">
                     <h3>Followers</h3>
-                    <span>478</span>
+                    <span>{user.followersCnt}</span>
                 </div>
                 <div className="user-info__count">
                     <h3>Followings</h3>
-                    <span>478</span>
+                    <span>{user.followingCnt}</span>
                 </div>
             </div>
         </section>
@@ -64,93 +79,15 @@ const User: React.FC<IProps> = ({ getUser }) => {
             <section className="user-info__detail">
                 <section>
                     <h1>Repositories</h1>
-                    <div className="user-info__repos">
-                        <div className="user-info-repo">
-                            <div className="user-info-repo__title">
-                                <h2>5boon</h2>
-                                <span>this is 5boon Rest API</span>
-                            </div>
-                            <div className="user-info-repo__detail">
-                                <p className="user-info-repo__commits">
-                                    <label>Commits</label>
-                                    <span>344</span>
-                                </p>
-                                <ul className="user-info-repo__langauges">
-                                    <label>Langauge</label>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>CSS</h3>
-                                        <div className="user-info-repo-langauge__color--css"></div>
-                                    </li>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>JS</h3>
-                                        <div className="user-info-repo-langauge__color--js"></div>
-                                    </li>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>Python</h3>
-                                        <div className="user-info-repo-langauge__color--python"></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="user-info-repo">
-                            <div className="user-info-repo__title">
-                                <h2>5boon</h2>
-                                <span>this is 5boon Rest API</span>
-                            </div>
-                            <div className="user-info-repo__detail">
-                                <p className="user-info-repo__commits">
-                                    <label>Commits</label>
-                                    <span>344</span>
-                                </p>
-                                <ul className="user-info-repo__langauges">
-                                    <label>Langauge</label>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>CSS</h3>
-                                        <div className="user-info-repo-langauge__color--css"></div>
-                                    </li>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>JS</h3>
-                                        <div className="user-info-repo-langauge__color--js"></div>
-                                    </li>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>Python</h3>
-                                        <div className="user-info-repo-langauge__color--python"></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="user-info-repo">
-                            <div className="user-info-repo__title">
-                                <h2>5boon</h2>
-                                <span>this is 5boon Rest API</span>
-                            </div>
-                            <div className="user-info-repo__detail">
-                                <p className="user-info-repo__commits">
-                                    <label>Commits</label>
-                                    <span>344</span>
-                                </p>
-                                <ul className="user-info-repo__langauges">
-                                    <label>Langauge</label>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>CSS</h3>
-                                        <div className="user-info-repo-langauge__color--css"></div>
-                                    </li>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>JS</h3>
-                                        <div className="user-info-repo-langauge__color--js"></div>
-                                    </li>
-                                    <li className="user-info-repo-langauge">
-                                        <h3>Python</h3>
-                                        <div className="user-info-repo-langauge__color--python"></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <RepoList repos={user?.repositories}/>
                 </section>
             </section>
         </div>
     );
 }
 
-export const UserPage = connect(state => ({}), { getUser })(User);
+const mapStateToProps = ({ user }) => ({
+    user: user.user
+});
+
+export const UserPage = connect(mapStateToProps, { getUser })(User);
