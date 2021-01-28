@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 const srcPath = require('path').resolve(__dirname, 'src');
 const distPath = require('path').resolve(__dirname, 'dist');
@@ -53,8 +54,13 @@ module.exports = {
     plugins: [
         new ReactRefreshWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '/public/index.html'),
-        })
+            template: path.join(srcPath, '/index.html'),
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: path.resolve(srcPath, 'assets'), to: 'assets' }
+            ],
+        }),
     ],
 
     output: {
@@ -63,7 +69,7 @@ module.exports = {
     },
 
     devServer: {
-        contentBase: path.join(__dirname, '/public'),
+        contentBase: path.join(distPath),
         hot: true,
         historyApiFallback: true,
         port: 52203
