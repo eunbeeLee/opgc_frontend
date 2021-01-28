@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { action1 } from '@/modules/search';
-import '@/css/search.css'
+import '@/assets/css/search.css'
 import { ActionFunctionAny } from 'redux-actions';
 import { Action } from 'redux';
 
@@ -12,7 +12,7 @@ interface IProps {
 const Search: React.FC<IProps> = () => {
     return (
         <section id="search">
-            <img className="search__main-logo" src="/imgs/search/index-logo.png"/>
+            <img className="search__main-logo" src="/assets/imgs/search/index-logo.png"/>
             <form className="search__form">
                 <input type="text" placeholder="Github User Name"/>
                 <input type="submit" value="CHECK!" />

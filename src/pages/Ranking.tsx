@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import '@/css/ranking.css';
+import '@/assets/css/ranking.css';
 import { changeSearchId, getUsers } from '@/modules/ranking';
 import {  ActionFunctionAny } from 'redux-actions';
 import { Action } from 'redux';
@@ -57,7 +57,7 @@ const Ranking: React.FC<IProps> = ({
                                     <td>{user.rank}</td>
                                     <td>
                                         <a className="ranking-user">
-                                            <img className="ranking-user__avatar" src="/imgs/logo.png"/>
+                                            <img className="ranking-user__avatar" src="/assets/imgs/logo.png"/>
                                             <span className="ranking-user__text">
                                                 {user.id}
                                             </span>

@@ -8,7 +8,7 @@ const Header = ({ menuList }) => {
         <header id="header">
             <Link to="/">
                 <h1 className="header__title">
-                    <img src="/imgs/logo-white.png"/>
+                    <img src="/assets/imgs/logo-white.png"/>
                     <span>OPGC</span>
                 </h1>
             </Link>

@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-import '@/css/layout.css';
+import '@/assets/css/layout.css';
 
 const DefaultLayout = ({ menuList }) => {
     return (

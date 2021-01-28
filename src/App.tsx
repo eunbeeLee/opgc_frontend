@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import DefaultLayout from '@/layouts/defaultLayout'
 import { MAIN_MENU_LIST } from '@/constants/menu';
-import '@/css/index.css';
+import '@/assets/css/index.css';
 
 const App: React.FC = () => {
     return (
