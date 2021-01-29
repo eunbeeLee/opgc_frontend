@@ -10,7 +10,6 @@ const srcPath = require('path').resolve(__dirname, 'src');
 const distPath = require('path').resolve(__dirname, 'dist');
 
 module.exports = (env, options) => {
-
     dotenv.config({
         path: path.join(__dirname, `.env.${options.mode}`)
     });
