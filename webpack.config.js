@@ -52,8 +52,8 @@ module.exports = (env, options) => {
                         ],
                         plugins: [
                             '@babel/plugin-proposal-class-properties',
-                            'react-refresh/babel'
-                        ]                
+                            (process.env.NODE_ENV !== 'production') && require.resolve('react-refresh/babel'),
+                        ].filter(Boolean)
                     }
                 },
                 { test: /\.tsx?$/, loader: 'ts-loader' },
@@ -63,7 +63,7 @@ module.exports = (env, options) => {
 
         plugins: [
             new webpack.DefinePlugin({}),
-            new ReactRefreshWebpackPlugin(),
+            (process.env.NODE_ENV !== 'production') && new ReactRefreshWebpackPlugin(),
             new HtmlWebpackPlugin({
                 template: path.join(srcPath, '/index.html'),
             }),
@@ -72,7 +72,7 @@ module.exports = (env, options) => {
                     { from: path.resolve(srcPath, 'assets'), to: 'assets' }
                 ],
             }),
-        ],
+        ].filter(Boolean),
 
         output: {
             path: distPath,
