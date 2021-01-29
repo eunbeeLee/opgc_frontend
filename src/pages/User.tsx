@@ -5,7 +5,7 @@ import { getUser } from '@/modules/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
 
-import '@/css/user.css';
+import '@/assets/css/user.css';
 import { ActionFunction1 } from 'redux-actions';
 import { Action } from 'redux';
 import { RouteComponentProps } from 'react-router';
@@ -42,7 +42,7 @@ const User: React.FC<IProps> = ({ match, user, getUser }) => {
                         <img 
                             className="user-info-account__avatar" 
                             width="100" 
-                            src={user.profileImgUrl || '/imgs/logo.png'}
+                            src={user.profileImgUrl || '/assets/imgs/logo.png'}
                             alt={`${user.username}'s photo`} 
                         />
                     </div>
