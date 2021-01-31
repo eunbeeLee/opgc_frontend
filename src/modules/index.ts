@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
     error,
 });
 
-export function* rootSaga() {
+export function* rootSaga(): Generator {
     yield all([ userSaga() ]);
 }
 

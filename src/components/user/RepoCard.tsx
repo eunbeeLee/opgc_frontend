@@ -22,8 +22,8 @@ const RepoCard: React.FC<IProps> = ({ data }) => {
                     <label>Langauge</label>
                     {
                         repo.languages.map(
-                            language => (
-                                <li className="user-info-repo-langauge">
+                            (language, idx) => (
+                                <li className="user-info-repo-langauge" key={idx}>
                                     <h3>{language}</h3>
                                     <div className={`user-info-repo-langauge__color--${language.toLowerCase()}`}></div>
                                 </li>

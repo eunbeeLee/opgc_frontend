@@ -21,4 +21,4 @@ const Search: React.FC<IProps> = () => {
     );
 };
 
-export const SearchPage = connect(state => ({}), { action1 })(Search);
+export const SearchPage = connect(null, { action1 })(Search);

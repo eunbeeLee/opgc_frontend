@@ -5,7 +5,11 @@ import Footer from './Footer';
 
 import '@/assets/css/layout.css';
 
-const DefaultLayout = ({ menuList }) => {
+interface I_Props {
+    menuList: IMenu[];
+}
+
+const DefaultLayout: React.FC<I_Props> = ({ menuList }) => {
     return (
         <>
             <Header menuList={menuList.filter(m => m.visible)}/>
@@ -13,7 +17,7 @@ const DefaultLayout = ({ menuList }) => {
                 <Switch>  
                     { 
                         menuList.map((m) => (
-                            <Route path={m.path} component={m.component} exact />
+                            <Route path={m.path} component={m.component} key={m.name} exact />
                         ))
                     }
                     <Redirect path="*" to={menuList[0].path} />
