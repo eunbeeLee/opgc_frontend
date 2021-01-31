@@ -3,10 +3,9 @@ module.exports = {
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+    "plugins": [
+        "react",
+        "@typescript-eslint"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -15,20 +14,15 @@ module.exports = {
         },
         "ecmaVersion": 12
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
-    },
-    "overrides": [
-        {
-          "files": ["bin/*.js", "lib/*.js"],
-          "excludedFiles": "*.test.js",
-          "rules": {
-            "quotes": ["error", "single"]
-          }
-        }
-      ]
-      
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "react/prop-types": "off",
+        
+    },  
 };
