@@ -2,32 +2,32 @@
 
 html,
 body {
-  font-family: "Open Sans", sans-serif;
-  color: var(--color-dark-grey);
-  height: 100%;
-  position: relative;
-  margin: 0px;
-  padding: 0px;
+    font-family: "Open Sans", sans-serif;
+    color: var(--color-dark-grey);
+    height: 100%;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
 }
 
 a,
 button,
 input[type="submit"] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 a,
 a:active,
 a:visited {
-  text-decoration: none;
-  color: var(--color-dark-grey);
+    text-decoration: none;
+    color: var(--color-dark-grey);
 }
 
 input[type="text"] {
-  cursor: text;
+    cursor: text;
 }
 
 * {
-  box-sizing: border-box;
-  cursor: default;
+    box-sizing: border-box;
+    cursor: default;
 }

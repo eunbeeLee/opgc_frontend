@@ -1,15 +1,18 @@
-import { handleActions, createAction } from 'redux-actions';
+import { handleActions, createAction } from 'redux-actions'
 
 interface IState {}
 
-const ACTION1 = 'search/ACTION1';
+const ACTION1 = 'search/ACTION1'
 
-export const action1 = createAction(ACTION1);
+export const action1 = createAction(ACTION1)
 
-const initialState: IState = {};
+const initialState: IState = {}
 
-const search = handleActions({
-    [ACTION1]: (state, action) => ({ ...state })
-}, initialState);
+const search = handleActions(
+    {
+        [ACTION1]: (state, action) => ({ ...state }),
+    },
+    initialState
+)
 
-export default search;
+export default search
