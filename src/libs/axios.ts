@@ -68,7 +68,7 @@ function logResponseError (error: AxiosError): void {
     }
 }
 
-function getRequestParamsData (config: AxiosRequestConfig, responseStatus: number = 0): Array<IRequestParamsData | string | undefined> {
+function getRequestParamsData (config: AxiosRequestConfig, responseStatus = 0): Array<IRequestParamsData | string | undefined> {
     if (config) {
       const requestParamsData: IRequestParamsData = {};
       const status: string = responseStatus > 0 && Math.floor(responseStatus / 100) !== 2 ? `(${responseStatus}) ` : '';

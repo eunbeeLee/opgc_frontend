@@ -48,7 +48,7 @@ function* getUserSaga ({ payload: username }: { type: typeof GET_USER, payload: 
 /** 
  * module saga
  */
-export function* userSaga () {
+export function* userSaga (): Generator {
     yield takeLatest(GET_USER, getUserSaga);
 }
 

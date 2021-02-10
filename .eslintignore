@@ -1,0 +1,8 @@
+node_modules/**
+dist/**
+.vscode
+.env
+
+# configuration files
+*config.js
+.eslintrc.js

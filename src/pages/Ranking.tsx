@@ -74,7 +74,7 @@ const Ranking: React.FC<IProps> = ({
     )
 };
 
-const mapStateToProps = ({ ranking: { users, searchId, totalUsersCnt } }): Object => ({
+const mapStateToProps = ({ ranking: { users, searchId, totalUsersCnt } }): any => ({
     users,
     searchId,
     totalUsersCnt
