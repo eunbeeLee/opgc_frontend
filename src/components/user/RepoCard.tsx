@@ -1,12 +1,12 @@
-import { Repository } from '@/services/user';
-import React, { useMemo } from 'react';
+import { Repository } from '@/services/user'
+import React, { useMemo } from 'react'
 
 interface IProps {
     data: IRepository
 }
 
 const RepoCard: React.FC<IProps> = ({ data }) => {
-    const repo = useMemo<Repository>(() => new Repository(data), [data]);
+    const repo = useMemo<Repository>(() => new Repository(data), [data])
     return (
         <div className="user-info-repo">
             <div className="user-info-repo__title">
@@ -20,20 +20,18 @@ const RepoCard: React.FC<IProps> = ({ data }) => {
                 </p>
                 <ul className="user-info-repo__langauges">
                     <label>Langauge</label>
-                    {
-                        repo.languages.map(
-                            (language, idx) => (
-                                <li className="user-info-repo-langauge" key={idx}>
-                                    <h3>{language}</h3>
-                                    <div className={`user-info-repo-langauge__color--${language.toLowerCase()}`}></div>
-                                </li>
-                            )
-                        )
-                    }
+                    {repo.languages.map((language, idx) => (
+                        <li className="user-info-repo-langauge" key={idx}>
+                            <h3>{language}</h3>
+                            <div
+                                className={`user-info-repo-langauge__color--${language.toLowerCase()}`}
+                            ></div>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>
     )
-};
+}
 
-export default React.memo(RepoCard); 
+export default React.memo(RepoCard)

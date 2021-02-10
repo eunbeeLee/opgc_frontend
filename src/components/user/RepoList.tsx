@@ -1,22 +1,20 @@
-import React from 'react';
-import RepoCard from './RepoCard';
+import React from 'react'
+import RepoCard from './RepoCard'
 
 interface IProps {
-    repos: IRepository[];
+    repos: IRepository[]
 }
 
 const RepoList: React.FC<IProps> = ({ repos }) => {
     return (
         <>
             <div className="user-info__repos">
-                {
-                    repos.map(repo => (
-                        <RepoCard data={repo} key={repo.id}/>
-                    ))
-                }
+                {repos.map((repo) => (
+                    <RepoCard data={repo} key={repo.id} />
+                ))}
             </div>
         </>
     )
-};
+}
 
-export default React.memo(RepoList);
+export default React.memo(RepoList)
