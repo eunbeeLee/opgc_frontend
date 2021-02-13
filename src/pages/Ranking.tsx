@@ -6,7 +6,7 @@ import { ActionFunctionAny } from 'redux-actions'
 import { Action } from 'redux'
 
 interface IProps {
-    users: IUser[]
+    users: I_USER[]
     totalUsersCnt: number
     getUsers: ActionFunctionAny<Action<any>>
 }

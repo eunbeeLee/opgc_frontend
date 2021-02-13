@@ -5,11 +5,11 @@ import '@/assets/css/search.css'
 import { ActionFunctionAny } from 'redux-actions'
 import { Action } from 'redux'
 
-interface IProps {
+interface I_PROPS {
     action1: ActionFunctionAny<Action<any>>
 }
 
-const Search: React.FC<IProps> = () => {
+const Search: React.FC<I_PROPS> = () => {
     return (
         <section id="search">
             <img

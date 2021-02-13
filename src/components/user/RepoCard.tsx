@@ -1,11 +1,11 @@
 import { Repository } from '@/services/user'
 import React, { useMemo } from 'react'
 
-interface IProps {
-    data: IRepository
+interface I_PROPS {
+    data: I_REPOSITORY
 }
 
-const RepoCard: React.FC<IProps> = ({ data }) => {
+const RepoCard: React.FC<I_PROPS> = ({ data }) => {
     const repo = useMemo<Repository>(() => new Repository(data), [data])
     return (
         <div className="user-info-repo">

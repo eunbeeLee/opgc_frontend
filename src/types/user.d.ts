@@ -1,4 +1,4 @@
-interface IUser {
+interface I_USER {
     bio: string
     blog: string
     company: string
@@ -6,18 +6,18 @@ interface IUser {
     followers: number
     following: number
     id: number
-    organizations: IOrganization[]
+    organizations: I_ORGANIZATION[]
     profile_image: string
     public_repos: number
     rank: number
-    repositories: IRepository[]
+    repositories: I_REPOSITORY[]
     status: number
     total_contribution: number
     updated: string
     username: string
 }
 
-interface IRepository {
+interface I_REPOSITORY {
     contribution: number
     created: string
     full_name: string
@@ -30,7 +30,7 @@ interface IRepository {
     updated: string
 }
 
-interface IOrganization {
+interface I_ORGANIZATION {
     created: string
     description: ''
     id: number

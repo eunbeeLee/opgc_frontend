@@ -1,11 +1,11 @@
 import React from 'react'
 import RepoCard from './RepoCard'
 
-interface IProps {
-    repos: IRepository[]
+interface I_PROPS {
+    repos: I_REPOSITORY[]
 }
 
-const RepoList: React.FC<IProps> = ({ repos }) => {
+const RepoList: React.FC<I_PROPS> = ({ repos }) => {
     return (
         <>
             <div className="user-info__repos">

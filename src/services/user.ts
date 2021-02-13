@@ -6,17 +6,17 @@ export class User {
     _followers: number = 0
     _following: number = 0
     _id: number = 0
-    _organizations: IOrganization[] = []
+    _organizations: I_ORGANIZATION[] = []
     _profile_image: string = ''
     _public_repos: number = 0
     _rank: number = 0
-    _repositories: IRepository[] = []
+    _repositories: I_REPOSITORY[] = []
     _status: number = 0
     _total_contribution: number = 0
     _updated: string = ''
     _username: string = ''
 
-    constructor(user?: IUser) {
+    constructor(user?: I_USER) {
         if (!user) {
             return
         }
@@ -27,48 +27,20 @@ export class User {
         })
     }
 
-    get desc(): string {
-        return this._bio ?? `Hello! I'm ${this.username}`
-    }
-    get company(): string {
-        return this._company
-    }
-    get created(): string {
-        return this._created
-    }
-    get followersCnt(): number {
-        return this._followers
-    }
-    get followingCnt(): number {
-        return this._following
-    }
-    get id(): number {
-        return this._id
-    }
-    get organizations(): IOrganization[] {
-        return this._organizations
-    }
-    get repositories(): IRepository[] {
-        return this._repositories
-    }
-    get repositoriesCnt(): number {
-        return this._repositories.length
-    }
-    get profileImgUrl(): string {
-        return this._profile_image
-    }
-    get publicReposCnt(): number {
-        return this._public_repos
-    }
-    get contirbutionCnt(): number {
-        return this._total_contribution
-    }
-    get updated(): string {
-        return this._updated
-    }
-    get username(): string {
-        return this._username
-    }
+    get desc(): string { return this._bio ?? `Hello! I'm ${this.username}` }
+    get company(): string { return this._company }
+    get created(): string { return this._created }
+    get followersCnt(): number { return this._followers }
+    get followingCnt(): number { return this._following }
+    get id(): number { return this._id }
+    get organizations(): I_ORGANIZATION[] { return this._organizations }
+    get repositories(): I_REPOSITORY[] { return this._repositories }
+    get repositoriesCnt(): number { return this._repositories.length }
+    get profileImgUrl(): string { return this._profile_image }
+    get publicReposCnt(): number { return this._public_repos }
+    get contirbutionCnt(): number { return this._total_contribution }
+    get updated(): string { return this._updated }
+    get username(): string { return this._username }
 }
 
 export class Repository {
@@ -83,7 +55,7 @@ export class Repository {
     _owner: string
     _updated: string
 
-    constructor(repo: IRepository) {
+    constructor(repo: I_REPOSITORY) {
         this._contribution = repo.contribution
         this._created = repo.created
         this._full_name = repo.full_name
