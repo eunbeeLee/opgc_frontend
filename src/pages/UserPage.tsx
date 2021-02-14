@@ -1,27 +1,25 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getUser } from '@/modules/user'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
-
-import '@/assets/css/user.css'
 import { ActionFunction1 } from 'redux-actions'
 import { Action } from 'redux'
 import { RouteComponentProps } from 'react-router'
 import RepoList from '@/components/user/RepoList'
-import { User as UserClass } from '@/services/user'
+import { User } from '@/services/user'
+import './UserPage.css'
 
 interface IMatchParams {
     userId: string
 }
 
 interface IProps extends RouteComponentProps<IMatchParams> {
-    user: UserClass
+    user: User
     getUser: ActionFunction1<string, Action<string>>
 }
 
-const User: React.FC<IProps> = ({ match, user, getUser }) => {
+const UserPage: React.FC<IProps> = ({ match, user, getUser }) => {
     const { userId } = match.params
 
     useEffect(() => {
@@ -103,4 +101,4 @@ const mapStateToProps = ({ user }) => ({
     user: user.user,
 })
 
-export const UserPage = connect(mapStateToProps, { getUser })(User)
+export default connect(mapStateToProps, { getUser })(UserPage)

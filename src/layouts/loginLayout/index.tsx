@@ -1,7 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const LoginLayout = () => {
-    return <h1>Login Page</h1>
+interface I_PROPS {
+    children?: any;
+}
+const LoginLayout: React.FC<I_PROPS> = ({ children }) => {
+    return (
+        <div>
+            <h1>LoginLayout</h1>
+            <div>
+                {children}
+            </div>
+        </div>
+    )
 }
 
 export default React.memo(LoginLayout)

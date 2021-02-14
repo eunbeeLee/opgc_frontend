@@ -7,7 +7,7 @@ import { User } from '@/services/user'
 /**
  * interface
  */
-interface IState {
+interface I_STATE {
     user: User
 }
 
@@ -38,7 +38,7 @@ export const getUserFailure = createAction(
 /**
  * initial state
  */
-const initialState: IState = {
+const initialState: I_STATE = {
     user: new User(),
 }
 
@@ -54,7 +54,7 @@ function* getUserSaga({
     try {
         const {
             data: user,
-        }: { data: IUser; [anyProps: string]: any } = yield call(
+        }: { data: I_USER; [anyProps: string]: any } = yield call(
             api.getUser,
             username
         )
@@ -78,9 +78,9 @@ export function* userSaga(): Generator {
 const user = handleActions(
     {
         [GET_USER_SUCCESS]: (
-            state: IState,
+            state: I_STATE,
             { payload }: { payload: User }
-        ): IState => ({ ...state, user: payload }),
+        ): I_STATE => ({ ...state, user: payload }),
         // [GET_USER_FAILURE]: (state: IState, { payload }: { payload: Error }): any => ({ ...state, error: payload })
     },
     initialState
