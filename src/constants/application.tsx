@@ -1,24 +1,24 @@
 import { SearchPage, RankingPage, UserPage } from '@/pages'
 
-export const MAIN_MENU_LIST: IMenu[] = [
+export const MAIN_MENU_LIST: I_MENU[] = [
     {
         display: 'Search',
         name: 'search',
-        path: '/main/search',
+        path: '/search',
         component: SearchPage,
         visible: true,
     },
     {
         display: 'Ranking',
         name: 'ranking',
-        path: '/main/ranking',
+        path: '/ranking',
         component: RankingPage,
         visible: true,
     },
     {
         display: 'User',
         name: 'user',
-        path: '/main/user/:userId',
+        path: '/user/:userId',
         component: UserPage,
         visible: false,
     },

@@ -1,15 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { action1 } from '@/modules/search'
-import '@/assets/css/search.css'
-import { ActionFunctionAny } from 'redux-actions'
-import { Action } from 'redux'
+import './SearchPage.css'
 
-interface I_PROPS {
-    action1: ActionFunctionAny<Action<any>>
-}
+interface I_PROPS {}
 
-const Search: React.FC<I_PROPS> = () => {
+const SearchPage: React.FC<I_PROPS> = () => {
     return (
         <section id="search">
             <img
@@ -24,4 +18,4 @@ const Search: React.FC<I_PROPS> = () => {
     )
 }
 
-export const SearchPage = connect(null, { action1 })(Search)
+export default React.memo(SearchPage);
