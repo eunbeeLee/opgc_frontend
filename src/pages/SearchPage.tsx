@@ -1,5 +1,5 @@
-import React from 'react'
-import './SearchPage.css'
+import React from 'react';
+import './SearchPage.css';
 
 interface I_PROPS {}
 
@@ -15,7 +15,7 @@ const SearchPage: React.FC<I_PROPS> = () => {
                 <input type="submit" value="CHECK!" />
             </form>
         </section>
-    )
-}
+    );
+};
 
 export default React.memo(SearchPage);

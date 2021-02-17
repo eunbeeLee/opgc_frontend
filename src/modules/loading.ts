@@ -1,23 +1,23 @@
-import { createAction, handleActions } from 'redux-actions'
+import { createAction, handleActions } from 'redux-actions';
 
 interface IState {
-    [requestType: string]: boolean
+    [requestType: string]: boolean;
 }
 
-const START_LOADING = 'loading/START_LOADING'
-const FINISH_LOADING = 'loading/FINISH_LOADING'
+const START_LOADING = 'loading/START_LOADING';
+const FINISH_LOADING = 'loading/FINISH_LOADING';
 
 export const startLoading = createAction(
     START_LOADING,
     (requestType: string): string => requestType
-)
+);
 
 export const finishLoading = createAction(
     FINISH_LOADING,
     (requestType: string): string => requestType
-)
+);
 
-const initialState: IState = {}
+const initialState: IState = {};
 
 const loading = handleActions(
     {
@@ -37,6 +37,6 @@ const loading = handleActions(
         }),
     },
     initialState
-)
+);
 
-export default loading
+export default loading;

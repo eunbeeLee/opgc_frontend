@@ -1,8 +1,8 @@
-import React from 'react'
-import RepoCard from './RepoCard'
+import React from 'react';
+import RepoCard from './RepoCard';
 
 interface I_PROPS {
-    repos: I_REPOSITORY[]
+    repos: I_REPOSITORY[];
 }
 
 const RepoList: React.FC<I_PROPS> = ({ repos }) => {
@@ -14,7 +14,7 @@ const RepoList: React.FC<I_PROPS> = ({ repos }) => {
                 ))}
             </div>
         </>
-    )
-}
+    );
+};
 
-export default React.memo(RepoList)
+export default React.memo(RepoList);

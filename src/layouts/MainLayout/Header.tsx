@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { useRouteMatch } from 'react-router';
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom';
 
 const Header = ({ menuList }) => {
     const { url: basePath } = useRouteMatch();
@@ -16,7 +16,7 @@ const Header = ({ menuList }) => {
 
             <nav className="header__navbar navbar">
                 <ul className="navbar__menu">
-                    {menuList.map(menu => (
+                    {menuList.map((menu) => (
                         <li key={menu.name}>
                             <NavLink
                                 to={`${basePath}${menu.path}`}
@@ -30,7 +30,7 @@ const Header = ({ menuList }) => {
                 </ul>
             </nav>
         </header>
-    )
-}
+    );
+};
 
-export default React.memo(Header)
+export default React.memo(Header);

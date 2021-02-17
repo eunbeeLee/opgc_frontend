@@ -1,6 +1,6 @@
-import { call, put } from 'redux-saga/effects'
-import { startLoading, finishLoading } from '@/modules/loading'
-import { setError } from '@/modules/error'
+import { call, put } from 'redux-saga/effects';
+import { startLoading, finishLoading } from '@/modules/loading';
+import { setError } from '@/modules/error';
 
 /**
  * api request를 처리하는 saga를 리턴한다.
@@ -11,30 +11,30 @@ export function createRequestSaga(
     type: string,
     request: (params: any) => Promise<any>
 ): (action: { type: string; payload: any }) => Generator {
-    const SUCCESS = `${type}_SUCCESS`
-    const FAILURE = `${type}_FAILURE`
-    ;``
+    const SUCCESS = `${type}_SUCCESS`;
+    const FAILURE = `${type}_FAILURE`;
+    ``;
     return function* (action: { type; payload }) {
-        yield put(startLoading(type))
+        yield put(startLoading(type));
 
         try {
-            const response: any = yield call(request, action.payload)
-            yield put(setError(null))
+            const response: any = yield call(request, action.payload);
+            yield put(setError(null));
             yield put({
                 type: SUCCESS,
                 payload: response.data,
-            })
+            });
         } catch (e) {
-            yield put(setError(e))
+            yield put(setError(e));
             yield put({
                 type: FAILURE,
                 payload: e,
                 error: true,
-            })
+            });
         } finally {
-            yield put(finishLoading(type))
+            yield put(finishLoading(type));
         }
-    }
+    };
 }
 
 /**
@@ -42,8 +42,8 @@ export function createRequestSaga(
  * @param type
  */
 export function createRequestActionTypes(type: string): string[] {
-    const success = `${type}_SUCCESS`
-    const failure = `${type}_FAILURE`
+    const success = `${type}_SUCCESS`;
+    const failure = `${type}_FAILURE`;
 
-    return [type, success, failure]
+    return [type, success, failure];
 }
