@@ -6,13 +6,9 @@ import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { ActionFunction1 } from 'redux-actions';
 import { Action } from 'redux';
 import { useRouteMatch } from 'react-router';
-import RepoList from '@/components/user/RepoList';
+import RepoList from './RepoList';
 import { User } from '@/services/user';
-import './UserPage.css';
-
-interface IMatchParams {
-    userId: string;
-}
+import './style.css';
 
 interface IProps {
     user: User;

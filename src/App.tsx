@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { LoginLayout, MainLayout } from '@/layouts';
+import { LoginLayout, MainLayout } from '@/components/layouts';
 import '@/assets/css/index.css';
-import { LoginPage, NotFoundPage, RankingPage, SearchPage, UserPage } from './pages';
+import { LoginPage, NotFoundPage, RankingPage, SearchPage, UserPage } from './components/pages';
 import { Redirect } from 'react-router';
 
 const App: React.FC = () => {

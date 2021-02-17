@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchPage.css';
+import './style.css';
 
 interface I_PROPS {}
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import RepoCard from './RepoCard';
+import RepoCard from '../RepoCard';
 
 interface I_PROPS {
     repos: I_REPOSITORY[];

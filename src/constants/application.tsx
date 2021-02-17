@@ -1,4 +1,4 @@
-import { SearchPage, RankingPage, UserPage } from '@/pages';
+import { SearchPage, RankingPage, UserPage } from '@/components/pages';
 
 export const MAIN_MENU_LIST: I_MENU[] = [
     {

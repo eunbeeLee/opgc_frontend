@@ -4,7 +4,7 @@ import { changeSearchId, getUsers } from '@/modules/ranking';
 import { ActionFunctionAny } from 'redux-actions';
 import { Action } from 'redux';
 
-import './RankingPage.css';
+import './style.css';
 
 interface I_PROPS {
     users?: I_USER[];
