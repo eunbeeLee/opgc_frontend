@@ -45,23 +45,15 @@ const initialState: I_STATE = {
 /**
  * action saga
  */
-function* getUserSaga({
-    payload: username,
-}: {
-    type: typeof GET_USER;
-    payload: string;
-}) {
+function* getUserSaga({ payload: username }: { type: typeof GET_USER; payload: string; }) {
     try {
-        const {
-            data: user,
-        }: { data: I_USER; [anyProps: string]: any } = yield call(
+        const { data: user, }: { data: I_USER; [anyProps: string]: any } = yield call(
             api.getUser,
             username
         );
         yield put(getUserSuccess(new User(user)));
     } catch (e) {
         yield put(getUserFailure(e));
-        throw e;
     }
 }
 

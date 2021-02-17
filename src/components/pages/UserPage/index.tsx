@@ -16,9 +16,10 @@ interface IProps {
 }
 
 const UserPage: React.FC<IProps> = ({ user, getUser }) => {
-    const { params: userId } = useRouteMatch<string>();
+    const { params: { userId } } = useRouteMatch<{ userId: string }>();
 
     useEffect(() => {
+        console.log('::: useEffect userId', userId);
         getUser(userId);
     }, [userId]);
 

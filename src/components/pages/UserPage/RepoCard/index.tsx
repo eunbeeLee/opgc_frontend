@@ -24,7 +24,7 @@ const RepoCard: React.FC<I_PROPS> = ({ data }) => {
                         <li className="user-info-repo-langauge" key={idx}>
                             <h3>{language}</h3>
                             <div
-                                className={`user-info-repo-langauge__color--${language.toLowerCase()}`}
+                                className={`user-info-repo-langauge__color${(language) ? `--${language.toLowerCase()}` : ''}`}
                             ></div>
                         </li>
                     ))}
