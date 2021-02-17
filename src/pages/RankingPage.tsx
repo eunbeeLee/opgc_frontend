@@ -1,26 +1,26 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { changeSearchId, getUsers } from '@/modules/ranking'
-import { ActionFunctionAny } from 'redux-actions'
-import { Action } from 'redux'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { changeSearchId, getUsers } from '@/modules/ranking';
+import { ActionFunctionAny } from 'redux-actions';
+import { Action } from 'redux';
 
-import './RankingPage.css'
+import './RankingPage.css';
 
 interface I_PROPS {
-    users: I_USER[]
-    totalUsersCnt: number
-    getUsers: ActionFunctionAny<Action<any>>
+    users?: I_USER[];
+    totalUsersCnt?: number;
+    getUsers?: ActionFunctionAny<Action<any>>;
 }
 
 const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
     useEffect(() => {
-        getUsers()
-    }, [])
+        getUsers();
+    }, []);
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        getUsers('jay')
-    }
+        e.preventDefault();
+        getUsers('jay');
+    };
 
     return (
         <div id="ranking">
@@ -65,8 +65,8 @@ const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
                 </table>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = ({
     ranking: { users, searchId, totalUsersCnt },
@@ -74,11 +74,11 @@ const mapStateToProps = ({
     users,
     searchId,
     totalUsersCnt,
-})
+});
 
 const mapDispatchToProps = {
     changeSearchId,
     getUsers,
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(RankingPage)
+export default connect(mapStateToProps, mapDispatchToProps)(RankingPage);

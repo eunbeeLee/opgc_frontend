@@ -1,20 +1,20 @@
-import { createAction, handleActions } from 'redux-actions'
+import { createAction, handleActions } from 'redux-actions';
 
 interface IError {
-    requestType: string
-    error: Error | null
+    requestType: string;
+    error: Error | null;
 }
 interface IState {
-    [requestType: string]: Error | null
+    [requestType: string]: Error | null;
 }
 
-const initialState: IState = {}
-const SET_ERROR = 'error/SET_ERROR'
+const initialState: IState = {};
+const SET_ERROR = 'error/SET_ERROR';
 
 export const setError = createAction(
     SET_ERROR,
     (payload: IError): IError => payload
-)
+);
 
 const error = handleActions(
     {
@@ -27,6 +27,6 @@ const error = handleActions(
         }),
     },
     initialState
-)
+);
 
-export default error
+export default error;

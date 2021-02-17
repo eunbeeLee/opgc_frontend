@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { getUser } from '@/modules/user'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSync } from '@fortawesome/free-solid-svg-icons'
-import { ActionFunction1 } from 'redux-actions'
-import { Action } from 'redux'
-import { RouteComponentProps } from 'react-router'
-import RepoList from '@/components/user/RepoList'
-import { User } from '@/services/user'
-import './UserPage.css'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getUser } from '@/modules/user';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
+import { ActionFunction1 } from 'redux-actions';
+import { Action } from 'redux';
+import { useRouteMatch } from 'react-router';
+import RepoList from '@/components/user/RepoList';
+import { User } from '@/services/user';
+import './UserPage.css';
 
 interface IMatchParams {
-    userId: string
+    userId: string;
 }
 
-interface IProps extends RouteComponentProps<IMatchParams> {
-    user: User
-    getUser: ActionFunction1<string, Action<string>>
+interface IProps {
+    user: User;
+    getUser: ActionFunction1<string, Action<string>>;
 }
 
-const UserPage: React.FC<IProps> = ({ match, user, getUser }) => {
-    const { userId } = match.params
+const UserPage: React.FC<IProps> = ({ user, getUser }) => {
+    const { params: userId } = useRouteMatch<string>();
 
     useEffect(() => {
-        getUser(userId)
-    }, [userId])
+        getUser(userId);
+    }, [userId]);
 
     return (
         <div id="user-info">
@@ -94,11 +94,11 @@ const UserPage: React.FC<IProps> = ({ match, user, getUser }) => {
                 </section>
             </section>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = ({ user }) => ({
     user: user.user,
-})
+});
 
-export default connect(mapStateToProps, { getUser })(UserPage)
+export default connect(mapStateToProps, { getUser })(UserPage);

@@ -1,4 +1,4 @@
-import { SearchPage, RankingPage, UserPage } from '@/pages'
+import { SearchPage, RankingPage, UserPage } from '@/pages';
 
 export const MAIN_MENU_LIST: I_MENU[] = [
     {
@@ -22,4 +22,4 @@ export const MAIN_MENU_LIST: I_MENU[] = [
         component: UserPage,
         visible: false,
     },
-]
+];

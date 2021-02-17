@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
     return (
@@ -23,7 +23,7 @@ const Footer = () => {
                 </li>
             </ul>
         </footer>
-    )
-}
+    );
+};
 
-export default React.memo(Footer)
+export default React.memo(Footer);

@@ -1,12 +1,12 @@
-import { Repository } from '@/services/user'
-import React, { useMemo } from 'react'
+import { Repository } from '@/services/user';
+import React, { useMemo } from 'react';
 
 interface I_PROPS {
-    data: I_REPOSITORY
+    data: I_REPOSITORY;
 }
 
 const RepoCard: React.FC<I_PROPS> = ({ data }) => {
-    const repo = useMemo<Repository>(() => new Repository(data), [data])
+    const repo = useMemo<Repository>(() => new Repository(data), [data]);
     return (
         <div className="user-info-repo">
             <div className="user-info-repo__title">
@@ -31,7 +31,7 @@ const RepoCard: React.FC<I_PROPS> = ({ data }) => {
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default React.memo(RepoCard)
+export default React.memo(RepoCard);

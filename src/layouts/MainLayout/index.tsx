@@ -1,38 +1,24 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
-import './index.css'
-import { Redirect, Route, Switch, useRouteMatch } from 'react-router'
+import './index.css';
+import { MAIN_MENU_LIST } from '@/constants/application';
 
 interface I_Props {
-    menuList: I_MENU[],
-    children?: any,
+    children?: any;
 }
 
-export const MainLayout: React.FC<I_Props> = ({ menuList, children }) => {
-    const { url: basePath } = useRouteMatch();
-
+export const MainLayout: React.FC<I_Props> = ({ children }) => {
     return (
         <>
-            <Header menuList={menuList.filter(menu => menu.visible)} />
+            <Header menuList={MAIN_MENU_LIST.filter((menu) => menu.visible)} />
             <main id="content">
-                <Switch>
-                    {
-                        menuList.map(menu => (
-                            <Route
-                                path={`${basePath}${menu.path}`}
-                                component={menu.component}
-                                key={menu.name}
-                            />
-                        ))
-                    }
-                    <Redirect path={basePath} to={`${basePath}${menuList[0].path}`} exact/>
-                </Switch>
+                {children}
             </main>
             <Footer />
         </>
-    )
-}
+    );
+};
 
 export default React.memo(MainLayout);

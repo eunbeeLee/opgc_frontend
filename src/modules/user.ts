@@ -1,14 +1,14 @@
-import { handleActions, createAction } from 'redux-actions'
-import { call, put, takeLatest } from 'redux-saga/effects'
-import * as api from '@/apis'
-import { createRequestActionTypes } from '@/libs/redux'
-import { User } from '@/services/user'
+import { handleActions, createAction } from 'redux-actions';
+import { call, put, takeLatest } from 'redux-saga/effects';
+import * as api from '@/apis';
+import { createRequestActionTypes } from '@/libs/redux';
+import { User } from '@/services/user';
 
 /**
  * interface
  */
 interface I_STATE {
-    user: User
+    user: User;
 }
 
 /**
@@ -17,7 +17,7 @@ interface I_STATE {
 
 const [GET_USER, GET_USER_SUCCESS, GET_USER_FAILURE] = createRequestActionTypes(
     'user/GET_USER'
-)
+);
 
 /**
  * functions for creating actions
@@ -25,22 +25,22 @@ const [GET_USER, GET_USER_SUCCESS, GET_USER_FAILURE] = createRequestActionTypes(
 export const getUser = createAction(
     GET_USER,
     (username: string): string => username
-)
+);
 export const getUserSuccess = createAction(
     GET_USER_SUCCESS,
     (user: User): User => user
-)
+);
 export const getUserFailure = createAction(
     GET_USER_FAILURE,
     (error: Error): Error => error
-)
+);
 
 /**
  * initial state
  */
 const initialState: I_STATE = {
     user: new User(),
-}
+};
 
 /**
  * action saga
@@ -48,8 +48,8 @@ const initialState: I_STATE = {
 function* getUserSaga({
     payload: username,
 }: {
-    type: typeof GET_USER
-    payload: string
+    type: typeof GET_USER;
+    payload: string;
 }) {
     try {
         const {
@@ -57,11 +57,11 @@ function* getUserSaga({
         }: { data: I_USER; [anyProps: string]: any } = yield call(
             api.getUser,
             username
-        )
-        yield put(getUserSuccess(new User(user)))
+        );
+        yield put(getUserSuccess(new User(user)));
     } catch (e) {
-        yield put(getUserFailure(e))
-        throw e
+        yield put(getUserFailure(e));
+        throw e;
     }
 }
 
@@ -69,7 +69,7 @@ function* getUserSaga({
  * module saga
  */
 export function* userSaga(): Generator {
-    yield takeLatest(GET_USER, getUserSaga)
+    yield takeLatest(GET_USER, getUserSaga);
 }
 
 /**
@@ -84,6 +84,6 @@ const user = handleActions(
         // [GET_USER_FAILURE]: (state: IState, { payload }: { payload: Error }): any => ({ ...state, error: payload })
     },
     initialState
-)
+);
 
-export default user
+export default user;
