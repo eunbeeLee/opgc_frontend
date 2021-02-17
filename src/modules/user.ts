@@ -1,20 +1,20 @@
 import { handleActions, createAction } from 'redux-actions';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as api from '@/apis';
-import { createRequestActionTypes } from '@/libs/redux';
 import { User } from '@/constants/user.class';
+import { createRequestActionTypes, createRequestSaga } from '@/libs/redux';
 
 /**
  * interface
  */
 interface I_STATE {
-    user: User;
+    user: User | null;
+    error?: string | null;
 }
 
 /**
  * actions
  */
-
 const [GET_USER, GET_USER_SUCCESS, GET_USER_FAILURE] = createRequestActionTypes(
     'user/GET_USER'
 );
@@ -45,17 +45,7 @@ const initialState: I_STATE = {
 /**
  * action saga
  */
-function* getUserSaga({ payload: username }: { type: typeof GET_USER; payload: string; }) {
-    try {
-        const { data: user, }: { data: I_USER; [anyProps: string]: any } = yield call(
-            api.getUser,
-            username
-        );
-        yield put(getUserSuccess(new User(user)));
-    } catch (e) {
-        yield put(getUserFailure(e));
-    }
-}
+const getUserSaga  = createRequestSaga(GET_USER, api.getUser);
 
 /**
  * module saga
@@ -69,11 +59,11 @@ export function* userSaga(): Generator {
  */
 const user = handleActions(
     {
-        [GET_USER_SUCCESS]: (
-            state: I_STATE,
-            { payload }: { payload: User }
-        ): I_STATE => ({ ...state, user: payload }),
-        // [GET_USER_FAILURE]: (state: IState, { payload }: { payload: Error }): any => ({ ...state, error: payload })
+        [GET_USER_SUCCESS]: (state: I_STATE, { payload }: { payload: User }): I_STATE => ({ ...state, user: payload }),
+        [GET_USER_FAILURE]: (state: I_STATE, { payload }: { payload: Error }): any => ({
+            ...state,
+            user: null,
+        }),
     },
     initialState
 );

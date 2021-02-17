@@ -1,4 +1,4 @@
-import { Repository } from '@/services/user';
+import { Repository } from '@/constants/user.class';
 import React, { useMemo } from 'react';
 
 interface I_PROPS {
