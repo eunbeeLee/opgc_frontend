@@ -1,10 +1,7 @@
 import React from 'react';
-import { useRouteMatch } from 'react-router';
 import { NavLink, Link } from 'react-router-dom';
 
 const Header = ({ menuList }) => {
-    const { url: basePath } = useRouteMatch();
-
     return (
         <header id="header">
             <Link to="/">
@@ -19,7 +16,7 @@ const Header = ({ menuList }) => {
                     {menuList.map((menu) => (
                         <li key={menu.name}>
                             <NavLink
-                                to={`${basePath}${menu.path}`}
+                                to={menu.path}
                                 className="navbar__item"
                                 activeClassName="active"
                             >

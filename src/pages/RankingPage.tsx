@@ -7,9 +7,9 @@ import { Action } from 'redux';
 import './RankingPage.css';
 
 interface I_PROPS {
-    users: I_USER[];
-    totalUsersCnt: number;
-    getUsers: ActionFunctionAny<Action<any>>;
+    users?: I_USER[];
+    totalUsersCnt?: number;
+    getUsers?: ActionFunctionAny<Action<any>>;
 }
 
 const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
