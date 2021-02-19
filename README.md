@@ -7,7 +7,7 @@ Over Programmed Good Coding 프론트엔드 레포지토리
 ### Project setup
 
 ```shell
-> git clone https://github.com/mornya/react-demo-scrolling-anchor
+> git clone https://github.com/DirtyBoyz/opgc_frontend
 > cd opgc_frontend
 > npm install
 ```

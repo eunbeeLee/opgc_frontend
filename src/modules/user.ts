@@ -2,7 +2,7 @@ import { handleActions, createAction } from 'redux-actions';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as api from '@/apis';
 import { createRequestActionTypes } from '@/libs/redux';
-import { User } from '@/services/user';
+import { User } from '@/constants/user.class';
 
 /**
  * interface
