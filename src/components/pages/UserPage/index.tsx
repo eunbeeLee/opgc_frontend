@@ -7,7 +7,7 @@ import { ActionFunction1 } from 'redux-actions';
 import { Action } from 'redux';
 import { useRouteMatch } from 'react-router';
 import RepoList from './RepoList';
-import { User } from '@/services/user';
+import { User } from '@/constants/user.class';
 import './style.css';
 
 interface IProps {
