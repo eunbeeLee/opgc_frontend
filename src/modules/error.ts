@@ -13,7 +13,7 @@ const SET_ERROR = 'error/SET_ERROR';
 
 export const setError = createAction(
     SET_ERROR,
-    (payload: IError): IError => payload
+    (requestType: string, error: Error): IError => ({ requestType, error })
 );
 
 const error = handleActions(

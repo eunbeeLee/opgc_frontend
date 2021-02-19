@@ -4,35 +4,30 @@ import { setError } from '@/modules/error';
 
 /**
  * api request를 처리하는 saga를 리턴한다.
- * @param type
- * @param request
+ * @param actionNm
+ * @param asyncFn
  */
-export function createRequestSaga(
-    type: string,
-    request: (params: any) => Promise<any>
-): (action: { type: string; payload: any }) => Generator {
-    const SUCCESS = `${type}_SUCCESS`;
-    const FAILURE = `${type}_FAILURE`;
-    ``;
-    return function* (action: { type; payload }) {
-        yield put(startLoading(type));
+export function createRequestSaga(actionNm: string, asyncFn: (params: any) => Promise<any>): (action: { type: string; payload: any }) => Generator {
+    const SUCCESS = `${actionNm}_SUCCESS`;
+    const FAILURE = `${actionNm}_FAILURE`;
 
+    return function* (action: { type; payload }) {
+        yield put(startLoading(actionNm));
         try {
-            const response: any = yield call(request, action.payload);
-            yield put(setError(null));
+            const response: any = yield call(asyncFn, action.payload);
+            yield put(setError(actionNm, null));
             yield put({
                 type: SUCCESS,
                 payload: response.data,
             });
         } catch (e) {
-            yield put(setError(e));
+            console.error(e);
+            yield put(setError(actionNm, e));
             yield put({
-                type: FAILURE,
-                payload: e,
-                error: true,
+                type: FAILURE
             });
         } finally {
-            yield put(finishLoading(type));
+            yield put(finishLoading(actionNm));
         }
     };
 }
