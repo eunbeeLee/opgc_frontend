@@ -1,0 +1,27 @@
+.filter_nav {
+    font-size: 20px;
+    color: var(--color-light-grey);
+    border-bottom: 1px solid var(--color-light-white);
+}
+
+.filter_nav__list {
+    display: flex;
+}
+
+.filter_nav__item {
+    cursor: pointer;
+    padding-bottom: 20px;
+}
+
+.filter_nav__item + .filter_nav__item {
+    margin-left: 35px;
+}
+
+.filter_nav__item:hover {
+    font-weight: bolder;
+}
+
+.filter_nav__item.active {
+    border-bottom: 2px solid var(--color-light-grey);
+    font-weight: bolder;
+}

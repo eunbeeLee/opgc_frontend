@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { LoginLayout, MainLayout } from '@/components/layouts';
 import '@/assets/css/index.css';
-import { LoginPage, NotFoundPage, RankingPage, SearchPage, UserPage } from './components/pages';
+import { LoginPage, NotFoundPage, RankPage, SearchPage, UserPage } from './components/pages';
 import { Redirect } from 'react-router';
 
 const App: React.FC = () => {
@@ -14,8 +14,8 @@ const App: React.FC = () => {
             <Route exact path="/search">
                 <MainLayout><SearchPage /></MainLayout>
             </Route>
-            <Route exact path="/ranking">
-                <MainLayout><RankingPage /></MainLayout>
+            <Route exact path="/rank">
+                <MainLayout><RankPage /></MainLayout>
             </Route>
             <Route exact path="/user/:userId">
                 <MainLayout><UserPage /></MainLayout>

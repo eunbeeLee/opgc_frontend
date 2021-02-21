@@ -6,6 +6,7 @@ import { Action } from 'redux';
 
 import './style.css';
 import RankTable from './RankTable';
+import FilterNav from './FilterNav';
 
 interface I_PROPS {
     users?: I_USER[];
@@ -13,7 +14,7 @@ interface I_PROPS {
     getUsers?: ActionFunctionAny<Action<any>>;
 }
 
-const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
+const RankPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
     const [searchedId, setSearchedId] = useState<string>('');
 
     useEffect(() => {
@@ -29,14 +30,14 @@ const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
         setSearchedId(value);
     };
 
+    const handleChangeFilter = (e: any) => {
+        console.log(e);
+    }
+
     return (
         <div id="ranking">
-            <div className="ranking__header">
-                <p className="ranking__help-text">
-                    OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다.
-                    <br />
-                    <span>랭킹은 주기적으로 갱신됩니다.</span>
-                </p>
+            <div className="ranking__nav">
+                <FilterNav onChange={handleChangeFilter}/>
                 <form className="ranking__search-form" onSubmit={handleSearch}>
                     <input 
                         type="text" 
@@ -46,6 +47,13 @@ const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
                     />
                     <input type="submit" value="Search" />
                 </form>
+            </div>
+            <div className="ranking__header">
+                <p className="ranking__help-text">
+                    OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다.
+                    <br />
+                    <span>랭킹은 주기적으로 갱신됩니다.</span>
+                </p>
             </div>
             <div className="ranking__content">
                 <RankTable users={users} />
@@ -67,4 +75,4 @@ const mapDispatchToProps = {
     getUsers,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RankingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RankPage);
