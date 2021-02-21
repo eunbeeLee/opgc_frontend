@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { changeSearchId, getUsers } from '@/modules/ranking';
 import { ActionFunctionAny } from 'redux-actions';
@@ -14,13 +14,19 @@ interface I_PROPS {
 }
 
 const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
+    const [searchedId, setSearchedId] = useState<string>('');
+
     useEffect(() => {
         getUsers();
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSearch = (e) => {
         e.preventDefault();
-        getUsers('jay');
+        getUsers(searchedId);
+    };
+
+    const handleChangeSearchedId = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+        setSearchedId(value);
     };
 
     return (
@@ -31,8 +37,13 @@ const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
                     <br />
                     <span>랭킹은 주기적으로 갱신됩니다.</span>
                 </p>
-                <form className="ranking__search-form" onSubmit={handleSubmit}>
-                    <input type="text" name="serach_id" placeholder="User ID" />
+                <form className="ranking__search-form" onSubmit={handleSearch}>
+                    <input 
+                        type="text" 
+                        name="serached_id" 
+                        placeholder="User ID" 
+                        onChange={handleChangeSearchedId}
+                    />
                     <input type="submit" value="Search" />
                 </form>
             </div>
