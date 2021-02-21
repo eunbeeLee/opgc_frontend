@@ -5,6 +5,7 @@ import { ActionFunctionAny } from 'redux-actions';
 import { Action } from 'redux';
 
 import './style.css';
+import RankTable from './RankTable';
 
 interface I_PROPS {
     users?: I_USER[];
@@ -36,33 +37,7 @@ const RankingPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
                 </form>
             </div>
             <div className="ranking__content">
-                <table className="ranking-table">
-                    <thead>
-                        <tr>
-                            <th>Ranking</th>
-                            <th>Name</th>
-                            <th>Commit Count</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map((user) => (
-                            <tr key={user.id}>
-                                <td>{user.rank}</td>
-                                <td>
-                                    <a className="ranking-user">
-                                        <img
-                                            className="ranking-user__avatar"
-                                            src="/assets/imgs/logo.png"
-                                        />
-                                        <span className="ranking-user__text">
-                                            {user.id}
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <RankTable users={users} />
             </div>
         </div>
     );
