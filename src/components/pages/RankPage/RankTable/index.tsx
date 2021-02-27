@@ -1,11 +1,12 @@
+import { I_RANK } from '@/types/rank';
 import React from 'react';
 import './style.css';
 
 interface I_PROPS {
-    users: I_USER[]
+    ranks: I_RANK[]
 }
 
-const RankTable: React.FC<I_PROPS> = ({ users }) => {
+const RankTable: React.FC<I_PROPS> = ({ ranks = [] }) => {
     return (
         <table className="ranking-table">
             <thead>
@@ -16,9 +17,9 @@ const RankTable: React.FC<I_PROPS> = ({ users }) => {
                 </tr>
             </thead>
             <tbody>
-                {users.map((user) => (
-                    <tr key={user.id}>
-                        <td>{user.rank}</td>
+                {ranks.map(rank => (
+                    <tr key={rank.id}>
+                        <td>{rank.rank}</td>
                         <td>
                             <a className="ranking-user">
                                 <img
@@ -26,7 +27,7 @@ const RankTable: React.FC<I_PROPS> = ({ users }) => {
                                     src="/assets/imgs/logo.png"
                                 />
                                 <span className="ranking-user__text">
-                                    {user.id}
+                                    {rank.githubId}
                                 </span>
                             </a>
                         </td>

@@ -1,48 +1,38 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { changeSearchId, getUsers } from '@/modules/ranking';
-import { ActionFunctionAny } from 'redux-actions';
-import { Action } from 'redux';
+import React, { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeSearchedId } from '@/modules/rank';
 
 import './style.css';
-import RankTable from './RankTable';
 import FilterNav from './FilterNav';
+import { Route, Switch } from 'react-router';
+import { RANK_MENUS } from './constants';
+import { T_ROOT_REDUCER } from '@/modules';
 
-interface I_PROPS {
-    users?: I_USER[];
-    totalUsersCnt?: number;
-    getUsers?: ActionFunctionAny<Action<any>>;
-}
+interface I_PROPS {}
 
-const RankPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
-    const [searchedId, setSearchedId] = useState<string>('');
-
-    useEffect(() => {
-        getUsers();
-    }, []);
+const RankPage: React.FC<I_PROPS> = () => {
+    const dispatch = useDispatch();
+    const { totalUsersCnt, searchId } = useSelector((state: T_ROOT_REDUCER) => state.rank);
 
     const handleSearch = (e) => {
         e.preventDefault();
-        getUsers(searchedId);
+        console.log('::: handleSearch');
     };
 
     const handleChangeSearchedId = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
-        setSearchedId(value);
+        dispatch(changeSearchedId(value));
     };
-
-    const handleChangeFilter = (e: any) => {
-        console.log(e);
-    }
 
     return (
         <div id="ranking">
             <div className="ranking__nav">
-                <FilterNav onChange={handleChangeFilter}/>
+                <FilterNav />
                 <form className="ranking__search-form" onSubmit={handleSearch}>
                     <input 
                         type="text" 
                         name="serached_id" 
-                        placeholder="User ID" 
+                        placeholder="Github ID" 
+                        value={searchId}
                         onChange={handleChangeSearchedId}
                     />
                     <input type="submit" value="Search" />
@@ -56,23 +46,20 @@ const RankPage: React.FC<I_PROPS> = ({ users, totalUsersCnt, getUsers }) => {
                 </p>
             </div>
             <div className="ranking__content">
-                <RankTable users={users} />
+                <Switch>
+                    {
+                        RANK_MENUS.map((menu, idx) => (
+                            <Route 
+                                key={menu.name}
+                                path={menu.path} 
+                                component={menu.component}
+                            />
+                        ))
+                    }
+                </Switch>
             </div>
         </div>
     );
 };
 
-const mapStateToProps = ({
-    ranking: { users, searchId, totalUsersCnt },
-}): any => ({
-    users,
-    searchId,
-    totalUsersCnt,
-});
-
-const mapDispatchToProps = {
-    changeSearchId,
-    getUsers,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RankPage);
+export default React.memo(RankPage);

@@ -1,18 +1,27 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { RANK_MENUS } from '../constants';
 import './style.css';
 
-interface I_PROPS {
-    onChange?: (e: any) => void
-}
+interface I_PROPS {}
 
 const FilterNav: React.FC<I_PROPS> = () => {
     return (
         <div className="filter_nav">
             <ul className="filter_nav__list">
-                <li className="filter_nav__item active">기여도</li>
-                <li className="filter_nav__item">팔로워</li>
-                <li className="filter_nav__item">팔로잉</li>
-                <li className="filter_nav__item">언어</li>
+                {
+                    RANK_MENUS.map(menu => (
+                        <li key={menu.name} className="filter_nav__item">
+                            <NavLink
+                                to={menu.path}
+                                className="filter_nav__link"
+                                activeClassName="active"
+                            >
+                                {menu.display}
+                            </NavLink>
+                        </li>       
+                    ))
+                }
             </ul>
         </div>
     );

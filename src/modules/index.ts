@@ -16,4 +16,5 @@ export function* rootSaga(): Generator {
     yield all([userSaga()]);
 }
 
+export type T_ROOT_REDUCER = ReturnType<typeof rootReducer> 
 export default rootReducer;
