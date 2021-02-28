@@ -10,17 +10,19 @@ const FilterNav: React.FC<I_PROPS> = () => {
         <div className="filter_nav">
             <ul className="filter_nav__list">
                 {
-                    RANK_MENUS.map(menu => (
-                        <li key={menu.name} className="filter_nav__item">
-                            <NavLink
-                                to={menu.path}
-                                className="filter_nav__link"
-                                activeClassName="active"
-                            >
-                                {menu.display}
-                            </NavLink>
-                        </li>       
-                    ))
+                    RANK_MENUS.map(menu => { 
+                        return menu.visible && (
+                            <li key={menu.name} className="filter_nav__item">
+                                <NavLink
+                                    to={menu.path}
+                                    className="filter_nav__link"
+                                    activeClassName="active"
+                                >
+                                    {menu.display}
+                                </NavLink>
+                            </li>       
+                        );
+                    })
                 }
             </ul>
         </div>

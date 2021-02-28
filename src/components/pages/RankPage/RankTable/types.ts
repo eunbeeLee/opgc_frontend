@@ -1,4 +1,3 @@
-interface I_COLUMNS {
-    display: string
-    value: string
+export interface I_RANK {
+    [type: string]: string
 }

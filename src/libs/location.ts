@@ -7,18 +7,18 @@
 export function addQueryStr (params: { [key: string]: string | number }, url?: string): string {
     url = url ?? location.href;
     const keys = Object.keys(params);
-    let result = '';
-  
-    if (keys.length === 0) { return result; }
+    let queryStr = '';
+
+    if (keys.length === 0) { return url; }
   
     const hasQueryStr = getQueryStr(url).length > 0;
   
     keys.forEach((key, idx) => {
-      result += (hasQueryStr || idx > 0) ? '&' : '?';
-      result += `${key}=${params[key]}`;
+      queryStr += (hasQueryStr || idx > 0) ? '&' : '?';
+      queryStr += `${key}=${params[key]}`;
     });
   
-    return result;
+    return url + queryStr;
 }
 
 /**

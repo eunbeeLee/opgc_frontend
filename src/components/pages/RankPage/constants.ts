@@ -30,6 +30,6 @@ export const RANK_MENUS: I_MENU[] = [
         name: 'langauges',
         path: '/rank/langauges',
         component: LanguagesView,
-        visible: true,
+        visible: false,
     },
 ];

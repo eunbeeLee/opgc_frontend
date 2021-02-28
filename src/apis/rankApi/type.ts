@@ -1,5 +1,3 @@
-export type T_RANKS = I_RANK[];
-
 export interface I_RANK {
     "id": number;
     "ranking": number;

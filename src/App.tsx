@@ -14,7 +14,7 @@ const App: React.FC = () => {
             </Route>
             {
                 MAIN_MENU_LIST.map(menu => (
-                    <Route path={menu.path}>
+                    <Route path={menu.path} key={menu.name}>
                         <MainLayout>
                             {React.createElement(menu.component, null)}
                         </MainLayout>                        

@@ -1,6 +1,9 @@
 # opgc_frontend
 
-Over Programmed Good Coding 프론트엔드 레포지토리
+Over Programmed Good Coding 프론트엔드 레포지토리\
+React 학습을 위한 토이프로젝트입니다.
+
+개발자들의 랭킹을 보여줍니다!
 
 ## Usage
 

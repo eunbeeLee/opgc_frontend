@@ -18,7 +18,7 @@ export const MAIN_MENU_LIST: I_MENU[] = [
     {
         display: 'User',
         name: 'user',
-        path: '/user/:userId',
+        path: '/users/:userId',
         component: UserPage,
         visible: false,
     },

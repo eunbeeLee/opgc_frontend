@@ -1,25 +1,28 @@
-import { I_RANK } from '@/types/rank';
-import React from 'react';
+import React, { useMemo } from 'react';
 import './style.css';
+import { I_RANK } from './types';
 
 interface I_PROPS {
-    ranks: I_RANK[]
+    data: I_RANK[]
 }
 
-const RankTable: React.FC<I_PROPS> = ({ ranks = [] }) => {
+const RankTable: React.FC<I_PROPS> = ({ data }) => {
+    console.log('::: data', data);
+    const columns = useMemo(() => Object.keys(data[0] ?? {}), [data]);
+
     return (
         <table className="ranking-table">
             <thead>
                 <tr>
-                    <th>Ranking</th>
-                    <th>Name</th>
-                    <th>Commit Count</th>
+                    {columns.map(column => (
+                        <th key="column">{column}</th>
+                    ))}
                 </tr>
             </thead>
             <tbody>
-                {ranks.map(rank => (
-                    <tr key={rank.id}>
-                        <td>{rank.rank}</td>
+                {data.map(d => (
+                    <tr key={d.id}>
+                        <td>{d.rank}</td>
                         <td>
                             <a className="ranking-user">
                                 <img
@@ -27,7 +30,7 @@ const RankTable: React.FC<I_PROPS> = ({ ranks = [] }) => {
                                     src="/assets/imgs/logo.png"
                                 />
                                 <span className="ranking-user__text">
-                                    {rank.githubId}
+                                    {d.githubId}
                                 </span>
                             </a>
                         </td>
