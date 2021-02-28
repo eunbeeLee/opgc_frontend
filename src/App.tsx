@@ -2,8 +2,9 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { LoginLayout, MainLayout } from '@/components/layouts';
 import '@/assets/css/index.css';
-import { LoginPage, NotFoundPage, RankingPage, SearchPage, UserPage } from './components/pages';
+import { LoginPage, NotFoundPage } from './components/pages';
 import { Redirect } from 'react-router';
+import { MAIN_MENU_LIST } from './constants/application';
 
 const App: React.FC = () => {
     return (
@@ -11,16 +12,16 @@ const App: React.FC = () => {
             <Route exact path="/login">
                 <LoginLayout><LoginPage /></LoginLayout>
             </Route>
-            <Route exact path="/search">
-                <MainLayout><SearchPage /></MainLayout>
-            </Route>
-            <Route exact path="/ranking">
-                <MainLayout><RankingPage /></MainLayout>
-            </Route>
-            <Route exact path="/user/:userId">
-                <MainLayout><UserPage /></MainLayout>
-            </Route>
-            <Redirect exact path="/" to="/search" />
+            {
+                MAIN_MENU_LIST.map(menu => (
+                    <Route path={menu.path} key={menu.name}>
+                        <MainLayout>
+                            {React.createElement(menu.component, null)}
+                        </MainLayout>                        
+                    </Route>
+                ))
+            }
+            <Redirect exact path="/" to={MAIN_MENU_LIST[0].path} />
             <Route component={NotFoundPage} />
         </Switch>
     );

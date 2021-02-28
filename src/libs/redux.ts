@@ -7,18 +7,21 @@ import { setError } from '@/modules/error';
  * @param actionNm
  * @param asyncFn
  */
-export function createRequestSaga(actionNm: string, asyncFn: (params: any) => Promise<any>): (action: { type: string; payload: any }) => Generator {
+export function createRequestSaga(
+    actionNm: string, 
+    asyncFn: (params: any) => Promise<any>
+): (action: { type: string; payload: any }) => Generator {
     const SUCCESS = `${actionNm}_SUCCESS`;
     const FAILURE = `${actionNm}_FAILURE`;
 
     return function* (action: { type; payload }) {
         yield put(startLoading(actionNm));
         try {
-            const response: any = yield call(asyncFn, action.payload);
+            const data: any = yield call(asyncFn, action.payload);
             yield put(setError(actionNm, null));
             yield put({
                 type: SUCCESS,
-                payload: response.data,
+                payload: data,
             });
         } catch (e) {
             console.error(e);

@@ -1,5 +1,5 @@
 import { handleActions, createAction } from 'redux-actions';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 import * as api from '@/apis';
 import { User } from '@/constants/user.class';
 import { createRequestActionTypes, createRequestSaga } from '@/libs/redux';

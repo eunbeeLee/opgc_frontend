@@ -1,4 +1,4 @@
-import { SearchPage, RankingPage, UserPage } from '@/components/pages';
+import { SearchPage, RankPage, UserPage } from '@/components/pages';
 
 export const MAIN_MENU_LIST: I_MENU[] = [
     {
@@ -9,16 +9,16 @@ export const MAIN_MENU_LIST: I_MENU[] = [
         visible: true,
     },
     {
-        display: 'Ranking',
-        name: 'ranking',
-        path: '/ranking',
-        component: RankingPage,
+        display: 'Rank',
+        name: 'rank',
+        path: '/rank',
+        component: RankPage,
         visible: true,
     },
     {
         display: 'User',
         name: 'user',
-        path: '/user/:userId',
+        path: '/users/:userId',
         component: UserPage,
         visible: false,
     },

@@ -10,7 +10,7 @@ const SearchPage: React.FC<I_PROPS> = () => {
 
     const handleSearchUser = (e) => {
         e.preventDefault();
-        history.push(`/user/${userId}`);
+        history.push(`/users/${userId}`);
     };
 
     const handleChangeUserId = (e) => {
