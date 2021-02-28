@@ -3,15 +3,15 @@ export interface I_USER {
     created: string;
     updated: string;
     username: string;
-    profileImageUrl: string; // url
-    totalContributionCnt: number;
-    totalStarCnt: number;
+    profile_image: string; // url
+    total_contribution: number;
+    total_stargazers_count: number;
     company: string;
     bio: string; // 자기소개
-    blogUrl: string; // url
-    publicReposCnt: number;
-    followersCnt: number;
-    followingCnt: number;
+    blog: string; // url
+    public_repos: number;
+    followers: number;
+    following: number;
     status: E_STATUS;
     organizations: I_ORGANIZTION[];
     repositories: I_REPOSITORY[];
@@ -22,17 +22,17 @@ export interface I_ORGANIZTION {
     id: number;
     name: string;
     description: string;
-    logoUrl: string; // url
+    logo: string; // url
 }
 
 export interface I_REPOSITORY {
     id: number;
-    contributionCnt: number;
+    contribution: number;
     name: string;
-    fullName: string;
+    full_name: string;
     owner: string;
-    organizationName: string;
-    repLanguage: string; // 대표언어
+    organization: string;
+    rep_language: string; // 대표언어
     languages: string;
 }
 
