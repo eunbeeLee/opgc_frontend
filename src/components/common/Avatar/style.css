@@ -1,0 +1,4 @@
+.avatar {
+    border: 1px solid var(--color-dark-white);
+    cursor: inherit;
+}
