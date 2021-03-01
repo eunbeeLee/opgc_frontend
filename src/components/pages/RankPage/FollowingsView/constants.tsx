@@ -15,15 +15,15 @@ export const CONTRI_COLUMNS: I_COLUMN[] = [
         name: 'githubId',
         render: (d: I_RANK) => { 
             return (
-                <Link to={`/users/${d.githubId}`} style={{ cursor: 'pointer' }}>
+                <Link to={`/users/${d.username}`} style={{ cursor: 'pointer' }}>
                     <Avatar
                         width={30} 
                         height={30} 
-                        imgUrl={'/assets/imgs/logo.png'}
+                        imgUrl={ d.profileImageUrl || '/assets/imgs/logo.png'}
                         style={{ transform: 'translateY(calc(50% - 5px))' }}
                     />
                     <span style={{ marginLeft: '5px', cursor: 'inherit' }}>
-                        {d.githubId}
+                        {d.username}
                     </span>
                 </Link>
             )

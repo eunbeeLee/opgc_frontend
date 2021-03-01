@@ -27,7 +27,6 @@ const ContributionView: React.FC<I_PROPS> = () => {
                 </p>
             </div>
             <div className="ranking__content">
-                {/* <RankTable data={ranks}/> */}
                 <Table columns={CONTRI_COLUMNS} data={ranks}/>
             </div>
         </>

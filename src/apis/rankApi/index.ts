@@ -13,6 +13,7 @@ export async function getRanks({ type, language }: { type: E_RANK_TYPE, language
         id: rank.id,
         rank: rank.ranking,
         score: rank.score,
-        githubId: rank.github_user
+        username: rank.github_user.username,
+        profileImageUrl: rank.github_user.profile_image
     }));
 }
