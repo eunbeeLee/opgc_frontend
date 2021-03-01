@@ -2,7 +2,7 @@ export interface I_RANK {
     "id": number;
     "ranking": number;
     "score": number;
-    "github_user": string;
+    "github_user": I_GITHUB_USER;
 }
 
 export enum E_RANK_TYPE {
@@ -15,4 +15,10 @@ export enum E_RANK_TYPE {
 export enum E_LANGUAGE {
     JS = 'javascript',
     PYTHON = 'Python'
+}
+
+export interface I_GITHUB_USER {
+    id: number;
+    username: string;
+    profile_image: string; // url
 }
