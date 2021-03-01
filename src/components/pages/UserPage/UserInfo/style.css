@@ -1,0 +1,64 @@
+/* left */
+.user-info-account__profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-info-account__desc {
+    margin-top: 15px;
+    line-height: 35px;
+}
+
+.user-info-account__desc__company {
+    margin-left: 20px;
+}
+
+.user-info-account__belong {
+    display: flex;
+    align-items: center;
+}
+
+/* orgainization */
+.user-info-account__belong > img {
+    margin: 0 3px;
+}
+
+.user-info-account__profile__column:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.user-info-account__name {
+    font-size: var(--font-large);
+    font-weight: var(--weight-semi-bold);
+    letter-spacing: 5px;
+}
+
+.user-info-account__id {
+    font-size: var(--font-small);
+    color: var(--color-light-grey);
+}
+
+/* right */
+.user-info-account__values {
+    display: flex;
+    margin-top: 15px;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
+.user-info-account__value {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.user-info-account__value > h3::before {
+    /* content: "#"; */
+}
+
+.user-info-account__value > span {
+    width: 50px;
+    text-align: right;
+}

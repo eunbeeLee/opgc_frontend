@@ -14,7 +14,7 @@ export async function getUser(username: string): Promise<I_USER> {
         totalContributionCnt: user.total_contribution,
         totalStarCnt: user.total_stargazers_count,
         company: user.company,
-        bio: user.bio, // 자기소개
+        desc: user.bio, // 자기소개
         blogUrl: user.blog, // url
         publicReposCnt: user.public_repos,
         followersCnt: user.followers,
@@ -34,7 +34,7 @@ export async function getUser(username: string): Promise<I_USER> {
             owner: r.owner,
             organizationName: r.organization,
             repLanguage: r.rep_language,// 대표언어
-            languages: r.languages
+            languages: r.languages || []
         })),
         languages: user.languages,
     }

@@ -17,9 +17,9 @@ module.exports = (env, options) => {
     return {
         name: 'opgc',
 
-        mode: options.mode,
+        // mode: options.mode,
 
-        devtool: 'eval',
+        devtool: 'inline-source-map',
 
         resolve: {
             extensions: ['.js', '.jsx', '.ts', '.tsx'],

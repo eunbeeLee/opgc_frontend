@@ -1,3 +1,5 @@
+import { E_LANGUAGE, E_USER_STATUS } from "@/types/user";
+
 export interface I_USER {
     id: string;
     created: string;
@@ -12,7 +14,7 @@ export interface I_USER {
     public_repos: number;
     followers: number;
     following: number;
-    status: E_STATUS;
+    status: E_USER_STATUS;
     organizations: I_ORGANIZTION[];
     repositories: I_REPOSITORY[];
     languages: string[];
@@ -33,13 +35,5 @@ export interface I_REPOSITORY {
     owner: string;
     organization: string;
     rep_language: string; // 대표언어
-    languages: string;
-}
-
-export enum E_STATUS {
-    NONE = 'none',
-    COMPLETED = 'completed',
-    WAITING = 'wating',
-    UPDATING = 'updating',
-    FAIL = 'fail'
+    languages: E_LANGUAGE[];
 }

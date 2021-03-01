@@ -1,3 +1,4 @@
+import { I_REPOSITORY } from '@/types/user';
 import React from 'react';
 import RepoCard from '../RepoCard';
 
