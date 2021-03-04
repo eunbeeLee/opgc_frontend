@@ -21,10 +21,14 @@ const UserPage: React.FC<I_PROPS> = () => {
         dispatch(getUser(userId));
     }, [userId]);
 
+    const handleClickRefresh = () => {
+        console.log('::: handleClickRefresh');
+    };
+
     return user && (
         <div id="user-info">
             <div className="user-info__refresh">
-                <button>
+                <button onClick={handleClickRefresh}>
                     <FontAwesomeIcon
                         icon={faSync}
                         className="user-info__refresh-btn"

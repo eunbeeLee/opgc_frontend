@@ -16,6 +16,8 @@ export interface I_USER {
     organizations: I_ORGANIZTION[];
     repositories: I_REPOSITORY[];
     languages: string[];
+    githubUrl: string;
+    name?: string;
 }
 
 export interface I_ORGANIZTION {

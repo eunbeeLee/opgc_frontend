@@ -9,9 +9,10 @@ interface I_PROPS {
     type?: E_ROUND_TYPE;
     style?: any;
     alt?: string;
+    title?: string;
 }
 
-const Avatar: React.FC<I_PROPS> = ({ width = 100, height = 100, imgUrl, type = E_ROUND_TYPE.RECTANGLE, style = {}, alt }) => {
+const Avatar: React.FC<I_PROPS> = ({ width = 100, height = 100, imgUrl, type = E_ROUND_TYPE.RECTANGLE, style = {}, alt, title = '' }) => {
     const typeCss = useMemo(() => {
         switch (type) {
             case E_ROUND_TYPE.RECTANGLE:
@@ -29,6 +30,7 @@ const Avatar: React.FC<I_PROPS> = ({ width = 100, height = 100, imgUrl, type = E
             src={imgUrl}
             style={{ ...typeCss, ...style }}
             alt={alt}
+            title={title}
         />
     )
 }

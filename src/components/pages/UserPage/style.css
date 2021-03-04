@@ -1,16 +1,21 @@
 /* #user-info {
 } */
 
-.user-info__refresh button {
+.user-info__refresh > button {
     border: none;
     outline: none;
     background-color: var(--color-green);
     padding: 3px 5px;
     color: var(--color-white);
     border-radius: 5px;
+    margin-right: 5px;
 }
 
-.user-info__refresh .user-info__refresh-btn {
+.user-info__refresh > button * {
+    cursor: inherit;
+}
+
+.user-info__refresh-btn {
     transition: transform 800ms ease-in-out;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { I_COLUMN, I_DATA } from './types';
 import './style.css';
-import { getDataKey, getKeyProperties } from './services';
+import { getColumnsWidth, getDataKey, getKeyProperties } from './services';
 
 interface I_PROPS {
     columns: I_COLUMN[];
@@ -14,7 +14,15 @@ const Table: React.FC<I_PROPS> = ({ data, columns }) => {
             <thead>
                 <tr>
                     {columns.map(column => (
-                        <th key={column.name}>{column.display}</th>
+                        <th 
+                            key={column.name}
+                            style={{
+                                width: getColumnsWidth(columns),
+                                ...(column.style ?? {})
+                            }}
+                        >
+                            {column.display}
+                        </th>
                     ))}
                 </tr>
             </thead>
@@ -23,7 +31,13 @@ const Table: React.FC<I_PROPS> = ({ data, columns }) => {
                     <tr key={getDataKey(d, getKeyProperties(columns))}>
                         {
                             columns.map(column => (
-                                <td key={`${getDataKey(d, getKeyProperties(columns))}_${column.name}`}>
+                                <td 
+                                    key={`${getDataKey(d, getKeyProperties(columns))}_${column.name}`}
+                                    style={{
+                                        width: getColumnsWidth(columns),
+                                        ...(column.style ?? {})
+                                    }}
+                                >
                                     { column.render ? column.render(d) : d[column.name] }
                                 </td>
                             ))  
