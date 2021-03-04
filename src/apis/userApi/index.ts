@@ -10,7 +10,7 @@ export async function getUser(username: string): Promise<I_USER> {
         created: user.created,
         updated: user.updated,
         username: user.username,
-        profileImageUrl: user.profile_image, // url
+        profileImageUrl: user.avatar_url, // url
         totalContributionCnt: user.total_contribution,
         totalStarCnt: user.total_stargazers_count,
         company: user.company,
@@ -37,5 +37,7 @@ export async function getUser(username: string): Promise<I_USER> {
             languages: r.languages || []
         })),
         languages: user.languages,
+        githubUrl: `https://github.com/${user.username}`,
+        name: user.name,
     }
 }

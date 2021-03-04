@@ -20,5 +20,5 @@ export enum E_LANGUAGE {
 export interface I_GITHUB_USER {
     id: number;
     username: string;
-    profile_image: string; // url
+    avatar_url: string; // url
 }

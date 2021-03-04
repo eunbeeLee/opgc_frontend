@@ -5,7 +5,7 @@ export interface I_USER {
     created: string;
     updated: string;
     username: string;
-    profile_image: string; // url
+    avatar_url: string; // url
     total_contribution: number;
     total_stargazers_count: number;
     company: string;
@@ -17,6 +17,7 @@ export interface I_USER {
     status: E_USER_STATUS;
     organizations: I_ORGANIZTION[];
     repositories: I_REPOSITORY[];
+    name: string;
     languages: string[];
 }
 
