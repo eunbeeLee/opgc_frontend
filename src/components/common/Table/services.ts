@@ -15,3 +15,7 @@ export function getDataKey (data: I_DATA, keyPropierties: string[]): string {
         return dataKeys.join('_');
     }
 }
+
+export function getColumnsWidth (columns: I_COLUMN[]) {
+    return `${(100 / columns.length)}%`;
+}

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import RankTable from '../RankTable';
 import { useDispatch, useSelector } from 'react-redux';
 import { T_ROOT_REDUCER } from '@/modules';
 import { actions } from '@/modules';
@@ -15,7 +14,7 @@ const ContributionView: React.FC<I_PROPS> = () => {
 
     useEffect(() => {
         dispatch(action.getRanks(searchId));
-    }, [])
+    }, []);
     
     return (
         <>
