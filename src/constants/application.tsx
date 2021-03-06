@@ -23,3 +23,6 @@ export const MAIN_MENU_LIST: I_MENU[] = [
         visible: false,
     },
 ];
+
+
+export const GITHUB_BASE_URL = 'https://github.com';

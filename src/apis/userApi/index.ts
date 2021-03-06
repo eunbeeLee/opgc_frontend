@@ -1,3 +1,4 @@
+import { GITHUB_BASE_URL } from '@/constants/application';
 import axios from '@/libs/axios';
 import { I_USER } from '@/types/user';
 import { I_USER as I_API_USER } from './type';
@@ -29,15 +30,17 @@ export async function getUser(username: string): Promise<I_USER> {
         repositories: user.repositories.map(r => ({
             id: r.id,
             contributionCnt: r.contribution,
+            starCnt: r.stargazers_count,
             name: r.name,
             fullName: r.full_name,
             owner: r.owner,
             organizationName: r.organization,
             repLanguage: r.rep_language,// 대표언어
-            languages: r.languages || []
+            languages: r.languages || [],
+            url: `${GITHUB_BASE_URL}/${user.username}/${r.name}`
         })),
         languages: user.languages,
-        githubUrl: `https://github.com/${user.username}`,
+        githubUrl: `${GITHUB_BASE_URL}/${user.username}`,
         name: user.name,
     }
 }

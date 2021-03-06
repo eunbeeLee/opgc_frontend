@@ -62,7 +62,7 @@
 }
 
 .user-info-account__value {
-    width: 160px;
+    width: 130px;
     color: var(--color-light-white);
     opacity: 0.85;
     margin-right: 5px;
@@ -86,6 +86,5 @@
 }
 
 .user-info-account__value > span {
-    width: 50px;
     text-align: right;
 }

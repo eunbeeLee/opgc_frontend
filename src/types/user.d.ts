@@ -29,6 +29,7 @@ export interface I_ORGANIZTION {
 
 export interface I_REPOSITORY {
     id: number;
+    starCnt: number;
     contributionCnt: number;
     name: string;
     fullName: string;
@@ -36,6 +37,7 @@ export interface I_REPOSITORY {
     organizationName: string;
     repLanguage: string; // 대표언어
     languages: string[];
+    url: string;
 }
 
 export enum E_USER_STATUS {

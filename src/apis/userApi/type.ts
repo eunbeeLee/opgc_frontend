@@ -37,4 +37,5 @@ export interface I_REPOSITORY {
     organization: string;
     rep_language: string; // 대표언어
     languages: E_LANGUAGE[];
+    stargazers_count: number;
 }
