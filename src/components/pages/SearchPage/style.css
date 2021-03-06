@@ -7,7 +7,6 @@
 }
 
 .search__main-logo {
-    cursor: pointer;
     transition: transform 2s ease-in-out;
 }
 

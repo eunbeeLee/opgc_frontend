@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { getUser } from '@/modules/user';
+import React, { useCallback, useEffect } from 'react';
+import { getUser, PATCH_USER, patchUser } from '@/modules/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { useRouteMatch } from 'react-router';
@@ -13,7 +13,9 @@ interface I_PROPS {}
 
 const UserPage: React.FC<I_PROPS> = () => {
     const dispatch = useDispatch();
-    const { user } = useSelector((state: T_ROOT_REDUCER) => state.user);
+    const { user: userState, loading: loadingState } = useSelector((state: T_ROOT_REDUCER) => state);
+    const { user } = userState;
+    const { [PATCH_USER]: isPatchUserLoading } = loadingState;
 
     const { params: { userId } } = useRouteMatch<{ userId: string }>();
 
@@ -22,7 +24,7 @@ const UserPage: React.FC<I_PROPS> = () => {
     }, [userId]);
 
     const handleClickRefresh = () => {
-        console.log('::: handleClickRefresh');
+        dispatch(patchUser(userId));
     };
 
     return user && (
@@ -35,7 +37,7 @@ const UserPage: React.FC<I_PROPS> = () => {
                     />
                 </button>
                 <span className="user-info__refresh-date">
-                    Last updated: {user.updated}
+                    { isPatchUserLoading ? '업데이트 중입니다.' : `Last updated: ${user.updated}` }
                 </span>
             </div>
             {/* Top */}

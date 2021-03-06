@@ -1,9 +1,8 @@
-import { I_REPOSITORY } from '@/types/user';
 import React from 'react';
 import './style.css';
 
 interface I_PROPS {
-    data: I_REPOSITORY;
+    data: Repository;
 }
 
 const RepoCard: React.FC<I_PROPS> = ({ data: repo }) => {

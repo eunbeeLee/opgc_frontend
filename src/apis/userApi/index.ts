@@ -1,46 +1,14 @@
-import { GITHUB_BASE_URL } from '@/constants/application';
+import { User } from '@/constants/user';
 import axios from '@/libs/axios';
-import { I_USER } from '@/types/user';
-import { I_USER as I_API_USER } from './type';
 
-export async function getUser(username: string): Promise<I_USER> {
-    const { data: user } = await axios.get<I_API_USER>(`/githubs/users/${username}/`);
+export async function getUser(username: string): Promise<User> {
+    const { data } = await axios.get<I_API_USER>(`/githubs/users/${username}/`);
 
-    return {
-        id: user.id,
-        created: user.created,
-        updated: user.updated,
-        username: user.username,
-        profileImageUrl: user.avatar_url, // url
-        totalContributionCnt: user.total_contribution,
-        totalStarCnt: user.total_stargazers_count,
-        company: user.company,
-        desc: user.bio, // 자기소개
-        blogUrl: user.blog, // url
-        publicReposCnt: user.public_repos,
-        followersCnt: user.followers,
-        followingCnt: user.following,
-        status: user.status,
-        organizations: user.organizations.map(o => ({
-            id: o.id,
-            name: o.name,
-            description: o.description,
-            logoUrl: o.logo
-        })),
-        repositories: user.repositories.map(r => ({
-            id: r.id,
-            contributionCnt: r.contribution,
-            starCnt: r.stargazers_count,
-            name: r.name,
-            fullName: r.full_name,
-            owner: r.owner,
-            organizationName: r.organization,
-            repLanguage: r.rep_language,// 대표언어
-            languages: r.languages || [],
-            url: `${GITHUB_BASE_URL}/${user.username}/${r.name}`
-        })),
-        languages: user.languages,
-        githubUrl: `${GITHUB_BASE_URL}/${user.username}`,
-        name: user.name,
-    }
+    return new User(data);
+}
+
+export async function patchUser(username: string): Promise<User> {
+    const { data } = await axios.patch<I_API_USER>(`/githubs/users/${username}/`);
+
+    return new User(data);
 }

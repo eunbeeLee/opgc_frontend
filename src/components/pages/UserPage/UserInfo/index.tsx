@@ -1,6 +1,5 @@
 import Avatar from '@/components/common/Avatar';
 import { E_ROUND_TYPE } from '@/components/common/Avatar/type';
-import { I_USER } from '@/types/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faPuzzlePiece, faCube, faUserFriends,  } from '@fortawesome/free-solid-svg-icons';
 import { faGratipay } from '@fortawesome/free-brands-svg-icons';
@@ -8,7 +7,7 @@ import React, { useMemo } from 'react';
 import './style.css';
 
 interface I_PROPS {
-    user: I_USER | null;
+    user: User;
 }
 
 const UserInfo: React.FC<I_PROPS> = ({ user }) => {
@@ -27,7 +26,7 @@ const UserInfo: React.FC<I_PROPS> = ({ user }) => {
                     <a href={user.githubUrl} target="_blank">
                         <Avatar
                             type={E_ROUND_TYPE.RECTANGLE}
-                            imgUrl={ user.profileImageUrl || '/assets/imgs/logo.png' }
+                            imgUrl={ user.profileImgUrl || '/assets/imgs/logo.png' }
                             width={170}
                             height={170}
                         />
