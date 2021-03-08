@@ -23,14 +23,14 @@ const RepoCard: React.FC<I_PROPS> = ({ data: repo }) => {
                 </p>
                 <p className="user-info-repo__langauge">
                     <label>Language</label>
-                    <span>{repo.repLanguage}</span>
+                    <span>{repo.repLanguage || '-'}</span>
                 </p>
                 <p className="user-info-repo__commits">
                     <label>Contribution</label>
                     <span>{repo.contributionCnt}</span>
                 </p>
                 <p className="user-info-repo__stars">
-                    <label>Language</label>
+                    <label>Stars</label>
                     <span>{repo.starCnt}</span>
                 </p>
                 {
