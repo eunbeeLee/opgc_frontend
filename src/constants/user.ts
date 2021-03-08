@@ -187,7 +187,7 @@ export class Repository {
         return `${GITHUB_BASE_URL}/${this._user_github_id}/${this._name}`;
     }
     get starCnt(): number {
-        return 
+        return this._stargazers_count;
     }
 }
 

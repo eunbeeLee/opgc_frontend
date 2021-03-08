@@ -33,6 +33,11 @@
     font-weight: var(--weight-semi-bold);
 }
 
+.user-info-repo__detail > p > span {
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
 .user-info-repo__title {
     display: flex;
     flex-direction: column;
