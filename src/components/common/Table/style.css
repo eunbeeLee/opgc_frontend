@@ -12,7 +12,7 @@
 }
 
 .table tbody tr:nth-child(2n) {
-    background-color: var(--color-light-white);
+    background-color: rgba(235, 235, 235, 0.25);
 }
 
 .table th,

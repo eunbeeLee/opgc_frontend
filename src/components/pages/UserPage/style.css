@@ -34,11 +34,21 @@
 }
 
 /* bottom */
+.user-info__detail > section > div {
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--color-light-white);
+}
+
 .user-info__detail > section > h1 {
     font-size: var(--font-medium);
     font-weight: var(--weight-semi-bold);
 }
 
 .user-info__detail > section > h1 + div {
-    margin-top: 15px;
+    margin-top: 20px;
+}
+
+.user-info__detail > section {
+    margin-top: 50px;
 }

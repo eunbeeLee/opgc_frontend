@@ -8,6 +8,7 @@ import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { T_ROOT_REDUCER } from '@/modules';
 import UserInfo from './UserInfo';
+import LanguagesPieChart from './LanguagesPieChart';
 
 interface I_PROPS {}
 
@@ -48,6 +49,11 @@ const UserPage: React.FC<I_PROPS> = () => {
             {/* Bottom */}
             <section className="user-info__detail">
                 <section>
+                    <h1>Languages</h1>
+                    <LanguagesPieChart data={user.languages}/>
+                </section>
+
+                <section className="user-info__repositories">
                     <h1>Repositories</h1>
                     <RepoList repos={user?.repositories} />
                 </section>

@@ -39,7 +39,7 @@ export class User {
     _organizations: I_API_ORGANIZTION[];
     _repositories: I_API_REPOSITORY[];
     _name: string;
-    _languages: string[];
+    _languages: I_LANGUAGE_INFO[];
 
     constructor(user?: I_API_USER) {
         if (!user) {
@@ -103,6 +103,9 @@ export class User {
     }
     get githubUrl(): string {
         return `${GITHUB_BASE_URL}/${this._username}`;
+    }
+    get languages(): I_LANGUAGE_INFO[] {
+        return this._languages;
     }
 }
 
