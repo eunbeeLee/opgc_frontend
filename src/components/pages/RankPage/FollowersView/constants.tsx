@@ -27,7 +27,8 @@ export const CONTRI_COLUMNS: I_COLUMN[] = [
                     </span>
                 </Link>
             )
-        }
+        },
+        style: { textAlign: 'left' },
     },
     {
         display: '점수',

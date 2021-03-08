@@ -1,0 +1,90 @@
+/* left */
+.user-info-account__profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-info-account__desc {
+    margin-top: 15px;
+    line-height: 35px;
+}
+
+.user-info-account__desc__company {
+    margin-left: 20px;
+}
+
+.user-info-account__belong {
+    font-weight: var(--weight-semi-bold);
+}
+
+.user-info-account__belong-title {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-right: 5px;
+}
+
+.user-info-account__organization {
+    display: flex;
+    align-items: center;
+}
+
+.user-info-account__organization img + img {
+    margin-left: 3px;
+}
+
+.user-info-account__profile__info {
+    margin-left: 15px;
+    position: relative;
+}
+
+.user-info-account__name {
+    margin-top: 5px;
+    font-size: var(--font-large);
+    font-weight: var(--weight-semi-bold);
+    letter-spacing: 5px;
+}
+
+.user-info-account__name > a:hover {
+    text-decoration: underline;
+}
+
+.user-info-account__id {
+    margin-left: 15px;
+    font-size: var(--font-small);
+    color: var(--color-light-grey);
+}
+
+/* right */
+.user-info-account__values {
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
+.user-info-account__value {
+    width: 130px;
+    color: var(--color-light-white);
+    opacity: 0.85;
+    margin-right: 5px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+.user-info-account__value:nth-child(2n) {
+    background-color: var(--color-green);
+}
+
+.user-info-account__value:nth-child(2n + 1) {
+    background-color: var(--color-orange);
+}
+
+.user-info-account__value__title {
+    margin-left: 4px;
+}
+
+.user-info-account__value > span {
+    text-align: right;
+}

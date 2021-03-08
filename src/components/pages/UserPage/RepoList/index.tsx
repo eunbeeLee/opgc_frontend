@@ -1,8 +1,9 @@
 import React from 'react';
 import RepoCard from '../RepoCard';
+import './style.css';
 
 interface I_PROPS {
-    repos: I_REPOSITORY[];
+    repos: Repository[];
 }
 
 const RepoList: React.FC<I_PROPS> = ({ repos }) => {

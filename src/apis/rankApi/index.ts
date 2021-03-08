@@ -4,7 +4,6 @@ import { addQueryStr } from '@/libs/location'
 import { getRankType } from './services';
 import { I_RANK } from '@/types/rank';
 
-
 export async function getRanks({ type, language }: { type: E_RANK_TYPE, language: E_LANGUAGE }): Promise<I_RANK[]> {
     const url = addQueryStr({ type: getRankType(type, language) }, '/ranks/') ;
     const { data: ranks } = await axios.get< I_API_RANK[]>(url);    
@@ -14,6 +13,7 @@ export async function getRanks({ type, language }: { type: E_RANK_TYPE, language
         rank: rank.ranking,
         score: rank.score,
         username: rank.github_user.username,
-        profileImageUrl: rank.github_user.profile_image
+        githubId: rank.github_user.id,
+        profileImageUrl: rank.github_user.avatar_url
     }));
 }

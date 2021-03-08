@@ -3,18 +3,6 @@
     border: 1px solid var(--color-light-white);
 }
 
-.table th:nth-child(1) {
-    width: 20%;
-}
-
-.table th:nth-child(2) {
-    width: 50%;
-}
-
-.table th:nth-child(3) {
-    width: 30%;
-}
-
 .table tbody tr {
     height: 50px;
     line-height: 49px;

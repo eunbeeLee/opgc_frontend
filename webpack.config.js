@@ -17,9 +17,9 @@ module.exports = (env, options) => {
     return {
         name: 'opgc',
 
-        mode: options.mode,
+        // mode: options.mode,
 
-        devtool: 'eval',
+        devtool: 'inline-source-map',
 
         resolve: {
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -51,7 +51,7 @@ module.exports = (env, options) => {
                         ],
                         plugins: [
                             '@babel/plugin-proposal-class-properties',
-                            (process.env.NODE_ENV !== 'production') && require.resolve('react-refresh/babel'),
+                            (options.mode !== 'production') && require.resolve('react-refresh/babel'),
                         ].filter(Boolean)
                     }
                 },
@@ -62,7 +62,7 @@ module.exports = (env, options) => {
 
         plugins: [
             new webpack.DefinePlugin({}),
-            (process.env.NODE_ENV !== 'production') && new ReactRefreshWebpackPlugin(),
+            (options.mode !== 'production') && new ReactRefreshWebpackPlugin(),
             new HtmlWebpackPlugin({
                 template: path.join(srcPath, '/index.html'),
             }),

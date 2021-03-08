@@ -5,3 +5,7 @@ interface I_MENU {
     visible: boolean;
     component: React.FC<any>;
 }
+
+interface I_STYLE {
+    [attribute: string]: string;
+}

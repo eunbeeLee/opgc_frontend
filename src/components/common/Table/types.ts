@@ -5,6 +5,7 @@ export interface I_COLUMN {
     name: string;
     render?: (data: any) => ReactElement;
     key?: boolean;
+    style?: { [attribute: string]: string };
 }
 
 export interface I_DATA {
