@@ -19,7 +19,12 @@ declare enum E_LANGUAGE {
     SCSS = 'SCSS'
 }
 
-declare interface I_API_USER {
+interface I_LANGUAGE_INFO {
+    language: E_LANGUAGE,
+    number: number
+}
+
+interface I_API_USER {
     id: number;
     created: string;
     updated: string;
@@ -37,17 +42,17 @@ declare interface I_API_USER {
     organizations: I_API_ORGANIZTION[];
     repositories: I_API_REPOSITORY[];
     name: string;
-    languages: string[];
+    languages: I_LANGUAGE_INFO[];
 }
 
-declare interface I_API_ORGANIZTION {
+interface I_API_ORGANIZTION {
     id: number;
     name: string;
     description: string;
     logo: string; // url
 }
 
-declare interface I_API_REPOSITORY {
+interface I_API_REPOSITORY {
     id: number;
     contribution: number;
     name: string;
@@ -77,7 +82,7 @@ declare class User {
     _organizations: I_API_ORGANIZTION[];
     _repositories: I_API_REPOSITORY[];
     _name: string;
-    _languages: string[];
+    _languages: I_LANGUAGE_INFO[];
 
     constructor(user?: I_API_USER)
     get desc(): string
@@ -97,6 +102,7 @@ declare class User {
     get totalStarCnt(): number
     get name(): string
     get githubUrl(): string
+    get languages(): I_LANGUAGE_INFO[];
 }
 
 declare class Organization {
@@ -138,4 +144,3 @@ declare class Repository {
     get url(): string
     get starCnt(): number
 }
-

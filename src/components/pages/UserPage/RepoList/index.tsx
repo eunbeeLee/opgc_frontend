@@ -8,13 +8,11 @@ interface I_PROPS {
 
 const RepoList: React.FC<I_PROPS> = ({ repos }) => {
     return (
-        <>
-            <div className="user-info__repos">
-                {repos.map((repo) => (
-                    <RepoCard data={repo} key={repo.id} />
-                ))}
-            </div>
-        </>
+        <div className="user-info__repos">
+            {repos.map((repo) => (
+                <RepoCard data={repo} key={repo.id} />
+            ))}
+        </div>
     );
 };
 
