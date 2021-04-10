@@ -1,4 +1,4 @@
-import { SearchPage, RankPage, UserPage } from '@/components/pages';
+import { IntroPage, RankPage, UserPage, SearchPage} from '@/components/pages';
 
 export const MAIN_MENU_LIST: I_MENU[] = [
     {
@@ -13,6 +13,13 @@ export const MAIN_MENU_LIST: I_MENU[] = [
         name: 'rank',
         path: '/rank',
         component: RankPage,
+        visible: true,
+    },
+    {
+        display: '인싸가 되고싶은 OPGC 개발자 소개',
+        name: 'intro',
+        path: '/intro',
+        component: IntroPage,
         visible: true,
     },
     {
