@@ -11,7 +11,8 @@ const rootReducer = combineReducers({
         root: rank.root,
         contribution: rank.contribution,
         followers: rank.followers,
-        followings: rank.followings
+        followings: rank.followings,
+        continuous_commit_day: rank.continuousCommitDay
     }),
     user,
     loading,
