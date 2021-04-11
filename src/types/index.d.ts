@@ -1,5 +1,5 @@
 interface I_MENU {
-    display: string;
+    display?: string;
     name: string;
     path: string;
     visible: boolean;
