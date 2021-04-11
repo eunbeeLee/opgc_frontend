@@ -4,18 +4,30 @@ import { T_ROOT_REDUCER } from '@/modules';
 import { actions } from '@/modules';
 import Table from '@/components/common/Table';
 import { CONTRI_COLUMNS } from './constants';
+import { GET_RANKS } from '@/modules/rank/follwings';
+import { setLoading } from '@/modules/ui';
 
 interface I_PROPS {}
 
 const FollowingsView: React.FC<I_PROPS> = () => {
     const action = actions.rank.followings;
     const dispatch = useDispatch();
-    const { root: { searchId }, followings: { totalUsersCnt, ranks } } = useSelector((state: T_ROOT_REDUCER) => state.rank);
+    const { rank: rankState, loading: loadingState } = useSelector(
+        (state: T_ROOT_REDUCER) => state
+    );
+    const {
+        root: { searchId },
+        followings: { totalUsersCnt, ranks },
+    } = rankState;
 
     useEffect(() => {
         dispatch(action.getRanks(searchId));
-    }, [])
-    
+    }, []);
+
+    useEffect(() => {
+        dispatch(setLoading(loadingState[GET_RANKS]));
+    }, [loadingState[GET_RANKS]]);
+
     return (
         <>
             <div className="ranking__header">
@@ -26,10 +38,10 @@ const FollowingsView: React.FC<I_PROPS> = () => {
                 </p>
             </div>
             <div className="ranking__content">
-                <Table columns={CONTRI_COLUMNS} data={ranks}/>
+                <Table columns={CONTRI_COLUMNS} data={ranks} />
             </div>
         </>
-    )
-}
+    );
+};
 
 export default React.memo(FollowingsView);

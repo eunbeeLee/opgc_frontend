@@ -13,16 +13,18 @@ interface I_STATE {
 /**
  * actions
  */
-const [GET_RANKS, GET_RANKS_SUCCESS, GET_RANKS_FAILURE] = createRequestActionTypes('rank/GET_RANKS');
+export const GET_RANKS = 'rank/GET_RANKS';
+export const GET_RANKS_SUCCESS = 'rank/GET_RANKS_SUCCESS';
+export const GET_RANKS_FAILURE = 'rank/GET_RANKS_FAILURE';
 
 /**
  * functions for createing actions
  */
 export const actions = {
-    getRanks: createAction(
-        GET_RANKS,
-        (searchId: string) => ({ searchId, type: E_RANK_TYPE.CONTINUOUS_COMMIT_DAY })
-    )
+    getRanks: createAction(GET_RANKS, (searchId: string) => ({
+        searchId,
+        type: E_RANK_TYPE.CONTINUOUS_COMMIT_DAY,
+    })),
 };
 
 /**
@@ -36,7 +38,7 @@ const initialState: I_STATE = {
 /**
  * action saga
  */
-const getRanksSaga  = createRequestSaga(GET_RANKS, api.getRanks);
+const getRanksSaga = createRequestSaga(GET_RANKS, api.getRanks);
 
 /**
  * module saga
@@ -50,15 +52,18 @@ export function* contributionSaga(): Generator {
  */
 const contribution = handleActions(
     {
-        [GET_RANKS_SUCCESS]: (state: I_STATE, { payload: ranks }: { payload: I_RANK[] }) => ({
+        [GET_RANKS_SUCCESS]: (
+            state: I_STATE,
+            { payload: ranks }: { payload: I_RANK[] }
+        ) => ({
             ...state,
             totalUsersCnt: ranks.length,
-            ranks
+            ranks,
         }),
         [GET_RANKS_FAILURE]: (state: I_STATE, { payload: Error }): any => ({
             ...state,
-            ranks: []
-        })
+            ranks: [],
+        }),
     },
     initialState
 );
