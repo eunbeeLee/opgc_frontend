@@ -1,18 +1,25 @@
-import { SearchPage, RankPage, UserPage } from '@/components/pages';
+import { IntroPage, RankPage, UserPage, MainPage } from '@/components/pages';
 
 export const MAIN_MENU_LIST: I_MENU[] = [
     {
-        display: 'Search',
-        name: 'search',
-        path: '/search',
-        component: SearchPage,
+        display: '검색',
+        name: 'main',
+        path: '/main',
+        component: MainPage,
         visible: true,
     },
     {
-        display: 'Rank',
+        display: '순위',
         name: 'rank',
         path: '/rank',
         component: RankPage,
+        visible: true,
+    },
+    {
+        display: '개발자 소개',
+        name: 'intro',
+        path: '/intro',
+        component: IntroPage,
         visible: true,
     },
     {
@@ -23,6 +30,5 @@ export const MAIN_MENU_LIST: I_MENU[] = [
         visible: false,
     },
 ];
-
 
 export const GITHUB_BASE_URL = 'https://github.com';

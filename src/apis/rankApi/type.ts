@@ -9,6 +9,7 @@ export enum E_RANK_TYPE {
     CONTRIBUTION ='total_contribution',
     FOLLOWERS = 'followers',
     FOLLOWINGS = 'following',
+    CONTINUOUS_COMMIT_DAY= 'continuous_commit_day',
     LANGUAGE = 'lang'
 }
 

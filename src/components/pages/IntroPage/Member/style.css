@@ -1,0 +1,19 @@
+.member__avatar img {
+    width: 250px;
+    height: 250px;
+    border-radius: 70%;
+    cursor: inherit;
+}
+
+.member__title {
+    padding: 10px 0;
+}
+
+.member__name {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.member__desc {
+    line-height: normal;
+}

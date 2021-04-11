@@ -1,14 +1,14 @@
 import React from 'react';
 
 const Footer = () => {
+    const nowYear = new Date().getFullYear();
+
     return (
         <footer id="footer">
             <p className="footer__desc">
-                © 2020-now OPGC,
+                Copyright© 2020-{nowYear} OPGC
                 <br />
-                Created by Jay, Chun
-                <br />
-                BLAHBLAH
+                Over Programmed Good Coding
             </p>
             <ul className="footer__links">
                 <li className="footer__links__item">

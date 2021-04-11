@@ -31,3 +31,7 @@ input[type="text"] {
     box-sizing: border-box;
     cursor: default;
 }
+
+h1 {
+    font-size: x-large;
+}

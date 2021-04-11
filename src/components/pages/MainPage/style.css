@@ -1,9 +1,13 @@
+.search__wrap {
+    min-height: calc(100vh - var(--height-footer) - var(--height-header));
+}
+
 #search {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - var(--height-footer) - var(--height-header));
+    margin-bottom: 50px;
 }
 
 .search__main-logo {

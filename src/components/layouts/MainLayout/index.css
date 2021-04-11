@@ -20,7 +20,18 @@ body {
     background-color: var(--color-white);
 }
 
+.header__warp {
+    margin: 0 auto;
+    max-width: var(--size-max-width);
+    width: 100%;
+}
+
+.header__link {
+    display: inline-block;
+}
+
 .header__title {
+    width: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,6 +55,11 @@ body {
 }
 
 /* Navbar */
+.navbar {
+    float: right;
+    margin-top: 23px;
+}
+
 .navbar__menu {
     display: flex;
     color: var(--color-light-grey);
@@ -92,6 +108,7 @@ body {
 
 .footer__desc {
     text-align: center;
+    line-height: normal;
 }
 
 .footer__links {
