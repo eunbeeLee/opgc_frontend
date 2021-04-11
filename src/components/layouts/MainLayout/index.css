@@ -108,6 +108,7 @@ body {
 
 .footer__desc {
     text-align: center;
+    line-height: normal;
 }
 
 .footer__links {
