@@ -7,21 +7,40 @@
     text-align: center;
 }
 
+.intro__wrap > div + div {
+    margin-top: 90px;
+}
+
+.intro__title {
+    margin-top: 35px;
+    font-size: 1.4rem;
+}
+
 .intro__members {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 0 15%;
+    padding: 0px 15%;
 }
 
-.box {
-    width: 250px;
-    height: 250px;
-    border-radius: 70%;
-    overflow: hidden;
+.qna-list {
+    text-align: left;
+    padding: 35px 50px;
 }
 
-.box__small {
+.qna + .qna {
+    margin-top: 60px;
+}
+
+.qna__question {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-weight: bold;
+    color: #29855b;
+}
+
+.qna__question img {
     width: 50px;
     height: 50px;
     border-radius: 70%;
@@ -30,26 +49,16 @@
     display: inline-block;
 }
 
-.explain__section {
-    text-align: left;
-    margin: 50px 50px 0 50px;
-}
-
-.explain__section .question {
-    display: inline-block;
-    position: relative;
-    top: -18px;
+.qna__question span {
     margin-left: 10px;
-    font-weight: bold;
-    color: #29855b;
 }
 
-.explain__section .answer {
-    margin: 10px 0 40px 0;
+.qna__answer {
+    margin-top: 10px;
     line-height: normal;
 }
 
-.explain__section .answer span {
+.qna__answer span {
     font-weight: bold;
 }
 

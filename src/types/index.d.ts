@@ -10,10 +10,10 @@ interface I_STYLE {
     [attribute: string]: string;
 }
 
-type I_MEMBER = {
+interface I_MEMBER {
     name: string;
     desc: string;
     position: string;
     imgUrl?: string;
     link?: string;
-};
+}
