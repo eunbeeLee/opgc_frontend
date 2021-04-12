@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.user-info-account__profile img{
+.user-info-account__profile__wrap img{
     width: 130px;
     height: 130px;
 }
@@ -134,6 +134,11 @@
     .user-info-account__profile__info {
         margin-left: 15px;
         position: relative;
+    }
+
+    .user-info-account__profile__wrap img{
+        width: 200px;
+        height: 200px;
     }
 
     .user-info-account__name {

@@ -33,14 +33,16 @@ const UserInfo: React.FC<I_PROPS> = ({ user }) => {
             {/* 데스크탑 화면 */}
             {isDesktopOrLaptop && <div className="user-info-account">
                 <div className="user-info-account__profile">
-                    <a href={user.githubUrl} target="_blank">
-                        <Avatar
-                            type={E_ROUND_TYPE.RECTANGLE}
-                            imgUrl={ user.profileImgUrl || '/assets/imgs/logo.png' }
-                            width={170}
-                            height={170}
-                        />
-                    </a>
+                    <div className="user-info-account__profile__wrap">
+                        <a href={user.githubUrl} target="_blank">
+                            <Avatar
+                                type={E_ROUND_TYPE.RECTANGLE}
+                                imgUrl={ user.profileImgUrl || '/assets/imgs/logo.png' }
+                                width={170}
+                                height={170}
+                            />
+                        </a>
+                    </div>
                     <div className="user-info-account__profile__info">
                         <ul className="user-info-account__values">
                             {
@@ -96,14 +98,16 @@ const UserInfo: React.FC<I_PROPS> = ({ user }) => {
             {/* 모바일 화면 */}
             {isMobileDevice && <div className="user-info-account">
                 <div className="user-info-account__profile">
-                    <a href={user.githubUrl} target="_blank">
-                        <Avatar
-                            type={E_ROUND_TYPE.RECTANGLE}
-                            imgUrl={ user.profileImgUrl || '/assets/imgs/logo.png' }
-                            width={170}
-                            height={170}
-                        />
-                    </a>
+                    <div className="user-info-account__profile__wrap">
+                        <a href={user.githubUrl} target="_blank">
+                            <Avatar
+                                type={E_ROUND_TYPE.RECTANGLE}
+                                imgUrl={ user.profileImgUrl || '/assets/imgs/logo.png' }
+                                width={170}
+                                height={170}
+                            />
+                        </a>
+                    </div>
                     <div className="user-info-account__profile__info">
                         <div className="user-info-account__name">
                             <a href={user.githubUrl} target="_blank">{user.name || user.username}</a>
