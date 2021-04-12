@@ -9,8 +9,10 @@
     align-items: center;
     margin-bottom: 50px;
 }
+/* 모바일에 적용될 스타일을 먼저 작성합니다. */
 
 .search__main-logo {
+    width: 200px;
     transition: transform 2s ease-in-out;
 }
 
@@ -28,7 +30,7 @@
 }
 .search__form input[type="text"] {
     height: 50px;
-    width: 300px;
+    width: 260px;
     padding-bottom: 10px;
     font-size: var(--font-medium);
     border-bottom: 1px solid var(--color-dark-white);
@@ -42,13 +44,80 @@
     border-radius: var(--size-border-radius);
     cursor: pointer;
     height: 50px;
+    width: 70px;
     background-color: var(--color-light-white);
     font-weight: var(--weight-bold);
     text-align: center;
-    padding: 10px 20px;
 }
 
 .search__form input[type="submit"]:hover {
     background-color: var(--color-green);
     color: var(--color-white);
+}
+
+.main__rank {
+    font-size: var(--font-x-micro);
+}
+
+.main__rank h1{
+    font-size: var(--font-regular);
+}
+
+@media screen and (min-width: 769px) {
+   /* 데스크탑에서 사용될 스타일을 여기에 작성합니다. */
+    .search__wrap {
+        min-height: calc(100vh - var(--height-footer) - var(--height-header));
+    }
+
+    #search {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    /* 모바일에 적용될 스타일을 먼저 작성합니다. */
+
+    .search__main-logo {
+        transition: transform 2s ease-in-out;
+    }
+
+    .search__main-logo:hover {
+        transform: rotate(-4deg) scale(1.1);
+    }
+
+    .search__form {
+        margin-top: 30px;
+    }
+
+    .search__form input {
+        border: none;
+        outline: none;
+    }
+    .search__form input[type="text"] {
+        height: 50px;
+        width: 300px;
+        padding-bottom: 10px;
+        font-size: var(--font-medium);
+        border-bottom: 1px solid var(--color-dark-white);
+    }
+
+    .search__form input[type="text"]::placeholder {
+        color: var(--color-dark-white);
+    }
+
+    .search__form input[type="submit"] {
+        border-radius: var(--size-border-radius);
+        cursor: pointer;
+        height: 50px;
+        background-color: var(--color-light-white);
+        font-weight: var(--weight-bold);
+        text-align: center;
+        padding: 10px 20px;
+    }
+
+    .search__form input[type="submit"]:hover {
+        background-color: var(--color-green);
+        color: var(--color-white);
+    }
 }
