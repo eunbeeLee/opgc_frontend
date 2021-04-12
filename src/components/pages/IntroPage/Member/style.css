@@ -43,5 +43,6 @@
 
     .member__desc {
         line-height: normal;
+        font-size: var(--font-micro);
     }
 }

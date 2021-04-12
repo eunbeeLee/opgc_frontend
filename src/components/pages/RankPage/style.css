@@ -104,6 +104,7 @@
 
     .ranking__search-form {
         position: absolute;
+        margin: 0;
         right: 0;
         top: 0;
     }

@@ -90,7 +90,7 @@
         width: 100%;
         display: flex;
         justify-content: space-around;
-        padding: 0px 15%;
+        padding: 0 15%;
     }
 
     .qna-list {
@@ -126,6 +126,7 @@
     .qna__answer {
         margin-top: 10px;
         line-height: normal;
+        font-size: var(--font-micro)
     }
 
     .qna__answer span {

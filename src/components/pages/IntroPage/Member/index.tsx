@@ -14,7 +14,7 @@ const Member: React.FC<I_PROPS> = ({
                 <img src={imgUrl} />
             </a>
             <p className="member__title">
-                <a className="member__name">{name}</a>
+                <span className="member__name">{name}</span><br/>
                 <span className="member__position">({position})</span>
             </p>
             <p className="member__desc">

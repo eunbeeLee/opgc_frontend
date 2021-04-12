@@ -79,6 +79,7 @@
     /* 모바일에 적용될 스타일을 먼저 작성합니다. */
 
     .search__main-logo {
+        width: 500px;
         transition: transform 2s ease-in-out;
     }
 
@@ -110,6 +111,7 @@
         border-radius: var(--size-border-radius);
         cursor: pointer;
         height: 50px;
+        width: 90px;
         background-color: var(--color-light-white);
         font-weight: var(--weight-bold);
         text-align: center;
@@ -119,5 +121,13 @@
     .search__form input[type="submit"]:hover {
         background-color: var(--color-green);
         color: var(--color-white);
+    }
+
+    .main__rank {
+        font-size: var(--font-regular);
+    }
+
+    .main__rank h1{
+        font-size: var(--font-medium);
     }
 }
