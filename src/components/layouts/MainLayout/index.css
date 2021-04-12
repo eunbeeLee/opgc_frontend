@@ -83,7 +83,7 @@ body {
 
 /* Content */
 #content {
-    padding: var(--height-header) 0 0 0;
+    padding: var(--height-header) 10px 10px 10px;
     min-height: calc(100vh - var(--height-footer));
 }
 
