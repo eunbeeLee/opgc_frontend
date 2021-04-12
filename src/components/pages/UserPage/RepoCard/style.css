@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
-    height: 80px;
     padding: 15px 20px;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.11);
@@ -43,6 +42,11 @@
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+    font-size: var(--font-micro);
+}
+
+.user-info-repo__title ul {
+    margin-top: 5px;
 }
 
 .user-info-repo__title:hover {
@@ -58,5 +62,71 @@
 }
 
 .user-info-repo__title span {
+    margin-left: 5px;
     color: var(--color-dark-white);
+}
+
+@media screen and (min-width: 769px) {
+    .user-info-repo {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        height: 80px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.11);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.11);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.11);
+    }
+
+    .user-info-repo + .user-info-repo {
+        margin-top: 10px;
+    }
+
+    .user-info-repo__detail {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+        font-size: 14px;
+    }
+
+    .user-info-repo__detail > p {
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .user-info-repo__detail > p > label {
+        font-weight: var(--weight-semi-bold);
+    }
+
+    .user-info-repo__detail > p > span {
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    .user-info-repo__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+    }
+
+    .user-info-repo__title:hover {
+        text-decoration: underline;
+    }
+
+    .user-info-repo__title * {
+        cursor: inherit;
+    }
+
+    .user-info-repo__title h2 {
+        font-size: 20px;
+    }
+
+    .user-info-repo__title span {
+        color: var(--color-dark-white);
+    }
 }
