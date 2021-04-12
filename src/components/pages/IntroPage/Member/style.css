@@ -1,6 +1,10 @@
+.member {
+    padding: 10px;
+}
+
 .member__avatar img {
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
     border-radius: 70%;
     cursor: inherit;
 }
@@ -12,8 +16,32 @@
 .member__name {
     font-weight: bold;
     text-decoration: underline;
+    font-size: var(--font-micro);
 }
 
 .member__desc {
     line-height: normal;
+    font-size: var(--font-x-micro);
+}
+
+@media screen and (min-width: 769px) {
+    .member__avatar img {
+        width: 250px;
+        height: 250px;
+        border-radius: 70%;
+        cursor: inherit;
+    }
+
+    .member__title {
+        padding: 10px 0;
+    }
+
+    .member__name {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .member__desc {
+        line-height: normal;
+    }
 }
