@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 import loading from '@/modules/loading';
 import error from '@/modules/error';
 import ui from '@/modules/ui';
+import search from '@/modules/search';
 import user, { userSaga } from '@/modules/user';
 import rank, { actions as rankActions } from '@/modules/rank';
 import { all } from 'redux-saga/effects';
 import { contributionSaga } from './rank/contribution';
 
 const rootReducer = combineReducers({
+    search,
     ui,
     rank: combineReducers({
         root: rank.root,
