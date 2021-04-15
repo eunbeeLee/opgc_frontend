@@ -5,9 +5,11 @@ import { removeFavorite } from '@/modules/search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
-interface I_PROPS {}
+interface I_PROPS {
+    onSelect: (id: string) => void;
+}
 
-const Favorite: React.FC<I_PROPS> = () => {
+const Favorite: React.FC<I_PROPS> = ({ onSelect }) => {
     const dispatch = useDispatch();
     const list = useSelector((state: T_ROOT_REDUCER) => state.search.favorites);
 
@@ -16,22 +18,28 @@ const Favorite: React.FC<I_PROPS> = () => {
     };
 
     return (
-        <div>
-            <ul>
-                {list.map((item) => (
-                    <li>
+        <ul>
+            {list.map((item) => (
+                <li>
+                    <span
+                        className="recommand__id"
+                        onClick={() => {
+                            onSelect(item);
+                        }}
+                    >
                         {item}
-                        <button
-                            onClick={() => {
-                                handleDelete(item);
-                            }}
-                        >
-                            <FontAwesomeIcon icon={faTrashAlt} />
-                        </button>
-                    </li>
-                ))}
-            </ul>
-        </div>
+                    </span>
+                    <span
+                        className="recommand__btn"
+                        onClick={() => {
+                            handleDelete(item);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faTrashAlt} />
+                    </span>
+                </li>
+            ))}
+        </ul>
     );
 };
 

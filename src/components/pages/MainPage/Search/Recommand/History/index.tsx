@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { T_ROOT_REDUCER } from '@/modules';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFavorite, removeHistory } from '@/modules/search';
+import { addFavorite, removeHistory, removeFavorite } from '@/modules/search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faTrashAlt,
@@ -10,9 +10,11 @@ import {
 import { I_HISTORY } from './types';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
-interface I_PROPS {}
+interface I_PROPS {
+    onSelect: (id: string) => void;
+}
 
-const History: React.FC<I_PROPS> = () => {
+const History: React.FC<I_PROPS> = ({ onSelect }) => {
     const dispatch = useDispatch();
     const { histories, favorites } = useSelector(
         (state: T_ROOT_REDUCER) => state.search
@@ -35,36 +37,45 @@ const History: React.FC<I_PROPS> = () => {
         dispatch(removeHistory(value));
     };
 
-    const handleAddFavorite = (value: string) => {
-        dispatch(addFavorite(value));
+    const handleUpdateFavorite = ({ value, checked }) => {
+        if (checked) {
+            dispatch(removeFavorite(value));
+        } else {
+            dispatch(addFavorite(value));
+        }
     };
 
     return (
-        <div>
-            <ul>
-                {list.map(({ value, checked }) => (
-                    <li>
+        <ul>
+            {list.map(({ value, checked }) => (
+                <li>
+                    <span
+                        className="recommand__id"
+                        onClick={() => {
+                            onSelect(value);
+                        }}
+                    >
                         {value}
-                        <button
-                            onClick={() => {
-                                handleAddFavorite(value);
-                            }}
-                        >
-                            <FontAwesomeIcon
-                                icon={checked ? fasStar : farStar}
-                            />
-                        </button>
-                        <button
-                            onClick={() => {
-                                handleDelete(value);
-                            }}
-                        >
-                            <FontAwesomeIcon icon={faTrashAlt} />
-                        </button>
-                    </li>
-                ))}
-            </ul>
-        </div>
+                    </span>
+                    <span
+                        className="recommand__btn"
+                        onClick={() => {
+                            handleDelete(value);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faTrashAlt} />
+                    </span>
+                    <span
+                        className={`recommand__btn ${checked ? 'active' : ''}`}
+                        onClick={() => {
+                            handleUpdateFavorite({ value, checked });
+                        }}
+                    >
+                        <FontAwesomeIcon icon={checked ? fasStar : farStar} />
+                    </span>
+                </li>
+            ))}
+        </ul>
     );
 };
 

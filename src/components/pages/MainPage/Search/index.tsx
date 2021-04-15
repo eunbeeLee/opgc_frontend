@@ -11,22 +11,26 @@ const Search: React.FC<I_PROPS> = () => {
     const dispatch = useDispatch();
     const historyAPI = useHistory();
     const [userId, setUserId] = useState<string>('');
-    const [isFocus, setIsFocus] = useState<boolean>(false);
+    const [visibleRecommand, setVisibleRecommand] = useState<boolean>(false);
 
     useEffect(() => {
         dispatch(getFavorites());
         dispatch(getHistories());
     }, []);
 
-    const handleSearchUser = (e) => {
+    const searchUser = (id) => {
+        dispatch(addHistory(id));
+        historyAPI.push(`/users/${id}`);
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addHistory(userId));
-        historyAPI.push(`/users/${userId}`);
+        searchUser(userId);
     };
 
     return (
-        <div className="search">
-            <form className="search__form" onSubmit={handleSearchUser}>
+        <div className="main-page__search search">
+            <form className="search__form" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={userId}
@@ -34,11 +38,11 @@ const Search: React.FC<I_PROPS> = () => {
                     onChange={({ target: { value } }) => {
                         setUserId(value);
                     }}
-                    onFocus={() => setIsFocus(true)}
+                    onFocus={() => setVisibleRecommand(true)}
                 />
                 <input type="submit" value="검색" />
             </form>
-            {isFocus && <Recommand />}
+            <Recommand visible={visibleRecommand} onSelect={searchUser} />
         </div>
     );
 };
