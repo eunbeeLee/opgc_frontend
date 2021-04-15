@@ -1,5 +1,7 @@
 import { IntroPage, RankPage, UserPage, MainPage } from '@/components/pages';
 
+export const STORAGE_PREFIX = 'opgc';
+
 export const MAIN_MENU_LIST: I_MENU[] = [
     {
         display: '검색',
