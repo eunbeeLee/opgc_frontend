@@ -3,7 +3,7 @@ import { handleActions, createAction } from 'redux-actions';
  * interface
  */
 interface I_STATE {
-    loading: Boolean;
+    loading: boolean;
 }
 
 /**

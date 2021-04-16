@@ -20,7 +20,7 @@ const Favorite: React.FC<I_PROPS> = ({ onSelect }) => {
     return (
         <ul>
             {list.map((item) => (
-                <li>
+                <li key={item}>
                     <span
                         className="recommand__id"
                         onClick={() => {

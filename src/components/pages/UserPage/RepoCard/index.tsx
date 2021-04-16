@@ -10,7 +10,7 @@ const RepoCard: React.FC<I_PROPS> = ({ data: repo }) => {
         <div className="user-info-repo">
             <div className="user-info-repo__title">
                 <h2>
-                    <a href={repo.url} target="_blank">
+                    <a href={repo.url} target="_blank" rel="noreferrer">
                         {repo.name}
                     </a>
                 </h2>
@@ -33,13 +33,12 @@ const RepoCard: React.FC<I_PROPS> = ({ data: repo }) => {
                     <label>Stars</label>
                     <span>{repo.starCnt}</span>
                 </p>
-                {
-                    repo.organizationName && 
+                {repo.organizationName && (
                     <p className="user-info-repo__organization">
                         <label>Organization</label>
                         <span>{repo.organizationName}</span>
                     </p>
-                }
+                )}
             </div>
         </div>
     );

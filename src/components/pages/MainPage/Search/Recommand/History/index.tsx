@@ -48,7 +48,7 @@ const History: React.FC<I_PROPS> = ({ onSelect }) => {
     return (
         <ul>
             {list.map(({ value, checked }) => (
-                <li>
+                <li key={value}>
                     <span
                         className="recommand__id"
                         onClick={() => {

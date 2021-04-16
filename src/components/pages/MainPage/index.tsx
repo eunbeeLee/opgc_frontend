@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import { CONTRI_COLUMNS } from './constants';
 import { actions, T_ROOT_REDUCER } from '@/modules';

@@ -23,6 +23,13 @@ module.exports = {
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/no-empty-interface": "off",
         "react/prop-types": "off",
-        "@typescript-eslint/no-explicit-any": "off"
-    },  
+        "@typescript-eslint/no-explicit-any": "off",
+        "react/display-name": "off",
+        "react/no-unescaped-entities": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
 };

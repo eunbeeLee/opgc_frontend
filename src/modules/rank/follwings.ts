@@ -1,8 +1,8 @@
-import { createRequestActionTypes, createRequestSaga } from '@/libs/redux';
+import { createRequestSaga } from '@/libs/redux';
 import { handleActions, createAction } from 'redux-actions';
 import { takeLatest } from 'redux-saga/effects';
 import * as api from '@/apis';
-import { E_RANK_TYPE } from '@/apis/rankApi/type';
+import { E_RANK_TYPE } from '@/apis/rankApi/types';
 import { I_RANK } from '@/types/rank';
 
 interface I_STATE {
@@ -60,7 +60,7 @@ const contribution = handleActions(
             totalUsersCnt: ranks.length,
             ranks,
         }),
-        [GET_RANKS_FAILURE]: (state: I_STATE, { payload: Error }): any => ({
+        [GET_RANKS_FAILURE]: (state: I_STATE /*{ payload: Error }*/): any => ({
             ...state,
             ranks: [],
         }),

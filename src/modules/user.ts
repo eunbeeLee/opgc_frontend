@@ -51,8 +51,8 @@ const initialState: I_STATE = {
 /**
  * action saga
  */
-const getUserSaga  = createRequestSaga(GET_USER, api.getUser);
-const patchUserSaga  = createRequestSaga(PATCH_USER, api.patchUser);
+const getUserSaga = createRequestSaga(GET_USER, api.getUser);
+const patchUserSaga = createRequestSaga(PATCH_USER, api.patchUser);
 
 /**
  * module saga
@@ -67,19 +67,30 @@ export function* userSaga(): Generator {
  */
 const user = handleActions(
     {
-        [GET_USER_SUCCESS]: (state: I_STATE, { payload }: { payload: User }): I_STATE => ({ 
-            ...state, 
-            user: payload 
+        [GET_USER_SUCCESS]: (
+            state: I_STATE,
+            { payload }: { payload: User }
+        ): I_STATE => ({
+            ...state,
+            user: payload,
         }),
-        [GET_USER_FAILURE]: (state: I_STATE, { payload }: { payload: Error }): any => ({
+        [GET_USER_FAILURE]: (
+            state: I_STATE /*{ payload }: { payload: Error }*/
+        ): any => ({
             ...state,
             user: null,
         }),
-        [PATCH_USER_SUCCESS]: (state: I_STATE, { payload }: { payload: User }): I_STATE => ({ 
-            ...state, 
-            user: payload 
+        [PATCH_USER_SUCCESS]: (
+            state: I_STATE,
+            { payload }: { payload: User }
+        ): I_STATE => ({
+            ...state,
+            user: payload,
         }),
-        [PATCH_USER_FAILURE]: (state: I_STATE, { payload }: { payload: Error }): any => ({
+        [PATCH_USER_FAILURE]: (
+            state: I_STATE
+            /*{ payload }: { payload: Error }*/
+        ): any => ({
             ...state,
             user: null,
         }),
