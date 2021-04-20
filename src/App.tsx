@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { T_ROOT_REDUCER } from './modules';
 
 const App: React.FC = () => {
-    const { loading } = useSelector((state: T_ROOT_REDUCER) => state.ui);
+    const { loading } = useSelector((state: T_ROOT_REDUCER) => state.ui.app);
 
     return (
         <>

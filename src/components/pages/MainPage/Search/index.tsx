@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { getFavorites, getHistories, addHistory } from '@/modules/search';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, T_ROOT_REDUCER } from '@/modules';
 import Recommand from './Recommand';
 import './style.css';
 
 interface I_PROPS {}
 
 const Search: React.FC<I_PROPS> = () => {
+    const { recommand } = useSelector(
+        (state: T_ROOT_REDUCER) => state.ui.mainPage
+    );
+    const { setRecommand } = actions.ui.mainPage;
+    const { getFavorites, getHistories, addHistory } = actions.search;
     const dispatch = useDispatch();
     const historyAPI = useHistory();
     const [userId, setUserId] = useState<string>('');
-    const [visibleRecommand, setVisibleRecommand] = useState<boolean>(false);
 
     useEffect(() => {
         dispatch(getFavorites());
@@ -38,11 +42,11 @@ const Search: React.FC<I_PROPS> = () => {
                     onChange={({ target: { value } }) => {
                         setUserId(value);
                     }}
-                    onFocus={() => setVisibleRecommand(true)}
+                    onFocus={() => dispatch(setRecommand(true))}
                 />
                 <input type="submit" value="검색" />
             </form>
-            <Recommand visible={visibleRecommand} onSelect={searchUser} />
+            {recommand && <Recommand onSelect={searchUser} />}
         </div>
     );
 };

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { T_ROOT_REDUCER } from '@/modules';
+import { actions, T_ROOT_REDUCER } from '@/modules';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFavorite, removeHistory, removeFavorite } from '@/modules/search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faTrashAlt,
@@ -15,6 +14,7 @@ interface I_PROPS {
 }
 
 const History: React.FC<I_PROPS> = ({ onSelect }) => {
+    const { removeHistory, removeFavorite, addFavorite } = actions.search;
     const dispatch = useDispatch();
     const { histories, favorites } = useSelector(
         (state: T_ROOT_REDUCER) => state.search

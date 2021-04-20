@@ -3,43 +3,45 @@ import { handleActions, createAction } from 'redux-actions';
  * interface
  */
 interface I_STATE {
-    loading: boolean;
+    recommand: boolean;
 }
 
 /**
  * actions
  */
-export const SET_LOADING = 'app/SET_LOADING';
+export const SET_RECOMMAND = 'ui/SET_RECOMMAND';
 
 /**
  * functions for creating actions
  */
-export const setLoading = createAction(
-    SET_LOADING,
-    (value: boolean): boolean => value
-);
+export const actions = {
+    setRecommand: createAction(
+        SET_RECOMMAND,
+        (value: boolean): boolean => value
+    ),
+};
 
 /**
  * initial state
  */
 const initialState: I_STATE = {
-    loading: false,
+    recommand: false,
 };
 
 /**
  * reducer
  */
-const ui = handleActions(
+const mainPage = handleActions(
     {
-        [SET_LOADING]: (
+        [SET_RECOMMAND]: (
             state: I_STATE,
             { payload }: { payload: boolean }
         ): I_STATE => ({
             ...state,
-            loading: payload,
+            recommand: payload,
         }),
     },
     initialState
 );
 
-export default ui;
+export default mainPage;

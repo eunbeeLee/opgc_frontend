@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.css';
 import { CONTRI_COLUMNS } from './constants';
-import { actions, T_ROOT_REDUCER } from '@/modules';
+import { T_ROOT_REDUCER } from '@/modules';
+import { actions } from '@/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from '@/components/common/Table';
 import Search from './Search';
@@ -9,7 +10,9 @@ import Search from './Search';
 interface I_PROPS {}
 
 const MainPage: React.FC<I_PROPS> = () => {
+    const searchRef = useRef();
     const action = actions.rank.continuousCommitDay;
+    const { setRecommand } = actions.ui.mainPage;
     const dispatch = useDispatch();
     const {
         root: { searchId },
@@ -21,7 +24,13 @@ const MainPage: React.FC<I_PROPS> = () => {
     }, []);
 
     return (
-        <div id="main-page">
+        <div
+            id="main-page"
+            onMouseDown={(e) => {
+                console.log('::: click', e.currentTarget, e.target);
+                dispatch(setRecommand(false));
+            }}
+        >
             <img
                 className="main-page__logo"
                 src="/assets/imgs/search/index-logo.png"
