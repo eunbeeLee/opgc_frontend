@@ -22,18 +22,14 @@ export const REMOVE_FAVORITE = 'app/REMOVE_FAVORITE';
 /**
  * functions for creating actions
  */
-export const getHistories = createAction(GET_HISTORIES);
-export const getFavorites = createAction(GET_FAVORITES);
-export const addHistory = createAction(ADD_HISTORY, (item: string) => item);
-export const addFavorite = createAction(ADD_FAVORITE, (item: string) => item);
-export const removeHistory = createAction(
-    REMOVE_HISTORY,
-    (item: string) => item
-);
-export const removeFavorite = createAction(
-    REMOVE_FAVORITE,
-    (item: string) => item
-);
+export const actions = {
+    getHistories: createAction(GET_HISTORIES),
+    getFavorites: createAction(GET_FAVORITES),
+    addHistory: createAction(ADD_HISTORY, (item: string) => item),
+    addFavorite: createAction(ADD_FAVORITE, (item: string) => item),
+    removeHistory: createAction(REMOVE_HISTORY, (item: string) => item),
+    removeFavorite: createAction(REMOVE_FAVORITE, (item: string) => item),
+};
 
 /**
  * initial state

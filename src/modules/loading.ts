@@ -7,15 +7,16 @@ interface I_STATE {
 const START_LOADING = 'loading/START_LOADING';
 const FINISH_LOADING = 'loading/FINISH_LOADING';
 
-export const startLoading = createAction(
-    START_LOADING,
-    (requestType: string): string => requestType
-);
-
-export const finishLoading = createAction(
-    FINISH_LOADING,
-    (requestType: string): string => requestType
-);
+export const actions = {
+    startLoading: createAction(
+        START_LOADING,
+        (requestType: string): string => requestType
+    ),
+    finishLoading: createAction(
+        FINISH_LOADING,
+        (requestType: string): string => requestType
+    ),
+};
 
 const initialState: I_STATE = {};
 

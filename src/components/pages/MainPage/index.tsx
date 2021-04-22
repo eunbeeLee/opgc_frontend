@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import './style.css';
 import { CONTRI_COLUMNS } from './constants';
-import { actions, T_ROOT_REDUCER } from '@/modules';
+import { T_ROOT_REDUCER } from '@/modules';
+import { actions } from '@/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from '@/components/common/Table';
 import Search from './Search';
@@ -9,7 +10,7 @@ import Search from './Search';
 interface I_PROPS {}
 
 const MainPage: React.FC<I_PROPS> = () => {
-    const action = actions.rank.continuousCommitDay;
+    const { getRanks } = actions.rank.continuousCommitDay;
     const dispatch = useDispatch();
     const {
         root: { searchId },
@@ -17,7 +18,7 @@ const MainPage: React.FC<I_PROPS> = () => {
     } = useSelector((state: T_ROOT_REDUCER) => state.rank);
 
     useEffect(() => {
-        dispatch(action.getRanks(searchId));
+        dispatch(getRanks(searchId));
     }, []);
 
     return (

@@ -22,5 +22,5 @@ ReactDOM.render(
             <App />
         </HashRouter>
     </Provider>,
-    document.querySelector('#root')
+    document.querySelector('#app')
 );

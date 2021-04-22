@@ -4,19 +4,14 @@ import { I_TAB } from './types';
 import './style.css';
 
 interface I_PROPS {
-    visible: boolean;
     onSelect: (id: string) => void;
 }
 
-const Recommand: React.FC<I_PROPS> = ({ visible, onSelect }) => {
+const Recommand: React.FC<I_PROPS> = ({ onSelect }) => {
     const [tab, setTab] = useState<I_TAB>(TABS[0]);
 
     return (
-        <div
-            className={`search__recommand recommand ${
-                visible ? 'visible' : ''
-            }`}
-        >
+        <div>
             <ul className="recommand__tabs">
                 {TABS.map((t) => (
                     <li

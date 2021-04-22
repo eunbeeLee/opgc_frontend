@@ -24,22 +24,15 @@ export const PATCH_USER_FAILURE = 'user/PATCH_USER_FAILURE';
 /**
  * functions for creating actions
  */
-export const patchUser = createAction(
-    PATCH_USER,
-    (username: string): string => username
-);
-export const getUser = createAction(
-    GET_USER,
-    (username: string): string => username
-);
-export const getUserSuccess = createAction(
-    GET_USER_SUCCESS,
-    (user: User) => user
-);
-export const getUserFailure = createAction(
-    GET_USER_FAILURE,
-    (error: Error): Error => error
-);
+export const actions = {
+    patchUser: createAction(PATCH_USER, (username: string): string => username),
+    getUser: createAction(GET_USER, (username: string): string => username),
+    getUserSuccess: createAction(GET_USER_SUCCESS, (user: User) => user),
+    getUserFailure: createAction(
+        GET_USER_FAILURE,
+        (error: Error): Error => error
+    ),
+};
 
 /**
  * initial state

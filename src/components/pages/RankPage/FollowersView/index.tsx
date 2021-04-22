@@ -5,12 +5,13 @@ import { actions } from '@/modules';
 import Table from '@/components/common/Table';
 import { CONTRI_COLUMNS } from './constants';
 import { GET_RANKS } from '@/modules/rank/follwings';
-import { setLoading } from '@/modules/ui';
 
 interface I_PROPS {}
 
 const FollowersView: React.FC<I_PROPS> = () => {
-    const action = actions.rank.followers;
+    const { getRanks } = actions.rank.contribution;
+    const { setLoading } = actions.ui.app;
+
     const dispatch = useDispatch();
     const { rank: rankState, loading: loadingState } = useSelector(
         (state: T_ROOT_REDUCER) => state
@@ -21,7 +22,7 @@ const FollowersView: React.FC<I_PROPS> = () => {
     } = rankState;
 
     useEffect(() => {
-        dispatch(action.getRanks(searchId));
+        dispatch(getRanks(searchId));
     }, []);
 
     useEffect(() => {
