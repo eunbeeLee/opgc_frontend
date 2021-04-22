@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, T_ROOT_REDUCER } from '@/modules';
@@ -33,21 +33,26 @@ const Search: React.FC<I_PROPS> = () => {
     };
 
     return (
-        <div className="main-page__search search">
-            <form className="search__form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={userId}
-                    placeholder="github 아이디"
-                    onChange={({ target: { value } }) => {
-                        setUserId(value);
-                    }}
-                    onFocus={() => dispatch(setRecommand(true))}
-                />
-                <input type="submit" value="검색" />
-            </form>
-            {recommand && <Recommand onSelect={searchUser} />}
-        </div>
+        <>
+            <div
+                className="main-page__search search"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <form className="search__form" onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        value={userId}
+                        placeholder="github 아이디"
+                        onChange={({ target: { value } }) => {
+                            setUserId(value);
+                        }}
+                        onFocus={() => dispatch(setRecommand(true))}
+                    />
+                    <input type="submit" value="검색" />
+                </form>
+                {recommand && <Recommand onSelect={searchUser} />}
+            </div>
+        </>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import { CONTRI_COLUMNS } from './constants';
 import { T_ROOT_REDUCER } from '@/modules';
@@ -10,9 +10,7 @@ import Search from './Search';
 interface I_PROPS {}
 
 const MainPage: React.FC<I_PROPS> = () => {
-    const searchRef = useRef();
-    const action = actions.rank.continuousCommitDay;
-    const { setRecommand } = actions.ui.mainPage;
+    const { getRanks } = actions.rank.continuousCommitDay;
     const dispatch = useDispatch();
     const {
         root: { searchId },
@@ -20,17 +18,11 @@ const MainPage: React.FC<I_PROPS> = () => {
     } = useSelector((state: T_ROOT_REDUCER) => state.rank);
 
     useEffect(() => {
-        dispatch(action.getRanks(searchId));
+        dispatch(getRanks(searchId));
     }, []);
 
     return (
-        <div
-            id="main-page"
-            onMouseDown={(e) => {
-                console.log('::: click', e.currentTarget, e.target);
-                dispatch(setRecommand(false));
-            }}
-        >
+        <div id="main-page">
             <img
                 className="main-page__logo"
                 src="/assets/imgs/search/index-logo.png"
