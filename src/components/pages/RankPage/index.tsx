@@ -12,9 +12,7 @@ const RankPage: React.FC<I_PROPS> = () => {
     const action = actions.rank.root;
     const match = useRouteMatch();
     const dispatch = useDispatch();
-    const { rank: rankState, loading: loadingState } = useSelector(
-        (state: T_ROOT_REDUCER) => state
-    );
+    const { rank: rankState } = useSelector((state: T_ROOT_REDUCER) => state);
     const { root: searchId } = rankState;
 
     const handleSearch = (e) => {

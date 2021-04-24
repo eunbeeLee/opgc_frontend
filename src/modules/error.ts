@@ -11,10 +11,12 @@ interface IState {
 const initialState: IState = {};
 const SET_ERROR = 'error/SET_ERROR';
 
-export const setError = createAction(
-    SET_ERROR,
-    (requestType: string, error: Error): IError => ({ requestType, error })
-);
+export const actions = {
+    setError: createAction(
+        SET_ERROR,
+        (requestType: string, error: Error): IError => ({ requestType, error })
+    ),
+};
 
 const error = handleActions(
     {

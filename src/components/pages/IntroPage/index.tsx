@@ -13,7 +13,7 @@ const IntroPage: React.FC<I_PROPS> = () => {
             </div>
             <div className="intro__members">
                 {MEMBERS.map((member) => (
-                    <Member data={member} />
+                    <Member data={member} key={member.name} />
                 ))}
             </div>
 
@@ -45,13 +45,13 @@ const IntroPage: React.FC<I_PROPS> = () => {
                         <span>왜 팀명이 Dirty Boyz 인가요?</span>
                     </div>
                     <div className="qna__answer">
-                        음...ㅋㅋㅋ Dirty가 '더러운' 이라는 의미긴 하지만 저희는{' '}
+                        음...ㅋㅋㅋ Dirty가 '더러운' 이라는 의미긴 하지만 저희는
                         <span>Dirty Sexy</span> 이런 느낌을 담았어요.
                         <br />
                         '내 아내의 모든것' 이라는 영화에 나오는 류승룡님에게
                         많은 영감을 얻었습니다.
                         <br />
-                        굳이 의미를 거창하게 정하자면{' '}
+                        굳이 의미를 거창하게 정하자면
                         <span>
                             "우리 뭐든 할수있다! 겁먹지 말자! 세상아 덤벼라!
                             우린 더티섹시한 개발자들이다!"

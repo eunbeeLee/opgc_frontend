@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 const path = require('path');
@@ -56,11 +57,12 @@ module.exports = (env, options) => {
                     }
                 },
                 { test: /\.tsx?$/, loader: 'ts-loader' },
-                { test: /\.css/, use: [ 'style-loader', 'css-loader' ]}
+                { test: /\.css/, use: [ MiniCssExtractPlugin.loader, 'css-loader' ]}
             ]
         },
 
         plugins: [
+            new MiniCssExtractPlugin({ filename: 'assets/css/app.css' }),
             new webpack.DefinePlugin({}),
             (options.mode !== 'production') && new ReactRefreshWebpackPlugin(),
             new HtmlWebpackPlugin({

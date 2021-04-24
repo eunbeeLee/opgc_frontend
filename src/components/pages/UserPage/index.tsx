@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
-import { getUser, PATCH_USER, patchUser, GET_USER } from '@/modules/user';
+import { PATCH_USER, GET_USER } from '@/modules/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { useRouteMatch } from 'react-router';
 import RepoList from './RepoList';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { T_ROOT_REDUCER } from '@/modules';
+import { actions, T_ROOT_REDUCER } from '@/modules';
 import UserInfo from './UserInfo';
 import LanguagesPieChart from './LanguagesPieChart';
-import { setLoading } from '@/modules/ui';
 
 interface I_PROPS {}
 
 const UserPage: React.FC<I_PROPS> = () => {
+    const uiActions = actions.ui.app;
+    const userActions = actions.user;
+
     const dispatch = useDispatch();
     const { user: userState, loading: loadingState } = useSelector(
         (state: T_ROOT_REDUCER) => state
@@ -21,7 +23,7 @@ const UserPage: React.FC<I_PROPS> = () => {
     const { user } = userState;
 
     useEffect(() => {
-        dispatch(setLoading(loadingState[GET_USER]));
+        dispatch(uiActions.setLoading(loadingState[GET_USER]));
     }, [loadingState[GET_USER]]);
 
     const {
@@ -29,11 +31,11 @@ const UserPage: React.FC<I_PROPS> = () => {
     } = useRouteMatch<{ userId: string }>();
 
     useEffect(() => {
-        dispatch(getUser(userId));
+        dispatch(userActions.getUser(userId));
     }, [userId]);
 
     const handleClickRefresh = () => {
-        dispatch(patchUser(userId));
+        dispatch(userActions.patchUser(userId));
     };
 
     return (

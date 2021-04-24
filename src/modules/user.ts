@@ -24,22 +24,15 @@ export const PATCH_USER_FAILURE = 'user/PATCH_USER_FAILURE';
 /**
  * functions for creating actions
  */
-export const patchUser = createAction(
-    PATCH_USER,
-    (username: string): string => username
-);
-export const getUser = createAction(
-    GET_USER,
-    (username: string): string => username
-);
-export const getUserSuccess = createAction(
-    GET_USER_SUCCESS,
-    (user: User) => user
-);
-export const getUserFailure = createAction(
-    GET_USER_FAILURE,
-    (error: Error): Error => error
-);
+export const actions = {
+    patchUser: createAction(PATCH_USER, (username: string): string => username),
+    getUser: createAction(GET_USER, (username: string): string => username),
+    getUserSuccess: createAction(GET_USER_SUCCESS, (user: User) => user),
+    getUserFailure: createAction(
+        GET_USER_FAILURE,
+        (error: Error): Error => error
+    ),
+};
 
 /**
  * initial state
@@ -51,8 +44,8 @@ const initialState: I_STATE = {
 /**
  * action saga
  */
-const getUserSaga  = createRequestSaga(GET_USER, api.getUser);
-const patchUserSaga  = createRequestSaga(PATCH_USER, api.patchUser);
+const getUserSaga = createRequestSaga(GET_USER, api.getUser);
+const patchUserSaga = createRequestSaga(PATCH_USER, api.patchUser);
 
 /**
  * module saga
@@ -67,19 +60,30 @@ export function* userSaga(): Generator {
  */
 const user = handleActions(
     {
-        [GET_USER_SUCCESS]: (state: I_STATE, { payload }: { payload: User }): I_STATE => ({ 
-            ...state, 
-            user: payload 
+        [GET_USER_SUCCESS]: (
+            state: I_STATE,
+            { payload }: { payload: User }
+        ): I_STATE => ({
+            ...state,
+            user: payload,
         }),
-        [GET_USER_FAILURE]: (state: I_STATE, { payload }: { payload: Error }): any => ({
+        [GET_USER_FAILURE]: (
+            state: I_STATE /*{ payload }: { payload: Error }*/
+        ): any => ({
             ...state,
             user: null,
         }),
-        [PATCH_USER_SUCCESS]: (state: I_STATE, { payload }: { payload: User }): I_STATE => ({ 
-            ...state, 
-            user: payload 
+        [PATCH_USER_SUCCESS]: (
+            state: I_STATE,
+            { payload }: { payload: User }
+        ): I_STATE => ({
+            ...state,
+            user: payload,
         }),
-        [PATCH_USER_FAILURE]: (state: I_STATE, { payload }: { payload: Error }): any => ({
+        [PATCH_USER_FAILURE]: (
+            state: I_STATE
+            /*{ payload }: { payload: Error }*/
+        ): any => ({
             ...state,
             user: null,
         }),

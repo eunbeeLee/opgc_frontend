@@ -1,11 +1,11 @@
-import { GITHUB_BASE_URL } from "./application";
+import { GITHUB_BASE_URL } from './application';
 
 export enum E_USER_STATUS {
     NONE = 'none',
     COMPLETED = 'completed',
     WAITING = 'wating',
     UPDATING = 'updating',
-    FAIL = 'fail'
+    FAIL = 'fail',
 }
 
 export enum E_LANGUAGE {
@@ -18,7 +18,7 @@ export enum E_LANGUAGE {
     C = 'C',
     JAVA = 'Java',
     SWIFT = 'Swift',
-    SCSS = 'SCSS'
+    SCSS = 'SCSS',
 }
 
 export class User {
@@ -72,10 +72,10 @@ export class User {
         return this._id;
     }
     get organizations(): Organization[] {
-        return this._organizations.map(o => new Organization(o));
+        return this._organizations.map((o) => new Organization(o));
     }
     get repositories(): Repository[] {
-        return this._repositories.map(r => new Repository(r, this._username));
+        return this._repositories.map((r) => new Repository(r, this._username));
     }
     get repositoriesCnt(): number {
         return this._repositories.length;
@@ -127,10 +127,18 @@ export class Organization {
         });
     }
 
-    get id() { return this._id; }
-    get name() { return this._name; }
-    get description() { return this._description; }
-    get logoUrl() { return this._logo; }
+    get id(): number {
+        return this._id;
+    }
+    get name(): string {
+        return this._name;
+    }
+    get description(): string {
+        return this._description;
+    }
+    get logoUrl(): string {
+        return this._logo;
+    }
 }
 
 export class Repository {
@@ -178,7 +186,7 @@ export class Repository {
         return this._organization;
     }
     get languages(): string[] {
-        return this._languages;   
+        return this._languages;
     }
     get repLanguage(): string {
         return this._rep_language;
@@ -190,4 +198,3 @@ export class Repository {
         return this._stargazers_count;
     }
 }
-
