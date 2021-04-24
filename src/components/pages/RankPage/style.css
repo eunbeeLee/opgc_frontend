@@ -43,7 +43,7 @@
     height: 35px;
     border: none;
     outline: none;
-    font-size: 15px;
+    font-size: var(--font-small);
     border-radius: var(--size-border-radius);
 }
 
@@ -115,7 +115,7 @@
         height: 35px;
         border: none;
         outline: none;
-        font-size: 15px;
+        font-size: var(--font-small);
         border-radius: var(--size-border-radius);
     }
 

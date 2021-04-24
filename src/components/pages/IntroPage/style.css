@@ -13,7 +13,7 @@
 
 .intro__title {
     margin-top: 10px;
-    font-size: var(--font-regular)
+    font-size: var(--font-regular);
 }
 
 .intro__members {
@@ -83,7 +83,7 @@
 
     .intro__title {
         margin-top: 35px;
-        font-size: 1.4rem;
+        font-size: var(--font-regular);
     }
 
     .intro__members {
@@ -126,7 +126,7 @@
     .qna__answer {
         margin-top: 10px;
         line-height: normal;
-        font-size: var(--font-micro)
+        font-size: var(--font-micro);
     }
 
     .qna__answer span {
