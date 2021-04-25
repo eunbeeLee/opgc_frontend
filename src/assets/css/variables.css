@@ -22,11 +22,12 @@
     --font-color: var(--color-light-grey);
 
     /* Font size */
-    --font-large: 48px;
-    --font-medium: 30px;
-    --font-regular: 18px;
-    --font-small: 16px;
-    --font-micro: 14px;
+    --font-large: 3rem;
+    --font-medium: 1.875rem;
+    --font-regular: 1.125rem;
+    --font-small: 1rem;
+    --font-micro: 0.875rem;
+    --font-x-micro: 0.6rem;
 
     /* Font weight */
     --weight-bold: 700;
@@ -36,7 +37,13 @@
     /* Size */
     --size-border-radius: 6px;
     --size-max-width: 1200px;
+    --size-min-width: 
 
     /* Animation */
     --animation-duration: 300ms;
+
+    /* Responsive size*/
+    --max-width-mobile: 576px;
+    --max-width-tablet: 768px;
+    --max-width-laptop: 960px;
 }

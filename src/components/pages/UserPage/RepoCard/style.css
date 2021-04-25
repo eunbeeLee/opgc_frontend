@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
-    height: 80px;
     padding: 15px 20px;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.11);
@@ -18,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     width: 40%;
-    font-size: 14px;
+    font-size: var(--font-micro);
 }
 
 .user-info-repo__detail > p {
@@ -43,6 +42,11 @@
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+    font-size: var(--font-micro);
+}
+
+.user-info-repo__title ul {
+    margin-top: 5px;
 }
 
 .user-info-repo__title:hover {
@@ -54,9 +58,57 @@
 }
 
 .user-info-repo__title h2 {
-    font-size: 20px;
+    font-size: var(--font-regular);
 }
 
 .user-info-repo__title span {
+    margin-left: 5px;
     color: var(--color-dark-white);
+}
+
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
+}
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
+    .user-info-repo {
+        flex-direction: column;
+    }
+
+    .user-info-repo__detail {
+        width: 100%;
+        margin-top: 15px;
+        flex-direction: column;
+        line-height: 1.5em;
+    }
+
+    .user-info-repo__detail p {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .user-info-repo__detail * {
+        display: block;
+        width: 50%;
+    }
+
+    .user-info-repo__detail > p > span {
+        text-align: left;
+    }
+
+    .user-info-repo__title {
+        line-height: 20px;
+    }
 }

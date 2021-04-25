@@ -18,7 +18,7 @@
 }
 
 .user-info-account__belong-title {
-    font-size: 13px;
+    font-size: var(--font-micro);
     opacity: 0.7;
     margin-right: 5px;
 }
@@ -35,6 +35,11 @@
 .user-info-account__profile__info {
     margin-left: 15px;
     position: relative;
+}
+
+.user-info-account__profile__wrap img {
+    width: 200px;
+    height: 200px;
 }
 
 .user-info-account__name {
@@ -62,11 +67,11 @@
 }
 
 .user-info-account__value {
-    width: 130px;
+    width: 150px;
     color: var(--color-light-white);
     opacity: 0.85;
     margin-right: 5px;
-    font-size: 12px;
+    font-size: var(--font-micro);
     display: flex;
     justify-content: space-between;
     padding: 7px;
@@ -87,4 +92,93 @@
 
 .user-info-account__value > span {
     text-align: right;
+}
+
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
+}
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
+
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
+
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
+
+    .user-info-account__profile {
+        flex-direction: column;
+    }
+
+    .user-info-account__profile__wrap img {
+        width: 175px;
+        height: 175px;
+    }
+
+    .user-info-account__profile__info {
+        width: 100%;
+        margin-left: unset;
+        margin-top: 5px;
+        border-radius: 0 0 10px 10px;
+        -webkit-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
+        -moz-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
+        box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
+    }
+
+    .user-info-account__values {
+        width: 100%;
+        padding: unset;
+    }
+
+    .user-info-account__name {
+        text-align: center;
+        letter-spacing: unset;
+        line-height: 1.5em;
+        font-size: var(--font-regular);
+        margin: 0 auto;
+        flex-direction: column;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--color-dark-white);
+    }
+
+    .user-info-account__name * {
+        display: block;
+    }
+
+    .user-info-account__name span {
+        margin: unset;
+    }
+
+    .user-info-account__value {
+        font-size: var(--font-x-micro);
+        width: 20%;
+        margin: unset;
+    }
+
+    .user-info-account__value__title {
+        display: none;
+    }
+
+    .user-info-account__desc {
+        margin: unset;
+        padding: 15px 15px;
+        text-align: center;
+        line-height: 25px;
+    }
+
+    .user-info-account__belong {
+        margin-top: 25px;
+    }
+
+    .user-info-account__organization {
+        display: unset;
+    }
 }

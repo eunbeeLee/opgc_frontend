@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
 }
+/* 모바일에 적용될 스타일을 먼저 작성합니다. */
 
 #main-page section {
     margin-top: 50px;
@@ -15,9 +16,71 @@
 
 .main-page__logo {
     width: 30%;
+    min-width: 250px;
     transition: transform 2s ease-in-out;
 }
 
 .main-page__logo:hover {
     transform: rotate(-4deg) scale(1.02);
+}
+
+.main__rank {
+    font-size: var(--font-x-micro);
+}
+
+.main__rank h1 {
+    font-size: var(--font-regular);
+}
+
+@media screen and (min-width: 769px) {
+    /* 데스크탑에서 사용될 스타일을 여기에 작성합니다. */
+    .search__wrap {
+        min-height: calc(100vh - var(--height-footer) - var(--height-header));
+    }
+
+    #search {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .search__main-logo {
+        width: 500px;
+        transition: transform 2s ease-in-out;
+    }
+
+    .search__main-logo:hover {
+        transform: rotate(-4deg) scale(1.1);
+    }
+
+    .main__rank {
+        font-size: var(--font-regular);
+    }
+
+    .main__rank h1 {
+        font-size: var(--font-medium);
+    }
+}
+
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
+}
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
+
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
+
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
 }
