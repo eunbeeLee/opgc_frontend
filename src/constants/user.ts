@@ -90,7 +90,17 @@ export class User {
         return this._total_contribution;
     }
     get updated(): string {
-        return this._updated;
+        const date = new Date(this._updated);
+
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const day = date.getDate();
+
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        const sec = date.getSeconds();
+
+        return `${year}-${month}-${day} ${hour}:${min}:${sec}`;
     }
     get username(): string {
         return this._username;

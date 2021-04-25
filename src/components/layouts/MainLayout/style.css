@@ -148,8 +148,10 @@ body {
 @media (max-width: 576px) {
     /* 너비가 0 ~ 576px: 모바일 */
     #header {
+        position: fixed;
         height: unset;
-        position: static;
+        background-color: var(--color-white);
+        z-index: 1;
     }
 
     .header__wrap {
@@ -186,9 +188,5 @@ body {
 
     .header__menu-btn {
         display: unset;
-    }
-
-    #content {
-        padding: unset;
     }
 }
