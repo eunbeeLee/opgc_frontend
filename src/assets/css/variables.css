@@ -41,4 +41,9 @@
 
     /* Animation */
     --animation-duration: 300ms;
+
+    /* Responsive size*/
+    --max-width-mobile: 576px;
+    --max-width-tablet: 768px;
+    --max-width-laptop: 960px;
 }
