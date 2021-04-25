@@ -46,13 +46,17 @@ const UserPage: React.FC<I_PROPS> = () => {
                         <button onClick={handleClickRefresh}>
                             <FontAwesomeIcon
                                 icon={faSync}
-                                className="user-info__refresh-btn"
+                                className={`user-info__refresh-btn${
+                                    loadingState[PATCH_USER]
+                                        ? ' refreshing'
+                                        : ''
+                                }`}
                             />
                         </button>
                         <span className="user-info__refresh-date">
                             {loadingState[PATCH_USER]
                                 ? '업데이트 중입니다.'
-                                : `Last updated: ${user.updated}`}
+                                : `최근업데이트: ${user.updated}`}
                         </span>
                     </div>
                     {/* Top */}

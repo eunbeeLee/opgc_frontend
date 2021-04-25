@@ -1,5 +1,11 @@
-/* #user-info {
-} */
+@keyframes refreshAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 .user-info__refresh > button {
     border: none;
@@ -11,16 +17,12 @@
     margin-right: 5px;
 }
 
+.user-info__refresh-btn.refreshing {
+    animation: refreshAnimation 0.8s ease-in-out infinite;
+}
+
 .user-info__refresh > button * {
     cursor: inherit;
-}
-
-.user-info__refresh-btn {
-    transition: transform 800ms ease-in-out;
-}
-
-.user-info__refresh button:hover .user-info__refresh-btn {
-    transform: rotate(360deg);
 }
 
 /* top */
@@ -53,56 +55,23 @@
     margin-top: 50px;
 }
 
-@media screen and (min-width: 769px) {
-    .user-info__refresh > button {
-        border: none;
-        outline: none;
-        background-color: var(--color-green);
-        padding: 3px 5px;
-        color: var(--color-white);
-        border-radius: 5px;
-        margin-right: 5px;
-    }
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
+}
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
 
-    .user-info__refresh > button * {
-        cursor: inherit;
-    }
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
 
-    .user-info__refresh-btn {
-        transition: transform 800ms ease-in-out;
-    }
-
-    .user-info__refresh button:hover .user-info__refresh-btn {
-        transform: rotate(360deg);
-    }
-
-    /* top */
-    .user-info__summary {
-        padding: 15px 0 25px 0;
-    }
-
-    .user-info__refresh span {
-        font-size: var(--font-micro);
-        color: var(--color-dark-white);
-    }
-
-    /* bottom */
-    .user-info__detail > section > div {
-        padding: 20px;
-        border-radius: 5px;
-        border: 1px solid var(--color-light-white);
-    }
-
-    .user-info__detail > section > h1 {
-        font-size: var(--font-medium);
-        font-weight: var(--weight-semi-bold);
-    }
-
-    .user-info__detail > section > h1 + div {
-        margin-top: 20px;
-    }
-
-    .user-info__detail > section {
-        margin-top: 50px;
-    }
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
 }
