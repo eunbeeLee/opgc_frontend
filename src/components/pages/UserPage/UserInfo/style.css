@@ -4,14 +4,9 @@
     align-items: center;
 }
 
-.user-info-account__profile__wrap img {
-    width: 130px;
-    height: 130px;
-}
-
 .user-info-account__desc {
     margin-top: 15px;
-    line-height: 25px;
+    line-height: 35px;
 }
 
 .user-info-account__desc__company {
@@ -42,9 +37,14 @@
     position: relative;
 }
 
+.user-info-account__profile__wrap img {
+    width: 200px;
+    height: 200px;
+}
+
 .user-info-account__name {
     margin-top: 5px;
-    font-size: var(--font-small);
+    font-size: var(--font-large);
     font-weight: var(--weight-semi-bold);
     letter-spacing: 5px;
 }
@@ -54,6 +54,7 @@
 }
 
 .user-info-account__id {
+    margin-left: 15px;
     font-size: var(--font-small);
     color: var(--color-light-grey);
 }
@@ -61,15 +62,15 @@
 /* right */
 .user-info-account__values {
     display: flex;
-    padding-top: 10px;
+    padding: 5px;
     flex-wrap: wrap;
 }
 
 .user-info-account__value {
-    width: 130px;
+    width: 150px;
     color: var(--color-light-white);
     opacity: 0.85;
-    margin: 2px;
+    margin-right: 5px;
     font-size: var(--font-micro);
     display: flex;
     justify-content: space-between;
@@ -93,103 +94,91 @@
     text-align: right;
 }
 
-.member__wrap {
-    margin: 10px 0 5px 0;
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
 }
-@media screen and (min-width: 769px) {
-    /* left */
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
+
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
+
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
+
     .user-info-account__profile {
-        display: flex;
-        align-items: center;
-    }
-
-    .user-info-account__desc {
-        margin-top: 15px;
-        line-height: 35px;
-    }
-
-    .user-info-account__desc__company {
-        margin-left: 20px;
-    }
-
-    .user-info-account__belong {
-        font-weight: var(--weight-semi-bold);
-    }
-
-    .user-info-account__belong-title {
-        font-size: var(--font-micro);
-        opacity: 0.7;
-        margin-right: 5px;
-    }
-
-    .user-info-account__organization {
-        display: flex;
-        align-items: center;
-    }
-
-    .user-info-account__organization img + img {
-        margin-left: 3px;
-    }
-
-    .user-info-account__profile__info {
-        margin-left: 15px;
-        position: relative;
+        flex-direction: column;
     }
 
     .user-info-account__profile__wrap img {
-        width: 200px;
-        height: 200px;
+        width: 175px;
+        height: 175px;
+    }
+
+    .user-info-account__profile__info {
+        width: 100%;
+        margin-left: unset;
+        margin-top: 5px;
+        border-radius: 0 0 10px 10px;
+        -webkit-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
+        -moz-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
+        box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
+    }
+
+    .user-info-account__values {
+        width: 100%;
+        padding: unset;
     }
 
     .user-info-account__name {
-        margin-top: 5px;
-        font-size: var(--font-large);
-        font-weight: var(--weight-semi-bold);
-        letter-spacing: 5px;
+        text-align: center;
+        letter-spacing: unset;
+        line-height: 1.5em;
+        font-size: var(--font-regular);
+        margin: 0 auto;
+        flex-direction: column;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--color-dark-white);
     }
 
-    .user-info-account__name > a:hover {
-        text-decoration: underline;
+    .user-info-account__name * {
+        display: block;
     }
 
-    .user-info-account__id {
-        margin-left: 15px;
-        font-size: var(--font-small);
-        color: var(--color-light-grey);
-    }
-
-    /* right */
-    .user-info-account__values {
-        display: flex;
-        padding: 5px;
-        flex-wrap: wrap;
+    .user-info-account__name span {
+        margin: unset;
     }
 
     .user-info-account__value {
-        width: 130px;
-        color: var(--color-light-white);
-        opacity: 0.85;
-        margin-right: 5px;
         font-size: var(--font-x-micro);
-        display: flex;
-        justify-content: space-between;
-        padding: 7px;
-        border-radius: 3px;
-    }
-
-    .user-info-account__value:nth-child(2n) {
-        background-color: var(--color-green);
-    }
-
-    .user-info-account__value:nth-child(2n + 1) {
-        background-color: var(--color-orange);
+        width: 20%;
+        margin: unset;
     }
 
     .user-info-account__value__title {
-        margin-left: 4px;
+        display: none;
     }
 
-    .user-info-account__value > span {
-        text-align: right;
+    .user-info-account__desc {
+        margin: unset;
+        padding: 15px 15px;
+        text-align: center;
+        line-height: 25px;
+    }
+
+    .user-info-account__belong {
+        margin-top: 25px;
+    }
+
+    .user-info-account__organization {
+        display: unset;
     }
 }
