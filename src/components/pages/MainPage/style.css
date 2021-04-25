@@ -45,7 +45,6 @@
         align-items: center;
         margin-bottom: 50px;
     }
-    /* 모바일에 적용될 스타일을 먼저 작성합니다. */
 
     .search__main-logo {
         width: 500px;
@@ -63,4 +62,25 @@
     .main__rank h1 {
         font-size: var(--font-medium);
     }
+}
+
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
+}
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
+
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
+
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
 }

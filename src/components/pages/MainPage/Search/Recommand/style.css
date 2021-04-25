@@ -25,7 +25,7 @@
 }
 
 .recommand__list li {
-    font-size: var(--font-x-micro);
+    font-size: var(--font-micro);
     float: left;
     padding: 15px 25px;
     width: 33.3%;
