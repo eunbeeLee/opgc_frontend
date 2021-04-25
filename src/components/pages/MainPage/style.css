@@ -16,6 +16,7 @@
 
 .main-page__logo {
     width: 30%;
+    min-width: 250px;
     transition: transform 2s ease-in-out;
 }
 
