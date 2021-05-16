@@ -15,6 +15,7 @@ body {
     padding: 5px 5%;
     box-sizing: border-box;
     background-color: var(--color-white);
+    z-index: 1;
 }
 
 .header__wrap {
@@ -88,6 +89,10 @@ body {
 
 /* Content */
 #content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: var(--height-header) 0 0 0;
     min-height: calc(100vh - var(--height-footer));
 }
@@ -97,7 +102,6 @@ body {
     width: 100%;
     height: 100%;
     padding: 30px 50px;
-    margin: 0 auto;
 }
 
 /* Footer */
