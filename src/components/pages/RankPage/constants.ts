@@ -1,7 +1,7 @@
-import ContributionView from "./ContributionView";
-import FollowersView from "./FollowersView";
-import FollowingsView from "./FollowingsView";
-import LanguagesView from "./LanguagesView";
+import ContributionView from './ContributionView';
+import FollowersView from './FollowersView';
+import FollowingsView from './FollowingsView';
+import LanguagesView from './LanguagesView';
 
 export const RANK_MENUS: I_MENU[] = [
     {
