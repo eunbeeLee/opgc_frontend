@@ -30,7 +30,8 @@ const RankPage: React.FC<I_PROPS> = () => {
         <div id="ranking">
             <div className="ranking__nav">
                 <FilterNav />
-                <form className="ranking__search-form" onSubmit={handleSearch}>
+                {/* 추후제공 */}
+                {/* <form className="ranking__search-form" onSubmit={handleSearch}>
                     <input
                         type="text"
                         name="serached_id"
@@ -39,7 +40,7 @@ const RankPage: React.FC<I_PROPS> = () => {
                         onChange={handleChangeSearchedId}
                     />
                     <input type="submit" value="Search" />
-                </form>
+                </form> */}
             </div>
             <Switch>
                 {RANK_MENUS.map((menu) => (
