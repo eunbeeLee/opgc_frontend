@@ -10,11 +10,11 @@ import Search from './Search';
 interface I_PROPS {}
 
 const MainPage: React.FC<I_PROPS> = () => {
-    const { getRanks } = actions.rank.continuousCommitDay;
+    const { getRanks } = actions.rank.ContinousCommit;
     const dispatch = useDispatch();
     const {
         root: { searchId },
-        continuous_commit_day: { ranks },
+        continuousCommit: { ranks },
     } = useSelector((state: T_ROOT_REDUCER) => state.rank);
 
     useEffect(() => {

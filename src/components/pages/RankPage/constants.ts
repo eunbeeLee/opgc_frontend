@@ -1,3 +1,4 @@
+import ContinuousCommitView from './ContinuousCommitView';
 import ContributionView from './ContributionView';
 import FollowersView from './FollowersView';
 import FollowingsView from './FollowingsView';
@@ -23,6 +24,13 @@ export const RANK_MENUS: I_MENU[] = [
         name: 'followings',
         path: '/rank/followings',
         component: FollowingsView,
+        visible: true,
+    },
+    {
+        display: '꾸준함',
+        name: 'langauges',
+        path: '/rank/continuousCommit',
+        component: ContinuousCommitView,
         visible: true,
     },
     {
