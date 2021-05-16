@@ -43,14 +43,14 @@ const getRanksSaga = createRequestSaga(GET_RANKS, api.getRanks);
 /**
  * module saga
  */
-export function* contributionSaga(): Generator {
+export function* continousCommitSaga(): Generator {
     yield takeLatest(GET_RANKS, getRanksSaga);
 }
 
 /**
  * Reducer
  */
-const contribution = handleActions(
+const continuousCommit = handleActions(
     {
         [GET_RANKS_SUCCESS]: (
             state: I_STATE,
@@ -68,4 +68,4 @@ const contribution = handleActions(
     initialState
 );
 
-export default contribution;
+export default continuousCommit;

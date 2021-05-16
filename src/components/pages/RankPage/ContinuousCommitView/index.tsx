@@ -8,8 +8,8 @@ import { GET_RANKS } from '@/modules/rank/follwings';
 
 interface I_PROPS {}
 
-const FollowersView: React.FC<I_PROPS> = () => {
-    const { getRanks } = actions.rank.followers;
+const ContinuousCommitView: React.FC<I_PROPS> = () => {
+    const { getRanks } = actions.rank.ContinousCommit;
     const { setLoading } = actions.ui.app;
 
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const FollowersView: React.FC<I_PROPS> = () => {
     );
     const {
         root: { searchId },
-        followers: { totalUsersCnt, ranks },
+        continuousCommit: { totalUsersCnt, ranks },
     } = rankState;
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const FollowersView: React.FC<I_PROPS> = () => {
             <div className="ranking__header">
                 <p className="ranking__help-text">
                     {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
-                    팔로워가 가장 많으신 TOP 10 개발자 분들입니다!
+                    하루하루 꾸준히 커밋을 해주신 TOP 10 개발자입니다!
                     <br />
                     <span>랭킹은 주기적으로 갱신됩니다.</span>
                 </p>
@@ -46,4 +46,4 @@ const FollowersView: React.FC<I_PROPS> = () => {
     );
 };
 
-export default React.memo(FollowersView);
+export default React.memo(ContinuousCommitView);
