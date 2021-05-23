@@ -59,10 +59,8 @@ const tier = handleActions(
         ) => {
             const { next, previous, results } = payload;
 
-            const rankNum = state.ranks.length + 1;
-
             const ranks: I_TIER_RANK[] = results.map((tierInfo, idx) => ({
-                rank: rankNum + idx,
+                rank: idx + 1,
                 id: tierInfo.id,
                 username: tierInfo.username,
                 name: tierInfo.name,

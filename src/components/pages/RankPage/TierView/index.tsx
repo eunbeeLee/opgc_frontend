@@ -38,7 +38,7 @@ const TierView: React.FC<I_PROPS> = () => {
             <div className="ranking__header">
                 <p className="ranking__help-text">
                     {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
-                    가장 개발을 열심히한 TOP 10 개발자 분들입니다!
+                    개발에 열정적인 TOP 10 개발자 분들입니다!
                     <br />
                     <span>랭킹은 주기적으로 갱신됩니다.</span>
                 </p>
@@ -48,8 +48,8 @@ const TierView: React.FC<I_PROPS> = () => {
                     <>
                         <div className="tier-view__highest-users">
                             <HighRankUserCard
-                                width={220}
-                                height={210}
+                                width={200}
+                                height={180}
                                 data={top5Ranks[0]}
                             />
                             <ul>
