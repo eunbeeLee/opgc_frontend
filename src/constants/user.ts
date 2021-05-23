@@ -21,6 +21,17 @@ export enum E_LANGUAGE {
     SCSS = 'SCSS',
 }
 
+export enum E_TIER {
+    UNRANK = 0,
+    BRONZE = 5,
+    SILVER = 10,
+    GOLD = 15,
+    DIAMOND = 20,
+    PLATINUM = 25,
+    MASTER = 30,
+    CHALLENGER = 35,
+}
+
 export class User {
     _id: number;
     _created: string;
@@ -116,6 +127,60 @@ export class User {
     }
     get languages(): I_LANGUAGE_INFO[] {
         return this._languages;
+    }
+}
+
+export class TierInfo {
+    _id: number;
+    _username: string;
+    _name: string;
+    _avatar_url: string;
+    _tier: string;
+    _company: string;
+    _bio: string;
+    _continuous_commit_day: number;
+
+    constructor(tier?: I_API_TIER) {
+        if (!tier) {
+            console.warn('Empty Tier Data !!!');
+            return;
+        }
+
+        const keys = Object.keys(tier);
+        keys.forEach((key) => {
+            this[`_${key}`] = tier[key];
+        });
+    }
+
+    get id(): number {
+        return this._id;
+    }
+
+    get username(): string {
+        return this._username;
+    }
+    get name(): string {
+        return this._name;
+    }
+
+    get profileImgUrl(): string {
+        return this._avatar_url;
+    }
+
+    get tier(): string {
+        return this._tier;
+    }
+
+    get company(): string {
+        return this._company;
+    }
+
+    get desc(): string {
+        return this._bio;
+    }
+
+    get continuousCommitDay(): number {
+        return this._continuous_commit_day;
     }
 }
 

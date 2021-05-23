@@ -3,7 +3,7 @@ declare enum E_USER_STATUS {
     COMPLETED = 'completed',
     WAITING = 'wating',
     UPDATING = 'updating',
-    FAIL = 'fail'
+    FAIL = 'fail',
 }
 
 declare enum E_LANGUAGE {
@@ -16,12 +16,12 @@ declare enum E_LANGUAGE {
     C = 'C',
     JAVA = 'Java',
     SWIFT = 'Swift',
-    SCSS = 'SCSS'
+    SCSS = 'SCSS',
 }
 
 interface I_LANGUAGE_INFO {
-    language: E_LANGUAGE,
-    number: number
+    language: E_LANGUAGE;
+    number: number;
 }
 
 interface I_API_USER {
@@ -64,6 +64,23 @@ interface I_API_REPOSITORY {
     stargazers_count: number;
 }
 
+interface I_API_TIER {
+    id: number;
+    username: string;
+    name: string;
+    avatar_url: string;
+    tier: string;
+    company: string;
+    bio: string;
+    continuous_commit_day: number;
+}
+
+interface I_API_TIERS {
+    next?: string | null;
+    previous?: string | null;
+    results: I_API_TIER[];
+}
+
 declare class User {
     _id: number;
     _created: string;
@@ -84,24 +101,24 @@ declare class User {
     _name: string;
     _languages: I_LANGUAGE_INFO[];
 
-    constructor(user?: I_API_USER)
-    get desc(): string
-    get company(): string
-    get created(): string
-    get followersCnt(): number
-    get followingCnt(): number
-    get id(): number
-    get organizations(): Organization[]
-    get repositories(): Repository[]
-    get repositoriesCnt(): number
-    get profileImgUrl(): string
-    get publicReposCnt(): number
-    get totalContributionCnt(): number
-    get updated(): string
-    get username(): string
-    get totalStarCnt(): number
-    get name(): string
-    get githubUrl(): string
+    constructor(user?: I_API_USER);
+    get desc(): string;
+    get company(): string;
+    get created(): string;
+    get followersCnt(): number;
+    get followingCnt(): number;
+    get id(): number;
+    get organizations(): Organization[];
+    get repositories(): Repository[];
+    get repositoriesCnt(): number;
+    get profileImgUrl(): string;
+    get publicReposCnt(): number;
+    get totalContributionCnt(): number;
+    get updated(): string;
+    get username(): string;
+    get totalStarCnt(): number;
+    get name(): string;
+    get githubUrl(): string;
     get languages(): I_LANGUAGE_INFO[];
 }
 
@@ -111,12 +128,12 @@ declare class Organization {
     _description: string;
     _logo: string; // url
 
-    constructor(organization: I_API_ORGANIZTION)
+    constructor(organization: I_API_ORGANIZTION);
 
-    get id(): number
-    get name(): string
-    get description(): string
-    get logoUrl(): string
+    get id(): number;
+    get name(): string;
+    get description(): string;
+    get logoUrl(): string;
 }
 
 declare class Repository {
@@ -131,16 +148,16 @@ declare class Repository {
     _stargazers_count: number;
     _user_github_id: string;
 
-    constructor(repo?: I_API_REPOSITORY, userGithubId?: string)
+    constructor(repo?: I_API_REPOSITORY, userGithubId?: string);
 
-    get contributionCnt(): number
-    get fullName(): string
-    get owner(): string
-    get id(): number
-    get name(): string
-    get organizationName(): string
-    get languages(): string[]
-    get repLanguage(): string
-    get url(): string
-    get starCnt(): number
+    get contributionCnt(): number;
+    get fullName(): string;
+    get owner(): string;
+    get id(): number;
+    get name(): string;
+    get organizationName(): string;
+    get languages(): string[];
+    get repLanguage(): string;
+    get url(): string;
+    get starCnt(): number;
 }

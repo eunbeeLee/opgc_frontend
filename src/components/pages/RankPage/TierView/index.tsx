@@ -4,12 +4,12 @@ import { T_ROOT_REDUCER } from '@/modules';
 import { actions } from '@/modules';
 import Table from '@/components/common/Table';
 import { CONTRI_COLUMNS } from './constants';
-import { GET_RANKS } from '@/modules/rank/followings';
+import { GET_RANKS } from '@/modules/rank/tier';
 
 interface I_PROPS {}
 
-const FollowingsView: React.FC<I_PROPS> = () => {
-    const { getRanks } = actions.rank.followings;
+const TierView: React.FC<I_PROPS> = () => {
+    const { getRanks } = actions.rank.tier;
     const { setLoading } = actions.ui.app;
 
     const dispatch = useDispatch();
@@ -17,12 +17,11 @@ const FollowingsView: React.FC<I_PROPS> = () => {
         (state: T_ROOT_REDUCER) => state
     );
     const {
-        root: { searchId },
-        followings: { totalUsersCnt, ranks },
+        tier: { ranks },
     } = rankState;
 
     useEffect(() => {
-        dispatch(getRanks(searchId));
+        dispatch(getRanks());
     }, []);
 
     useEffect(() => {
@@ -34,7 +33,7 @@ const FollowingsView: React.FC<I_PROPS> = () => {
             <div className="ranking__header">
                 <p className="ranking__help-text">
                     {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
-                    가장 많은 분들을 팔로잉하고 계신 TOP 10 개발자 분들입니다!
+                    가장 개발을 열심히한 TOP 10 개발자 분들입니다!
                     <br />
                     <span>랭킹은 주기적으로 갱신됩니다.</span>
                 </p>
@@ -46,4 +45,4 @@ const FollowingsView: React.FC<I_PROPS> = () => {
     );
 };
 
-export default React.memo(FollowingsView);
+export default React.memo(TierView);

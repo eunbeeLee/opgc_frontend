@@ -4,7 +4,7 @@ import { T_ROOT_REDUCER } from '@/modules';
 import { actions } from '@/modules';
 import Table from '@/components/common/Table';
 import { CONTRI_COLUMNS } from './constants';
-import { GET_RANKS } from '@/modules/rank/follwings';
+import { GET_RANKS } from '@/modules/rank/continuousCommit';
 
 interface I_PROPS {}
 

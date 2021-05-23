@@ -3,8 +3,16 @@ import ContributionView from './ContributionView';
 import FollowersView from './FollowersView';
 import FollowingsView from './FollowingsView';
 import LanguagesView from './LanguagesView';
+import TierView from './TierView';
 
 export const RANK_MENUS: I_MENU[] = [
+    {
+        display: '종합',
+        name: 'tier',
+        path: '/rank/tier',
+        component: TierView,
+        visible: true,
+    },
     {
         display: '기여도',
         name: 'contribution',
