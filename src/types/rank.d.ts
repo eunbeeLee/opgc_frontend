@@ -7,6 +7,7 @@ export interface I_RANK {
 }
 
 export interface I_TIER_RANK {
+    rank: number;
     id: number;
     username: string;
     name: string;

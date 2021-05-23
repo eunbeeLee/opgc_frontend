@@ -5,6 +5,8 @@ import { actions } from '@/modules';
 import Table from '@/components/common/Table';
 import { COLUMNS } from './constants';
 import { GET_RANKS } from '@/modules/rank/tier';
+import HighRankUserCard from '../HighRankUserCard';
+import './style.css';
 
 interface I_PROPS {}
 
@@ -41,13 +43,30 @@ const TierView: React.FC<I_PROPS> = () => {
                     <span>랭킹은 주기적으로 갱신됩니다.</span>
                 </p>
             </div>
-            <div className="ranking__content">
-                <ul>
-                    {top5Ranks.map((tierInfo) => (
-                        <li>{JSON.stringify(tierInfo)}</li>
-                    ))}
-                </ul>
-                <Table columns={COLUMNS} data={leftRanks} />
+            <div className="ranking__content tier-view">
+                {ranks.length > 0 && (
+                    <>
+                        <div className="tier-view__highest-users">
+                            <HighRankUserCard
+                                width={220}
+                                height={210}
+                                data={top5Ranks[0]}
+                            />
+                            <ul>
+                                {top5Ranks.slice(1, 5).map((tierInfo) => (
+                                    <li key={tierInfo.username}>
+                                        <HighRankUserCard
+                                            width={200}
+                                            height={180}
+                                            data={tierInfo}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <Table columns={COLUMNS} data={leftRanks} />
+                    </>
+                )}
             </div>
         </>
     );
