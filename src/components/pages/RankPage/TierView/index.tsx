@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { T_ROOT_REDUCER } from '@/modules';
 import { actions } from '@/modules';
 import Table from '@/components/common/Table';
-import { CONTRI_COLUMNS } from './constants';
+import { COLUMNS } from './constants';
 import { GET_RANKS } from '@/modules/rank/tier';
 
 interface I_PROPS {}
@@ -19,6 +19,9 @@ const TierView: React.FC<I_PROPS> = () => {
     const {
         tier: { ranks },
     } = rankState;
+
+    const top5Ranks = useMemo(() => ranks.slice(0, 5), [ranks]);
+    const leftRanks = useMemo(() => ranks.slice(5), [ranks]);
 
     useEffect(() => {
         dispatch(getRanks());
@@ -39,7 +42,12 @@ const TierView: React.FC<I_PROPS> = () => {
                 </p>
             </div>
             <div className="ranking__content">
-                <Table columns={CONTRI_COLUMNS} data={ranks} />
+                <ul>
+                    {top5Ranks.map((tierInfo) => (
+                        <li>{JSON.stringify(tierInfo)}</li>
+                    ))}
+                </ul>
+                <Table columns={COLUMNS} data={leftRanks} />
             </div>
         </>
     );

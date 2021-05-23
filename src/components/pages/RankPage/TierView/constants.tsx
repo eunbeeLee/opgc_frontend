@@ -4,12 +4,7 @@ import { I_COLUMN } from '@/components/common/Table/types';
 import { Link } from 'react-router-dom';
 import { I_RANK } from '@/types/rank';
 
-export const CONTRI_COLUMNS: I_COLUMN[] = [
-    {
-        display: '순위',
-        name: 'rank',
-        key: true,
-    },
+export const COLUMNS: I_COLUMN[] = [
     {
         display: '아이디',
         name: 'githubId',
@@ -28,10 +23,14 @@ export const CONTRI_COLUMNS: I_COLUMN[] = [
                 </Link>
             );
         },
-        style: { textAlign: 'left' },
+        key: true,
+    },
+    {
+        display: '티어',
+        name: 'tier',
     },
     {
         display: '점수',
-        name: 'score',
+        name: 'continuousCommit',
     },
 ];
