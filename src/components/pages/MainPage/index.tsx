@@ -30,16 +30,6 @@ const MainPage: React.FC<I_PROPS> = () => {
             <section>
                 <Search />
             </section>
-
-            {/* 1일 1커밋 */}
-            <section className="main__rank">
-                <h1>1일 1커밋을 실천하는 개발자 랭킹 🌱</h1>
-                <br />
-                <div>좀 더 다양한 랭킹은 상단 Rank 탭을 이용하세요.</div>
-                <div className="ranking__content">
-                    <Table columns={CONTRI_COLUMNS} data={ranks} />
-                </div>
-            </section>
         </div>
     );
 };
