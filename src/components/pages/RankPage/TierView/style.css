@@ -1,0 +1,15 @@
+.tier-view__highest-users {
+    margin-bottom: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tier-view__highest-users ul {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

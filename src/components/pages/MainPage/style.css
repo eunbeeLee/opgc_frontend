@@ -3,15 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-/* 모바일에 적용될 스타일을 먼저 작성합니다. */
-
-#main-page section {
-    margin-top: 50px;
-}
-
-.search__wrap {
-    min-height: calc(100vh - var(--height-footer) - var(--height-header));
+    margin-bottom: 50px;
 }
 
 .main-page__logo {
@@ -25,43 +17,15 @@
 }
 
 .main__rank {
-    font-size: var(--font-x-micro);
-}
-
-.main__rank h1 {
     font-size: var(--font-regular);
 }
 
-@media screen and (min-width: 769px) {
-    /* 데스크탑에서 사용될 스타일을 여기에 작성합니다. */
-    .search__wrap {
-        min-height: calc(100vh - var(--height-footer) - var(--height-header));
-    }
+.main__rank h1 {
+    font-size: var(--font-medium);
+}
 
-    #search {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 50px;
-    }
-
-    .search__main-logo {
-        width: 500px;
-        transition: transform 2s ease-in-out;
-    }
-
-    .search__main-logo:hover {
-        transform: rotate(-4deg) scale(1.1);
-    }
-
-    .main__rank {
-        font-size: var(--font-regular);
-    }
-
-    .main__rank h1 {
-        font-size: var(--font-medium);
-    }
+#main-page section {
+    margin-top: 50px;
 }
 
 /*  ### PC ###  */
@@ -83,4 +47,12 @@
 /* ### 모바일 ### */
 @media (max-width: 576px) {
     /* 너비가 0 ~ 576px: 모바일 */
+
+    .main__rank {
+        font-size: var(--font-x-micro);
+    }
+
+    .main__rank h1 {
+        font-size: var(--font-regular);
+    }
 }

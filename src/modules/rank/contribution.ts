@@ -13,9 +13,9 @@ interface I_STATE {
 /**
  * actions
  */
-export const GET_RANKS = 'rank/GET_RANKS';
-export const GET_RANKS_SUCCESS = 'rank/GET_RANKS_SUCCESS';
-export const GET_RANKS_FAILURE = 'rank/GET_RANKS_FAILURE';
+export const GET_RANKS = 'rank/GET_CONTRIBUTION_RANKS';
+export const GET_RANKS_SUCCESS = 'rank/GET_CONTRIBUTION_RANKS_SUCCESS';
+export const GET_RANKS_FAILURE = 'rank/GET_CONTRIBUTION_RANKS_FAILURE';
 
 /**
  * functions for createing actions
@@ -43,7 +43,7 @@ const getRanksSaga = createRequestSaga(GET_RANKS, api.getRanks);
 /**
  * module saga
  */
-export function* contributionSaga(): Generator {
+export function* contributionRankSaga(): Generator {
     yield takeLatest(GET_RANKS, getRanksSaga);
 }
 

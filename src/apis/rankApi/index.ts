@@ -9,7 +9,8 @@ export async function getRanks({
     language,
 }: {
     type: E_RANK_TYPE;
-    language: E_LANGUAGE;
+    language?: E_LANGUAGE;
+    // searchId: string;
 }): Promise<I_RANK[]> {
     const url = addQueryStr({ type: getRankType(type, language) }, '/ranks/');
     const { data: ranks } = await axios.get<I_API_RANK[]>(url);
