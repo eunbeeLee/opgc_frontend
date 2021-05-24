@@ -26,6 +26,10 @@ const Typer: React.FC<I_PROPS> = ({ contents, style = {} }) => {
 
     const type = useCallback(
         (content: string) => {
+            if (!cursorRef.current) {
+                return;
+            }
+
             const charArr = content.split('');
             const char = charArr.shift();
 
@@ -40,6 +44,10 @@ const Typer: React.FC<I_PROPS> = ({ contents, style = {} }) => {
     );
 
     const erase = useCallback(() => {
+        if (!cursorRef.current) {
+            return;
+        }
+
         const text = cursorRef.current.innerHTML;
         const charArr = text.split('');
 

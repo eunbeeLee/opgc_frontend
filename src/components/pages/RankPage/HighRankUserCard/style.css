@@ -14,6 +14,7 @@
     border-radius: 15px;
     cursor: pointer;
     transition: box-shadow ease-in-out 100ms;
+    padding: 15px;
 }
 
 .highest-user:hover {

@@ -1,58 +1,43 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './style.css';
-import { CONTRI_COLUMNS } from './constants';
-import { T_ROOT_REDUCER } from '@/modules';
-import { actions } from '@/modules';
-import { useDispatch, useSelector } from 'react-redux';
-import Table from '@/components/common/Table';
 import Search from './Search';
 import Typer from '@/components/common/Typer';
+import Ranking from './Ranking';
 
 interface I_PROPS {}
 
 const MainPage: React.FC<I_PROPS> = () => {
-    const { getRanks } = actions.rank.ContinousCommit;
-    const dispatch = useDispatch();
-    const {
-        root: { searchId },
-        continuousCommit: { ranks },
-    } = useSelector((state: T_ROOT_REDUCER) => state.rank);
-
-    useEffect(() => {
-        dispatch(getRanks(searchId));
-    }, []);
-
     return (
         <div id="main-page">
             <section className="main-page__column">
-                <h1>
-                    Open <br />
+                <h1 className="main-page__title">
+                    Over <br />
                     Programmed <br />
                     Good <br />
                     Coding
                 </h1>
-                <p>
-                    <span className="main-page__typing typing">
+                <p className="main-page__desc">
+                    <span className="main-page__typer">
                         Ranking of{' '}
                         <Typer
                             contents={[
                                 'Tier',
                                 'Followers',
                                 'Followings',
-                                '1 Day 1 Commit',
+                                'Daily Commit',
                             ]}
                         />
                     </span>
                     <br />
-                    OPGG만의 다양한 개발자 순위를 만나보세요.
+                    OPGC만의 다양한 개발자 순위를 만나보세요.
                 </p>
-                <img
-                    className="main-page__logo"
-                    src="/assets/imgs/search/index-logo.png"
-                />
-                <Search />
+                <div className="main-page__search">
+                    <Search />
+                </div>
             </section>
-            <section className="main-page__column"></section>
+            <section className="main-page__column pc-only">
+                <Ranking />
+            </section>
         </div>
     );
 };

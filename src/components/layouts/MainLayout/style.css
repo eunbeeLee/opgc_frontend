@@ -194,4 +194,8 @@ body {
     .header__menu-btn {
         display: unset;
     }
+
+    #content > div {
+        padding: 30px;
+    }
 }

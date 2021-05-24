@@ -28,7 +28,7 @@
     font-size: var(--font-micro);
     float: left;
     padding: 15px 25px;
-    width: 33.3%;
+    width: 50%;
 }
 
 .recommand__id:hover {
