@@ -33,7 +33,7 @@ const TierView: React.FC = () => {
 
     return (
         <>
-            <div className="ranking__header">
+            <div className="ranking__header pc-only">
                 <p className="ranking__help-text">
                     {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
                     개발에 열정적인 TOP 10 개발자 분들입니다!

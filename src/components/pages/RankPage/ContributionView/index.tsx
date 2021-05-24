@@ -31,7 +31,7 @@ const ContributionView: React.FC<I_PROPS> = () => {
 
     return (
         <>
-            <div className="ranking__header">
+            <div className="ranking__header pc-only">
                 <p className="ranking__help-text">
                     {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
                     다양한 코드에 기여를 해주신 TOP 10 개발자 분들입니다!

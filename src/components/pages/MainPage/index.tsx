@@ -18,7 +18,7 @@ const MainPage: React.FC<I_PROPS> = () => {
                 </h1>
                 <p className="main-page__desc">
                     <span className="main-page__typer">
-                        Ranking of{' '}
+                        Ranking By{' '}
                         <Typer
                             contents={[
                                 'Tier',

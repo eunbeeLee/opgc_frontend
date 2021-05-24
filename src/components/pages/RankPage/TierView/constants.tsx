@@ -47,8 +47,4 @@ export const COLUMNS: I_COLUMN[] = [
             </>
         ),
     },
-    {
-        display: '점수',
-        name: 'continuousCommit',
-    },
 ];

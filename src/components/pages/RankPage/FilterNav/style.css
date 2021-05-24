@@ -1,62 +1,64 @@
-.filter_nav {
+.filter-nav {
     font-size: var(--font-regular);
     color: var(--color-light-grey);
     border-bottom: 1px solid var(--color-light-white);
     box-sizing: border-box;
 }
 
-.filter_nav__list {
+.filter-nav__list {
     display: flex;
-    font-size: var(--font-small);
 }
 
-.filter_nav__item + .filter_nav__item {
+.filter-nav__item + .filter-nav__item {
     margin-left: 35px;
 }
 
-.filter_nav__link {
+.filter-nav__link {
     display: inline-block;
     cursor: pointer;
     padding-bottom: 20px;
 }
 
-.filter_nav__link:hover {
+.filter-nav__link:hover {
     font-weight: bolder;
 }
 
-.filter_nav__link.active {
+.filter-nav__link.active {
     border-bottom: 2px solid var(--color-light-grey);
     font-weight: bolder;
 }
 
-@media screen and (min-width: 769px) {
-    .filter_nav {
-        font-size: var(--font-regular);
-        color: var(--color-light-grey);
-        border-bottom: 1px solid var(--color-light-white);
-        box-sizing: border-box;
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
+}
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
+
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
+
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
+    .ranking__nav {
+        overflow-x: auto;
     }
 
-    .filter_nav__list {
-        display: flex;
+    .filter-nav__list {
+        width: 100%;
+        white-space: nowrap;
+        display: unset;
     }
 
-    .filter_nav__item + .filter_nav__item {
-        margin-left: 35px;
-    }
-
-    .filter_nav__link {
+    .filter-nav__item {
         display: inline-block;
-        cursor: pointer;
-        padding-bottom: 20px;
-    }
-
-    .filter_nav__link:hover {
-        font-weight: bolder;
-    }
-
-    .filter_nav__link.active {
-        border-bottom: 2px solid var(--color-light-grey);
-        font-weight: bolder;
+        font-size: var(--font-micro);
     }
 }
