@@ -7,21 +7,16 @@
 }
 
 .main-page__logo {
-    width: 30%;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
     min-width: 250px;
     transition: transform 2s ease-in-out;
 }
 
 .main-page__logo:hover {
     transform: rotate(-4deg) scale(1.02);
-}
-
-.main__rank {
-    font-size: var(--font-regular);
-}
-
-.main__rank h1 {
-    font-size: var(--font-medium);
 }
 
 #main-page section {
@@ -47,12 +42,4 @@
 /* ### 모바일 ### */
 @media (max-width: 576px) {
     /* 너비가 0 ~ 576px: 모바일 */
-
-    .main__rank {
-        font-size: var(--font-x-micro);
-    }
-
-    .main__rank h1 {
-        font-size: var(--font-regular);
-    }
 }
