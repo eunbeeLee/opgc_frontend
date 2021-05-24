@@ -1,0 +1,20 @@
+.typer {
+    position: relative;
+    display: inline-block;
+    font-size: inherit;
+    color: inherit;
+}
+.typer:after {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -0.25em;
+    content: "";
+    display: block;
+    background-color: var(--color-dark-grey);
+    width: 2.5px;
+}
+
+.typer.active:after {
+    display: none;
+}

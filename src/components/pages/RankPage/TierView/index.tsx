@@ -8,9 +8,7 @@ import { GET_RANKS } from '@/modules/rank/tier';
 import HighRankUserCard from '../HighRankUserCard';
 import './style.css';
 
-interface I_PROPS {}
-
-const TierView: React.FC<I_PROPS> = () => {
+const TierView: React.FC = () => {
     const { getRanks } = actions.rank.tier;
     const { setLoading } = actions.ui.app;
 

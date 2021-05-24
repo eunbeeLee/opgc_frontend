@@ -1,13 +1,13 @@
 /* variables */
 body {
     /* height */
-    --height-header: 100px;
+    --height-header: 80px;
     --height-footer: 150px;
 }
 
 /* Header */
 #header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     height: var(--height-header);
@@ -16,6 +16,7 @@ body {
     box-sizing: border-box;
     background-color: var(--color-white);
     z-index: 1;
+    font-size: 0.9rem;
 }
 
 .header__wrap {
@@ -192,5 +193,9 @@ body {
 
     .header__menu-btn {
         display: unset;
+    }
+
+    #content > div {
+        padding: 30px;
     }
 }
