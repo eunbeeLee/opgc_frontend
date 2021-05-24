@@ -42,8 +42,8 @@ h1 {
     font-size: x-large;
 }
 
-@media (max-width: 768px) {
-    /* 너비가 ~ 768px: 타블릿, 모바일 */
+@media (max-width: 576px) {
+    /* 너비가 ~ 576px: 모바일 */
     .pc-only {
         display: none !important;
     }
