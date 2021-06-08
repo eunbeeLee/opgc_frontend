@@ -9,6 +9,7 @@ export const CONTRI_COLUMNS: I_COLUMN[] = [
         display: '순위',
         name: 'rank',
         key: true,
+        // width: 100,
     },
     {
         display: '아이디',
@@ -28,7 +29,7 @@ export const CONTRI_COLUMNS: I_COLUMN[] = [
                 </Link>
             );
         },
-        style: { textAlign: 'left' },
+        // style: { textAlign: 'left' },
     },
     {
         display: '점수',

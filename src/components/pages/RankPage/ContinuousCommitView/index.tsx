@@ -31,7 +31,7 @@ const ContinuousCommitView: React.FC<I_PROPS> = () => {
 
     return (
         <>
-            <div className="ranking__header">
+            <div className="ranking__header pc-only">
                 <p className="ranking__help-text">
                     {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
                     하루하루 꾸준히 커밋을 해주신 TOP 10 개발자입니다!

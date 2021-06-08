@@ -31,7 +31,7 @@ const FollowingsView: React.FC<I_PROPS> = () => {
 
     return (
         <>
-            <div className="ranking__header">
+            <div className="ranking__header pc-only">
                 <p className="ranking__help-text">
                     {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
                     가장 많은 분들을 팔로잉하고 계신 TOP 10 개발자 분들입니다!

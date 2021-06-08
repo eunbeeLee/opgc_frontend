@@ -1,7 +1,7 @@
 /* variables */
 body {
     /* height */
-    --height-header: 80px;
+    --height-header: 60px;
     --height-footer: 150px;
 }
 
@@ -11,10 +11,11 @@ body {
     width: 100%;
     top: 0;
     height: var(--height-header);
-    border-bottom: solid 2px var(--color-light-white);
+    box-shadow: 0 2px 4px 0 hsl(0deg 0% 81% / 50%);
     padding: 5px 5%;
     box-sizing: border-box;
-    background-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: saturate(180%) blur(15px);
     z-index: 1;
     font-size: 0.9rem;
 }
@@ -155,7 +156,6 @@ body {
     #header {
         position: fixed;
         height: unset;
-        background-color: var(--color-white);
         z-index: 1;
     }
 

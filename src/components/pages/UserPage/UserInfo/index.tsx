@@ -20,31 +20,31 @@ const UserInfo: React.FC<I_PROPS> = ({ user }) => {
         () => [
             {
                 icon: faCube,
-                title: 'Repositories',
+                title: '저장소',
                 name: 'repositories',
                 value: user.repositories.length,
             },
             {
                 icon: faUserFriends,
-                title: 'Followers',
+                title: '팔로워',
                 name: 'repositories',
                 value: user.followersCnt,
             },
             {
                 icon: faGratipay,
-                title: 'Followings',
+                title: '팔로잉',
                 name: 'repositories',
                 value: user.followingCnt,
             },
             {
                 icon: faPuzzlePiece,
-                title: 'Contribution',
+                title: '기여도',
                 name: 'repositories',
                 value: user.totalContributionCnt,
             },
             {
                 icon: faStar,
-                title: 'Stars',
+                title: '좋아요',
                 name: 'repositories',
                 value: user.totalStarCnt,
             },
@@ -67,6 +67,20 @@ const UserInfo: React.FC<I_PROPS> = ({ user }) => {
                         />
                     </a>
                     <div className="user-info-account__profile__info">
+                        <div className="user-info-account__name">
+                            <a
+                                href={user.githubUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {user.name || user.username}
+                            </a>
+                            {user.name && (
+                                <span className="user-info-account__id">
+                                    @{user.username}
+                                </span>
+                            )}
+                        </div>
                         <ul className="user-info-account__values">
                             {countInfo.map((count) => (
                                 <li
@@ -88,20 +102,6 @@ const UserInfo: React.FC<I_PROPS> = ({ user }) => {
                                 </li>
                             ))}
                         </ul>
-                        <div className="user-info-account__name">
-                            <a
-                                href={user.githubUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                {user.name || user.username}
-                            </a>
-                            {user.name && (
-                                <span className="user-info-account__id">
-                                    @{user.username}
-                                </span>
-                            )}
-                        </div>
                         <div className="user-info-account__desc">
                             <span>{user.desc}</span>
                             {(user.company ||

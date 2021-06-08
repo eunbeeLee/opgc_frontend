@@ -17,5 +17,15 @@ export function getDataKey(data: I_DATA, keyPropierties: string[]): string {
 }
 
 export function getColumnsWidth(columns: I_COLUMN[]): string {
-    return `${100 / columns.length}%`;
+    let unsepcificColumnCnt = columns.length;
+    const specificWidth = columns.reduce((acc, column) => {
+        if (column.width) {
+            unsepcificColumnCnt--;
+            return acc + column.width;
+        } else {
+            return acc;
+        }
+    }, 0);
+
+    return `calc((100% - ${specificWidth}) / ${unsepcificColumnCnt})`;
 }

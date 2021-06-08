@@ -7,27 +7,26 @@ interface I_PROPS {}
 
 const FilterNav: React.FC<I_PROPS> = () => {
     return (
-        <div className="filter_nav">
-            <ul className="filter_nav__list">
-                {
-                    RANK_MENUS.map(menu => { 
-                        return menu.visible && (
-                            <li key={menu.name} className="filter_nav__item">
+        <div className="filter-nav">
+            <ul className="filter-nav__list">
+                {RANK_MENUS.map((menu) => {
+                    return (
+                        menu.visible && (
+                            <li key={menu.name} className="filter-nav__item">
                                 <NavLink
                                     to={menu.path}
-                                    className="filter_nav__link"
+                                    className="filter-nav__link"
                                     activeClassName="active"
                                 >
                                     {menu.display}
                                 </NavLink>
-                            </li>       
-                        );
-                    })
-                }
+                            </li>
+                        )
+                    );
+                })}
             </ul>
         </div>
     );
 };
 
 export default React.memo(FilterNav);
-
