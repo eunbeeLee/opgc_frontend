@@ -39,6 +39,7 @@ const Header = ({ menuList }) => {
                         {menuList.map((menu) => (
                             <li key={menu.name}>
                                 <NavLink
+                                    onClick={handleMenuToggleBtn}
                                     to={menu.path}
                                     className="navbar__item"
                                     activeClassName="active"
