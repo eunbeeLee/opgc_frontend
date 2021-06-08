@@ -13,12 +13,13 @@ const Table: React.FC<I_PROPS> = ({ data, columns }) => {
         <table className="table">
             <thead>
                 <tr>
-                    {columns.map(column => (
-                        <th 
+                    {columns.map((column) => (
+                        <th
                             key={column.name}
                             style={{
-                                width: getColumnsWidth(columns),
-                                ...(column.style ?? {})
+                                width:
+                                    column?.width ?? getColumnsWidth(columns),
+                                ...(column.style ?? {}),
                             }}
                         >
                             {column.display}
@@ -27,21 +28,24 @@ const Table: React.FC<I_PROPS> = ({ data, columns }) => {
                 </tr>
             </thead>
             <tbody>
-                {data.map(d => (
+                {data.map((d) => (
                     <tr key={getDataKey(d, getKeyProperties(columns))}>
-                        {
-                            columns.map(column => (
-                                <td 
-                                    key={`${getDataKey(d, getKeyProperties(columns))}_${column.name}`}
-                                    style={{
-                                        width: getColumnsWidth(columns),
-                                        ...(column.style ?? {})
-                                    }}
-                                >
-                                    { column.render ? column.render(d) : d[column.name] }
-                                </td>
-                            ))  
-                        }
+                        {columns.map((column) => (
+                            <td
+                                key={`${getDataKey(
+                                    d,
+                                    getKeyProperties(columns)
+                                )}_${column.name}`}
+                                style={{
+                                    width: getColumnsWidth(columns),
+                                    ...(column.style ?? {}),
+                                }}
+                            >
+                                {column.render
+                                    ? column.render(d)
+                                    : d[column.name]}
+                            </td>
+                        ))}
                     </tr>
                 ))}
             </tbody>

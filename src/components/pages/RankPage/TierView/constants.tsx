@@ -10,6 +10,7 @@ export const COLUMNS: I_COLUMN[] = [
         display: '순위',
         name: 'rank',
         key: true,
+        // width: 200,
     },
     {
         display: '아이디',
