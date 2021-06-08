@@ -22,7 +22,7 @@ export const MAIN_MENU_LIST: I_MENU[] = [
         name: 'intro',
         path: '/intro',
         component: IntroPage,
-        visible: true,
+        visible: false,
     },
     {
         display: 'User',
