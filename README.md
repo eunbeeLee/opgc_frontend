@@ -29,12 +29,12 @@ React 학습을 위한 토이프로젝트입니다.
 
 ## Tech Stack
 
--   npm packages (eslint, prettier, husky ...)
--   CSS
--   Redux (ReduxSaga)
--   React
--   Typescript
--   Webpack
+-   HTML5, CSS3 - 마크업
+-   eslint, prettier, husky - 소스 품질관리
+-   Redux (ReduxSaga) - 상태관리, 비동기작업
+-   React - 컴포넌트개발 라이브러리
+-   Typescript - 타입기반의 javascript superset
+-   Webpack - 빌드 자동화 및 최적화
 
 ## Proejct Structure (major factors)
 
@@ -44,17 +44,15 @@ React 학습을 위한 토이프로젝트입니다.
 │   ├── app.js
 │   ├── index.html
 ├── src
-│   ├── apis
+│   ├── apis # api 비동기 호출 함수들
 │   ├── assets # 정적리소스
-│   ├── components
-│   │   ├── common # 애플리케이션 공통 컴포넌트
-│   │   ├── layouts # 페이지에서 공용으로 사용할 수 있는 레이아웃
-│   │   └── pages # 페이지
+│   ├── components # presentational components, 계층구조없이 구성
+│   ├── containers # container components, page를 root로 계층구조로구성
+│   ├── layouts # 페이지에서 공용으로 사용할 수 있는 레이아웃
 │   ├── constants # 앱 공통으로 사용하는 상수 값 or 클래스
-│   ├── libs # 사용자 정의 라이브러리, uilts과 비슷한 용도
+│   ├── utils # 사용자 정의 util
 │   ├── modules # redux module
-│   ├── services
 │   └── types # type 정의
-├── ...
+├── ... # 기타 환경설정파일들
 └── README.md
 ```

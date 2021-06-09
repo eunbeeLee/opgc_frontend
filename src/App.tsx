@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { LoginLayout, MainLayout } from '@/components/layouts';
+import { LoginLayout, MainLayout } from '@/layouts';
 import '@/assets/css/index.css';
-import { LoginPage, NotFoundPage } from './components/pages';
+import { LoginPage, NotFoundPage } from './containers';
 import { Redirect } from 'react-router';
-import { MAIN_MENU_LIST } from './constants/application';
-import Loading from './components/common/Loading';
+import { MAIN_MENU_LIST } from './constants/router';
+import Loading from './components/Loading';
 import { useSelector } from 'react-redux';
 import { T_ROOT_REDUCER } from './modules';
 

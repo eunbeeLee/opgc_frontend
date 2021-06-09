@@ -11,14 +11,17 @@ interface I_STATE {
  * actions
  */
 export const SET_LOADING = 'ui/SET_LOADING';
-export const SET_NAV = 'ui/SET_NAV';
+export const SET_MOBILE_NAV = 'ui/SET_MOBILE_NAV';
 
 /**
  * functions for creating actions
  */
 export const actions = {
     setLoading: createAction(SET_LOADING, (value: boolean): boolean => value),
-    setNav: createAction(SET_NAV, (value: boolean): boolean => value),
+    setMobileNav: createAction(
+        SET_MOBILE_NAV,
+        (value: boolean): boolean => value
+    ),
 };
 
 /**
@@ -41,7 +44,7 @@ const app = handleActions(
             ...state,
             loading: payload,
         }),
-        [SET_NAV]: (
+        [SET_MOBILE_NAV]: (
             state: I_STATE,
             { payload }: { payload: boolean }
         ): I_STATE => ({

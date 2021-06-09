@@ -1,6 +1,6 @@
-import axios from '@/libs/axios';
+import axios from '@/utils/axios';
 import { E_RANK_TYPE, E_LANGUAGE, I_RANK as I_API_RANK } from './types';
-import { addQueryStr } from '@/libs/location';
+import { addQueryStr } from '@/utils/location';
 import { getRankType } from './services';
 import { I_RANK } from '@/types/rank';
 

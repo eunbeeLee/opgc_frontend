@@ -1,3 +1,8 @@
+/**
+ * 검색창과 관련된 store
+ * 최근검색, 즐겨찾기와 관련된 정보를 관리
+ * 데이터는 한 화면에서 뿌릴지 몰라도 데이터의 추가삭제가 다양한 페이지에서 일어남에 따라 생성했다.
+ */
 import { handleActions, createAction } from 'redux-actions';
 import { FAVORITES_KEY, HISTORIES_KEY } from './constants';
 import { getList } from './services';
