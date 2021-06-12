@@ -1,11 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { actions } from '@/modules';
+import { MAIN_MENU_LIST } from '@/constants/menu';
+
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
 import './style.css';
-import { MAIN_MENU_LIST } from '@/constants/router';
-import { useDispatch } from 'react-redux';
-import { actions } from '@/modules';
 
 interface I_Props {
     children?: any;

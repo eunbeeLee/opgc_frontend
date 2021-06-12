@@ -44,7 +44,7 @@ const Header = ({ menuList }) => {
                                     className="navbar__item"
                                     activeClassName="active"
                                 >
-                                    {menu.display}
+                                    {menu.label}
                                 </NavLink>
                             </li>
                         ))}

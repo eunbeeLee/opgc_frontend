@@ -10,6 +10,7 @@ import { actions, T_ROOT_REDUCER } from '@/modules';
 import UserInfo from './UserInfo';
 import LanguagesPieChart from './LanguagesPieChart';
 import ErrorLayout from '@/layouts/ErrorLayout';
+import MainLayout from '@/layouts/MainLayout';
 
 interface I_PROPS {}
 
@@ -53,40 +54,44 @@ const UserPage: React.FC<I_PROPS> = () => {
         return null;
     } else {
         return (
-            <div id="user-info">
-                <div className="user-info__refresh">
-                    <button onClick={handleClickRefresh}>
-                        <FontAwesomeIcon
-                            icon={faSync}
-                            className={`user-info__refresh-btn${
-                                loadingState[UPDATE_USER] ? ' refreshing' : ''
-                            }`}
-                        />
-                    </button>
-                    <span className="user-info__refresh-date">
-                        {loadingState[UPDATE_USER]
-                            ? '업데이트 중입니다.'
-                            : `최근업데이트: ${user.updated}`}
-                    </span>
+            <MainLayout>
+                <div id="user-info">
+                    <div className="user-info__refresh">
+                        <button onClick={handleClickRefresh}>
+                            <FontAwesomeIcon
+                                icon={faSync}
+                                className={`user-info__refresh-btn${
+                                    loadingState[UPDATE_USER]
+                                        ? ' refreshing'
+                                        : ''
+                                }`}
+                            />
+                        </button>
+                        <span className="user-info__refresh-date">
+                            {loadingState[UPDATE_USER]
+                                ? '업데이트 중입니다.'
+                                : `최근업데이트: ${user.updated}`}
+                        </span>
+                    </div>
+                    {/* Top */}
+                    <section className="user-info__summary">
+                        <UserInfo user={user} />
+                    </section>
+
+                    {/* Bottom */}
+                    <section className="user-info__detail">
+                        <section>
+                            <h1>Languages</h1>
+                            <LanguagesPieChart data={user.languages} />
+                        </section>
+
+                        <section className="user-info__repositories">
+                            <h1>Repositories</h1>
+                            <RepoList repos={user?.repositories} />
+                        </section>
+                    </section>
                 </div>
-                {/* Top */}
-                <section className="user-info__summary">
-                    <UserInfo user={user} />
-                </section>
-
-                {/* Bottom */}
-                <section className="user-info__detail">
-                    <section>
-                        <h1>Languages</h1>
-                        <LanguagesPieChart data={user.languages} />
-                    </section>
-
-                    <section className="user-info__repositories">
-                        <h1>Repositories</h1>
-                        <RepoList repos={user?.repositories} />
-                    </section>
-                </section>
-            </div>
+            </MainLayout>
         );
     }
 };

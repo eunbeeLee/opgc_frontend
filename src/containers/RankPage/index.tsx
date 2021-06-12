@@ -1,16 +1,16 @@
 import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './style.css';
+import './TierView/style.css';
 import FilterNav from './FilterNav';
-import { Route, Switch, Redirect, useRouteMatch } from 'react-router';
-import { RANK_MENUS } from './constants';
 import { actions, T_ROOT_REDUCER } from '@/modules';
+
+import MainLayout from '@/layouts/MainLayout';
 
 interface I_PROPS {}
 
-const RankPage: React.FC<I_PROPS> = () => {
+const RankPage: React.FC<I_PROPS> = ({ children }) => {
     const action = actions.rank.root;
-    const match = useRouteMatch();
     const dispatch = useDispatch();
     const { rank: rankState } = useSelector((state: T_ROOT_REDUCER) => state);
     const { root: searchId } = rankState;
@@ -27,32 +27,14 @@ const RankPage: React.FC<I_PROPS> = () => {
     };
 
     return (
-        <div id="ranking">
-            <div className="ranking__nav">
-                <FilterNav />
-                {/* 추후제공 */}
-                {/* <form className="ranking__search-form" onSubmit={handleSearch}>
-                    <input
-                        type="text"
-                        name="serached_id"
-                        placeholder="Github ID"
-                        value={searchId}
-                        onChange={handleChangeSearchedId}
-                    />
-                    <input type="submit" value="Search" />
-                </form> */}
+        <MainLayout>
+            <div id="ranking">
+                <div className="ranking__nav">
+                    <FilterNav />
+                </div>
+                {children}
             </div>
-            <Switch>
-                {RANK_MENUS.map((menu) => (
-                    <Route
-                        key={menu.name}
-                        path={menu.path}
-                        component={menu.component}
-                    />
-                ))}
-                <Redirect exact path={match.path} to={RANK_MENUS[0].path} />
-            </Switch>
-        </div>
+        </MainLayout>
     );
 };
 
