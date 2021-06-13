@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 interface I_PROPS {
-    data: Repository;
+    data: I_REPOSITORY;
 }
 
 const RepoCard: React.FC<I_PROPS> = ({ data: repo }) => {

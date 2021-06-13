@@ -1,8 +1,8 @@
 import axios from '@/utils/axios';
-import { E_RANK_TYPE, E_LANGUAGE, I_RANK as I_API_RANK } from './types';
+import { I_API_GET_RANK_RES } from './types';
+import { E_LANGUAGE, E_RANK_TYPE } from '@/constants/rank';
 import { addQueryStr } from '@/utils/location';
 import { getRankType } from './services';
-import { I_RANK } from '@/types/rank';
 
 export async function getRanks({
     type,
@@ -13,7 +13,7 @@ export async function getRanks({
     // searchId: string;
 }): Promise<I_RANK[]> {
     const url = addQueryStr({ type: getRankType(type, language) }, '/ranks/');
-    const { data: ranks } = await axios.get<I_API_RANK[]>(url);
+    const { data: ranks } = await axios.get<I_API_GET_RANK_RES>(url);
 
     return ranks.map((rank) => ({
         id: rank.id,

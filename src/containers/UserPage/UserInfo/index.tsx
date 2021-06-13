@@ -12,7 +12,7 @@ import React, { useMemo } from 'react';
 import './style.css';
 
 interface I_PROPS {
-    user: User;
+    user: I_USER;
 }
 
 const UserInfo: React.FC<I_PROPS> = ({ user }) => {

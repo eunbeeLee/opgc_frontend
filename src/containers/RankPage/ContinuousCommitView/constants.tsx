@@ -2,7 +2,6 @@ import Avatar from '@/components/Avatar';
 import React from 'react';
 import { I_COLUMN } from '@/components/Table/types';
 import { Link } from 'react-router-dom';
-import { I_RANK } from '@/types/rank';
 
 export const CONTRI_COLUMNS: I_COLUMN[] = [
     {

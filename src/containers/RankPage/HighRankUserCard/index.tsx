@@ -1,6 +1,5 @@
 import Avatar from '@/components/Avatar';
 import { Link } from 'react-router-dom';
-import { I_TIER_RANK } from '@/types/rank';
 import React from 'react';
 import { getTierImage } from '../service';
 import './style.css';
@@ -10,7 +9,7 @@ interface I_PROPS {
     height?: number;
     color?: string;
     style?: Object;
-    data: I_TIER_RANK;
+    data: I_TIER;
 }
 const HighRankUserCard: React.FC<I_PROPS> = ({
     width,
@@ -36,7 +35,7 @@ const HighRankUserCard: React.FC<I_PROPS> = ({
                     <Avatar
                         width={70}
                         height={70}
-                        imgUrl={data.profileImageUrl ?? '/assets/imgs/logo.png'}
+                        imgUrl={data.profileImgUrl ?? '/assets/imgs/logo.png'}
                     />
                 </div>
 
@@ -53,7 +52,7 @@ const HighRankUserCard: React.FC<I_PROPS> = ({
                     />
                     <span className="highest-user__tier-name">{data.tier}</span>
                     <span className="highest-user__tier-pt">
-                        {data.continuousCommit}pt
+                        {data.continuousCommitDay}pt
                     </span>
                 </p>
             </article>

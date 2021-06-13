@@ -2,7 +2,6 @@ import Avatar from '@/components/Avatar';
 import React from 'react';
 import { I_COLUMN } from '@/components/Table/types';
 import { Link } from 'react-router-dom';
-import { I_TIER_RANK } from '@/types/rank';
 import { getTierImage } from '../service';
 
 export const COLUMNS: I_COLUMN[] = [
@@ -15,13 +14,13 @@ export const COLUMNS: I_COLUMN[] = [
     {
         display: '아이디',
         name: 'githubId',
-        render: (d: I_TIER_RANK): React.ReactElement => {
+        render: (d: I_TIER): React.ReactElement => {
             return (
                 <Link to={`/users/${d.username}`} style={{ cursor: 'pointer' }}>
                     <Avatar
                         width={30}
                         height={30}
-                        imgUrl={d.profileImageUrl || '/assets/imgs/logo.png'}
+                        imgUrl={d.profileImgUrl || '/assets/imgs/logo.png'}
                         style={{ transform: 'translateY(calc(50% - 5px))' }}
                     />
                     <span style={{ marginLeft: '5px', cursor: 'inherit' }}>
@@ -34,7 +33,7 @@ export const COLUMNS: I_COLUMN[] = [
     {
         display: '티어',
         name: 'tier',
-        render: (d: I_TIER_RANK): React.ReactElement => (
+        render: (d: I_TIER): React.ReactElement => (
             <>
                 <Avatar
                     width={20}

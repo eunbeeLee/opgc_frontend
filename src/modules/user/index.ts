@@ -9,7 +9,7 @@ import { createRequestSaga } from '@/utils/redux';
  * interface
  */
 interface I_STATE {
-    user: User;
+    user: I_USER;
     error?: string | null;
 }
 
@@ -33,7 +33,7 @@ export const actions = {
         (username: string): string => username
     ),
     patchUser: createAction(PATCH_USER, (username: string): string => username),
-    patchUserSuccess: createAction(PATCH_USER_SUCCESS, (user: User) => user),
+    patchUserSuccess: createAction(PATCH_USER_SUCCESS, (user: I_USER) => user),
     patchUserFailure: createAction(
         PATCH_USER_FAILURE,
         (error: Error): Error => error
@@ -68,7 +68,7 @@ const user = handleActions(
     {
         [PATCH_USER_SUCCESS]: (
             state: I_STATE,
-            { payload }: { payload: User }
+            { payload }: { payload: I_USER }
         ): I_STATE => ({
             ...state,
             user: payload,
@@ -81,7 +81,7 @@ const user = handleActions(
         }),
         [UPDATE_USER_SUCCESS]: (
             state: I_STATE,
-            { payload }: { payload: User }
+            { payload }: { payload: I_USER }
         ): I_STATE => ({
             ...state,
             user: payload,

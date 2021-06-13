@@ -26,3 +26,9 @@ interface I_MEMBER {
     imgUrl?: string;
     link?: string;
 }
+
+interface I_PAGE<T> {
+    nextPageCursor: string;
+    prevPageCursor: string;
+    data: T;
+}

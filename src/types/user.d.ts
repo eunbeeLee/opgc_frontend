@@ -19,145 +19,82 @@ declare enum E_LANGUAGE {
     SCSS = 'SCSS',
 }
 
+declare enum E_TIER {
+    UNRANK = 0,
+    BRONZE = 5,
+    SILVER = 10,
+    GOLD = 15,
+    DIAMOND = 20,
+    PLATINUM = 25,
+    MASTER = 30,
+    CHALLENGER = 35,
+}
+
+declare enum E_TIER_IMG {
+    UNRANK = '/assets/imgs/tier-unrank.png',
+    BRONZE = '/assets/imgs/tier-bronze.png',
+    SILVER = '/assets/imgs/tier-silver.png',
+    GOLD = '/assets/imgs/tier-gold.png',
+    DIAMOND = '/assets/imgs/tier-diamond.png',
+    PLATINUM = '/assets/imgs/tier-platinum.png',
+    MASTER = '/assets/imgs/tier-master.png',
+    CHALLENGER = '/assets/imgs/tier-challenger.png',
+}
+
 interface I_LANGUAGE_INFO {
     language: E_LANGUAGE;
     number: number;
 }
 
-interface I_API_USER {
-    id: number;
+interface I_USER {
+    desc: string;
+    company: string;
     created: string;
+    followersCnt: number;
+    followingCnt: number;
+    id: number;
+    organizations: I_ORGANIZATION[];
+    repositories: I_REPOSITORY[];
+    repositoriesCnt: number;
+    profileImgUrl: string;
+    publicReposCnt: number;
+    totalContributionCnt: number;
     updated: string;
     username: string;
-    avatar_url: string; // url
-    total_contribution: number;
-    total_stargazers_count: number;
-    company: string;
-    bio: string; // 자기소개
-    blog: string; // url
-    public_repos: number;
-    followers: number;
-    following: number;
-    status: E_USER_STATUS;
-    organizations: I_API_ORGANIZTION[];
-    repositories: I_API_REPOSITORY[];
+    totalStarCnt: number;
     name: string;
+    githubUrl: string;
     languages: I_LANGUAGE_INFO[];
 }
 
-interface I_API_ORGANIZTION {
+interface I_ORGANIZATION {
     id: number;
     name: string;
     description: string;
-    logo: string; // url
+    logoUrl: string;
 }
 
-interface I_API_REPOSITORY {
-    id: number;
-    contribution: number;
-    name: string;
-    full_name: string;
+interface I_REPOSITORY {
+    contributionCnt: number;
+    fullName: string;
     owner: string;
-    organization: string;
-    rep_language: string; // 대표언어
-    languages: E_LANGUAGE[];
-    stargazers_count: number;
+    id: number;
+    name: string;
+    organizationName: string;
+    languages: string[];
+    repLanguage: string;
+    url: string;
+    starCnt: number;
 }
 
-interface I_API_TIER {
+interface I_TIER {
     id: number;
+    rank: number;
     username: string;
     name: string;
-    avatar_url: string;
+    profileImgUrl: string;
     tier: string;
     company: string;
-    bio: string;
-    continuous_commit_day: number;
-}
-
-interface I_API_TIERS {
-    next?: string | null;
-    previous?: string | null;
-    results: I_API_TIER[];
-}
-
-declare class User {
-    _id: number;
-    _created: string;
-    _updated: string;
-    _username: string;
-    _avatar_url: string; // url
-    _total_contribution: number;
-    _total_stargazers_count: number;
-    _company: string;
-    _bio: string; // 자기소개
-    _blog: string; // url
-    _public_repos: number;
-    _followers: number;
-    _following: number;
-    _status: E_USER_STATUS;
-    _organizations: I_API_ORGANIZTION[];
-    _repositories: I_API_REPOSITORY[];
-    _name: string;
-    _languages: I_LANGUAGE_INFO[];
-
-    constructor(user?: I_API_USER);
-    get desc(): string;
-    get company(): string;
-    get created(): string;
-    get followersCnt(): number;
-    get followingCnt(): number;
-    get id(): number;
-    get organizations(): Organization[];
-    get repositories(): Repository[];
-    get repositoriesCnt(): number;
-    get profileImgUrl(): string;
-    get publicReposCnt(): number;
-    get totalContributionCnt(): number;
-    get updated(): string;
-    get username(): string;
-    get totalStarCnt(): number;
-    get name(): string;
-    get githubUrl(): string;
-    get languages(): I_LANGUAGE_INFO[];
-}
-
-declare class Organization {
-    _id: number;
-    _name: string;
-    _description: string;
-    _logo: string; // url
-
-    constructor(organization: I_API_ORGANIZTION);
-
-    get id(): number;
-    get name(): string;
-    get description(): string;
-    get logoUrl(): string;
-}
-
-declare class Repository {
-    _id: number;
-    _contribution: number;
-    _name: string;
-    _full_name: string;
-    _owner: string;
-    _organization: string;
-    _rep_language: string; // 대표언어
-    _languages: E_LANGUAGE[];
-    _stargazers_count: number;
-    _user_github_id: string;
-
-    constructor(repo?: I_API_REPOSITORY, userGithubId?: string);
-
-    get contributionCnt(): number;
-    get fullName(): string;
-    get owner(): string;
-    get id(): number;
-    get name(): string;
-    get organizationName(): string;
-    get languages(): string[];
-    get repLanguage(): string;
-    get url(): string;
-    get starCnt(): number;
+    desc: string;
+    continuousCommitDay: number;
 }

@@ -3,7 +3,7 @@ import RepoCard from '../RepoCard';
 import './style.css';
 
 interface I_PROPS {
-    repos: Repository[];
+    repos: I_REPOSITORY[];
 }
 
 const RepoList: React.FC<I_PROPS> = ({ repos }) => {

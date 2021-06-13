@@ -1,6 +1,6 @@
-import { E_LANGUAGE, E_RANK_TYPE } from './types';
+import { E_LANGUAGE, E_RANK_TYPE } from '@/constants/rank';
 
-export function getRankType(type: E_RANK_TYPE, language?: E_LANGUAGE): string {
+const getRankType = (type: E_RANK_TYPE, language?: E_LANGUAGE): string => {
     let result: string = type;
 
     if (type === E_RANK_TYPE.LANGUAGE) {
@@ -8,4 +8,6 @@ export function getRankType(type: E_RANK_TYPE, language?: E_LANGUAGE): string {
     }
 
     return result;
-}
+};
+
+export { getRankType };
