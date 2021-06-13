@@ -1,14 +1,13 @@
-import { createRequestSaga } from '@/libs/redux';
+import { createRequestSaga } from '@/utils/redux';
 import { handleActions, createAction } from 'redux-actions';
 import { takeLatest } from 'redux-saga/effects';
 import * as api from '@/apis';
-import { I_TIER_RANK } from '@/types/rank';
 import { E_TIER } from '@/constants/user';
 
 interface I_STATE {
-    ranks: I_TIER_RANK[];
-    nextPageKey?: string | null;
-    prePageKey?: string | null;
+    ranks: I_TIER[];
+    nextPageCursor?: string | null;
+    prePageCursor?: string | null;
     pageSize: number;
 }
 
@@ -55,34 +54,22 @@ const tier = handleActions(
     {
         [GET_RANKS_SUCCESS]: (
             state: I_STATE,
-            { payload }: { payload: I_API_TIERS }
+            { payload }: { payload: I_PAGE<I_TIER[]> }
         ) => {
-            const { next, previous, results } = payload;
-
-            const ranks: I_TIER_RANK[] = results.map((tierInfo, idx) => ({
-                rank: idx + 1,
-                id: tierInfo.id,
-                username: tierInfo.username,
-                name: tierInfo.name,
-                profileImageUrl: tierInfo.avatar_url,
-                tier: tierInfo.tier,
-                desc: tierInfo.bio,
-                company: tierInfo.company,
-                continuousCommit: tierInfo.continuous_commit_day,
-            }));
+            const { nextPageCursor, prevPageCursor, data } = payload;
 
             return {
                 ...state,
-                nextPageKey: next,
-                prePageKey: previous,
-                ranks,
+                nextPageCursor,
+                prevPageCursor,
+                ranks: data,
             };
         },
         [GET_RANKS_FAILURE]: (state: I_STATE /*{ payload: Error }*/): any => ({
             ...state,
             ranks: [],
-            nextPageKey: null,
-            prePageKey: null,
+            nextPageCursor: null,
+            prevPageCursor: null,
         }),
     },
     initialState

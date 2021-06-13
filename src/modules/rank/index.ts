@@ -1,3 +1,6 @@
+/**
+ * 순위정보와 관련된 store
+ */
 import root, { actions as rootActions } from './root';
 import contribution, { actions as contributionActions } from './contribution';
 import followings, { actions as followingsActions } from './followings';

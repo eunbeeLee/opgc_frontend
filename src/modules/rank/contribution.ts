@@ -1,9 +1,8 @@
-import { createRequestSaga } from '@/libs/redux';
+import { createRequestSaga } from '@/utils/redux';
 import { handleActions, createAction } from 'redux-actions';
 import { takeLatest } from 'redux-saga/effects';
 import * as api from '@/apis';
-import { E_RANK_TYPE } from '@/apis/rankApi/types';
-import { I_RANK } from '@/types/rank';
+import { E_RANK_TYPE } from '@/constants/rank';
 
 interface I_STATE {
     totalUsersCnt: number;
