@@ -44,7 +44,7 @@ export async function getUsersTier({
         prevPageCursor: data.previous,
         data: data.results.map((t, idx) => ({
             id: t.id,
-            rank: idx,
+            rank: idx + 1,
             username: t.username,
             name: t.name,
             profileImgUrl: t.avatar_url,
