@@ -48,11 +48,25 @@ React 학습을 위한 토이프로젝트입니다.
 │   ├── assets # 정적리소스
 │   ├── components # presentational components, 계층구조없이 구성
 │   ├── containers # container components, page를 root로 계층구조로구성
-│   ├── layouts # 페이지에서 공용으로 사용할 수 있는 레이아웃
-│   ├── constants # 앱 공통으로 사용하는 상수 값 or 클래스
+│   ├── layouts # 여러 페이지에서 공용으로 사용할 수 있는 레이아웃
+│   ├── constants # 앱 공통으로 사용하는 상수 값, enum
+│   │   ├── api.config.js # api 설정과 관련된 상수
+│   │   ├── application # 앱 전체 공용으로 사용하는 상수
+│   │   ├── router # 라우팅 정보
+│   │   ├── menu # 메뉴 리스트들
 │   ├── utils # 사용자 정의 util
 │   ├── modules # redux module
 │   └── types # type 정의
 ├── ... # 기타 환경설정파일들
 └── README.md
+```
+
+대부분의 구성요소(`containers`, `component`, ...)는 가독성 향상을 위해 단일파일이 아닌 디렉토리구조로 구성이 되어있다.\
+디렉토리는 아래 파일들을 포함할 수 있으며, index.ts(x)를 제외한 나머지는 Optional 하다.
+
+```bash
+-   index.ts(x) # 디렉토리를 대표하는 main 파일
+-   constants.ts # 변하지 않는 상수값
+-   service.ts # 순수함수
+-   type.ts
 ```
