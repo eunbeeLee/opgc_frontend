@@ -1,0 +1,28 @@
+.user-info__languages-chart {
+    height: 400px;
+}
+
+/*  ### PC ###  */
+@media (max-width: 1280px) {
+    /* 너비가 1024 ~ 1280px: 데스크탑 */
+}
+@media (max-width: 1024px) {
+    /* 너비가 960 ~ 1024px: 데스크탑 */
+}
+@media (max-width: 960px) {
+    /* 너비가 768 ~ 960px: 노트북 */
+}
+
+/* ### 타블릿 ### */
+@media (max-width: 768px) {
+    /* 너비가 576 ~ 768px: 타블릿 */
+}
+
+/* ### 모바일 ### */
+@media (max-width: 576px) {
+    /* 너비가 0 ~ 576px: 모바일 */
+    .user-info__languages-pie-chart {
+        padding: 0 !important;
+        height: 330px;
+    }
+}

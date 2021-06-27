@@ -1,9 +1,0 @@
-.user-info__languages-pie-chart {
-    height: 200px;
-}
-
-@media screen and (min-width: 769px) {
-    .user-info__languages-pie-chart {
-        height: 400px;
-    }
-}
