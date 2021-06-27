@@ -25,6 +25,7 @@ const UserPage: React.FC<I_PROPS> = () => {
         loading: loadingState,
         error: errorState,
     } = useSelector((state: T_ROOT_REDUCER) => state);
+
     const {
         params: { userId },
     } = useRouteMatch<{ userId: string }>();

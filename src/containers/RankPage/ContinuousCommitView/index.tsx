@@ -18,7 +18,7 @@ const ContinuousCommitView: React.FC<I_PROPS> = () => {
     );
     const {
         root: { searchId },
-        continuousCommit: { totalUsersCnt, ranks },
+        continuousCommit: { ranks },
     } = rankState;
 
     useEffect(() => {
@@ -33,7 +33,6 @@ const ContinuousCommitView: React.FC<I_PROPS> = () => {
         <>
             <div className="ranking__header pc-only">
                 <p className="ranking__help-text">
-                    {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
                     하루하루 꾸준히 커밋을 해주신 TOP 10 개발자입니다!
                     <br />
                     <span>랭킹은 주기적으로 갱신됩니다.</span>

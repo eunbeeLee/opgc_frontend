@@ -1,0 +1,51 @@
+.c-msg-card__box {
+    font-size: var(--font-small);
+    background-color: var(--color-white);
+    color: var(--color-dark-grey);
+    border-radius: var(--size-border-radius);
+}
+
+.c-msg-card__title {
+    font-size: inherit;
+    padding: 17px;
+    border-bottom: 0.5px solid var(--color-light-white);
+}
+
+.c-msg-card__message {
+    font-size: inherit;
+    padding: 25px;
+    border-bottom: 0.5px solid var(--color-light-white);
+}
+
+.c-msg-card__icon {
+    margin-right: 7px;
+    opacity: 0.68;
+}
+
+.c-msg-card__icon[data-message-type="normal"] {
+    color: blue;
+}
+.c-msg-card__icon[data-message-type="error"] {
+    color: red;
+}
+.c-msg-card__icon[data-message-type="warning"] {
+    color: yellow;
+}
+
+.c-msg-card__btn-group {
+    padding: 8px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.c-msg-card__btn-group button {
+    margin: 0 15px;
+    padding: 8px 13px;
+    border: none;
+    border-radius: 3px;
+}
+
+.c-msg-card__btn-group button:hover {
+    background-color: var(--color-light-grey);
+    color: var(--color-white);
+}

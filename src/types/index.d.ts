@@ -32,3 +32,12 @@ interface I_PAGE<T> {
     prevPageCursor: string;
     data: T;
 }
+
+interface I_API_ERROR_MSG {
+    [apiType: string]: {
+        title: string;
+        statusMsg: {
+            [statusCode: string]: string;
+        };
+    };
+}

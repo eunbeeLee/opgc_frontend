@@ -1,6 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import { actions as loadingActions } from '@/modules/loading';
 import { actions as errorActions } from '@/modules/error';
+import { actions as uiActions } from '@/modules/ui';
 
 /**
  * api request를 처리하는 saga를 리턴한다.
@@ -13,6 +14,9 @@ export function createRequestSaga(
 ): (action: { type: string; payload: any }) => Generator {
     const { startLoading, finishLoading } = loadingActions;
     const { setError } = errorActions;
+    const {
+        app: { setErrorModal },
+    } = uiActions;
 
     const SUCCESS = `${actionNm}_SUCCESS`;
     const FAILURE = `${actionNm}_FAILURE`;
@@ -27,8 +31,8 @@ export function createRequestSaga(
                 payload: data,
             });
         } catch (e) {
-            console.error(e);
             yield put(setError(actionNm, e));
+            yield put(setErrorModal(e));
             yield put({
                 type: FAILURE,
             });
