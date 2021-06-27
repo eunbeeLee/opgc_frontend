@@ -42,9 +42,16 @@ h1 {
     font-size: x-large;
 }
 
+.mobile-only {
+    display: none !important;
+}
+
 @media (max-width: 576px) {
     /* 너비가 ~ 576px: 모바일 */
     .pc-only {
         display: none !important;
+    }
+    .mobile-only {
+        display: block !important;
     }
 }

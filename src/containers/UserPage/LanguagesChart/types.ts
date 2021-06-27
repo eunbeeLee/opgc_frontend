@@ -5,6 +5,7 @@ export interface I_LANGUAGE_DATA {
 
 export interface I_CHART_DATA {
     id: string;
-    label: string;
+    label?: string;
+    name?: string;
     value: number | string;
 }

@@ -15,7 +15,7 @@ export const LEGEND_PROPS: any = {
             on: 'hover',
             style: {
                 itemTextColor: '#000',
-            }
-        }
-    ]
+            },
+        },
+    ],
 };

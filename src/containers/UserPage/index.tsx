@@ -8,7 +8,7 @@ import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, T_ROOT_REDUCER } from '@/modules';
 import UserInfo from './UserInfo';
-import LanguagesPieChart from './LanguagesPieChart';
+import LanguagesChart from './LanguagesChart';
 import ErrorLayout from '@/layouts/ErrorLayout';
 import MainLayout from '@/layouts/MainLayout';
 
@@ -83,7 +83,7 @@ const UserPage: React.FC<I_PROPS> = () => {
                     <section className="user-info__detail">
                         <section>
                             <h1>Languages</h1>
-                            <LanguagesPieChart data={user.languages} />
+                            <LanguagesChart data={user.languages} />
                         </section>
 
                         <section className="user-info__repositories">
