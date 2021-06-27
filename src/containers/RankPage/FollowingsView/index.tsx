@@ -18,7 +18,7 @@ const FollowingsView: React.FC<I_PROPS> = () => {
     );
     const {
         root: { searchId },
-        followings: { totalUsersCnt, ranks },
+        followings: { ranks },
     } = rankState;
 
     useEffect(() => {
@@ -33,7 +33,6 @@ const FollowingsView: React.FC<I_PROPS> = () => {
         <>
             <div className="ranking__header pc-only">
                 <p className="ranking__help-text">
-                    {/* OPGC에 총 {totalUsersCnt}명의 개발자가 있습니다. */}
                     가장 많은 분들을 팔로잉하고 계신 TOP 10 개발자 분들입니다!
                     <br />
                     <span>랭킹은 주기적으로 갱신됩니다.</span>
