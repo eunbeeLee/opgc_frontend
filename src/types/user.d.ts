@@ -65,6 +65,8 @@ interface I_USER {
     name: string;
     githubUrl: string;
     languages: I_LANGUAGE_INFO[];
+    tier: string;
+    rank: number;
 }
 
 interface I_ORGANIZATION {

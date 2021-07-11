@@ -4,6 +4,51 @@
     align-items: center;
 }
 
+.user-info-account__avatar {
+    position: relative;
+}
+
+.user-info-account__avatar-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    border: 2px solid var(--color-light-white);
+}
+
+.user-info-account__tier-badge {
+    padding: 5px;
+    width: 40px;
+    border-radius: 40px;
+    border: 1.5px solid var(--color-light-white);
+    position: absolute;
+    left: 83%;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: width ease-in-out 80ms;
+    background-color: white;
+    z-index: 2;
+}
+
+.user-info-account__tier-badge:hover {
+    position: absolute;
+    width: 110px;
+}
+
+.user-info-account__tier-badge img {
+    width: 25px;
+    height: 25px;
+}
+
+.user-info-account__tier-badge span {
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: var(--font-x-micro);
+}
+
 .user-info-account__desc {
     margin-top: 15px;
     line-height: 35px;
@@ -33,7 +78,7 @@
 }
 
 .user-info-account__profile__info {
-    margin-left: 15px;
+    margin-left: 40px;
     position: relative;
 }
 
@@ -51,6 +96,12 @@
 
 .user-info-account__name > a:hover {
     text-decoration: underline;
+}
+
+.user-info-account__rank {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
 }
 
 .user-info-account__id {
@@ -130,12 +181,14 @@
 
     .user-info-account__profile__info {
         width: 100%;
-        margin-left: unset;
         margin-top: 12px;
         border-radius: 10px;
         -webkit-box-shadow: 0px 3px 14px 1px rgba(220, 220, 220, 1);
         -moz-box-shadow: 0px 3px 14px 1px rgba(220, 220, 220, 1);
         box-shadow: 0px 3px 14px 1px rgba(220, 220, 220, 1);
+        border-left: unset;
+        padding-left: unset;
+        margin-left: unset;
     }
 
     .user-info-account__values {
@@ -167,6 +220,10 @@
 
     .user-info-account__name span {
         margin: unset;
+    }
+
+    .user-info-account__rank {
+        justify-content: center;
     }
 
     .user-info-account__value {
