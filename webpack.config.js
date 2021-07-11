@@ -10,12 +10,47 @@ const path = require('path');
 const srcPath = require('path').resolve(__dirname, 'src');
 const distPath = require('path').resolve(__dirname, 'dist');
 
+/**
+ * typescript 해석을 위한 Loader를 얻어온다.
+ * developemtn - 정확한 타입체크를 위해 'ts-loader' 사용
+ * production - 빠른 빌드를위해 'babel & preset-typesciprt' 사용
+ * @returns 
+ */
+function getTsLoader (mode) {
+    if (mode === 'development') {
+        return [{ loader: 'ts-loader'}];
+    } else {
+        return [
+            {
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        ['@babel/preset-env', {
+                            targets: {
+                                browsers: ['last 2 chrome versions']
+                            }
+                        }], 
+                        '@babel/preset-react',
+                        '@babel/preset-typescript',
+                    ],
+                    plugins: [
+                        '@babel/plugin-proposal-class-properties',
+                    ]
+                }
+            }
+        ];
+    }
+}
+
 module.exports = (env, options) => {
+    const isEnvDevelopment = options.mode === 'development'
+    const isEnvProduction = options.mode === 'production'
+
     dotenv.config({
-        path: path.join(__dirname, `.env.${options.mode}`)
+        path: path.join(`./.env.${options.mode}`)
     });
 
-    return {
+    const config = {
         name: 'opgc',
 
         // mode: options.mode,
@@ -38,25 +73,10 @@ module.exports = (env, options) => {
 
         module: {
             rules: [
-                {
-                    test: /\.jsx?/,
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            ['@babel/preset-env', {
-                                targets: {
-                                    browsers: ['last 2 chrome versions']
-                                }
-                            }], 
-                            '@babel/preset-react'
-                        ],
-                        plugins: [
-                            '@babel/plugin-proposal-class-properties',
-                            (options.mode !== 'production') && require.resolve('react-refresh/babel'),
-                        ].filter(Boolean)
-                    }
+                { 
+                    test: /\.tsx?$/, 
+                    use: getTsLoader(options.mode),
                 },
-                { test: /\.tsx?$/, loader: 'ts-loader' },
                 { test: /\.css/, use: [ MiniCssExtractPlugin.loader, 'css-loader' ]}
             ]
         },
@@ -64,7 +84,7 @@ module.exports = (env, options) => {
         plugins: [
             new MiniCssExtractPlugin({ filename: 'assets/css/app.css' }),
             new webpack.DefinePlugin({}),
-            (options.mode !== 'production') && new ReactRefreshWebpackPlugin(),
+            isEnvDevelopment && new ReactRefreshWebpackPlugin(),
             new HtmlWebpackPlugin({
                 template: path.join(srcPath, '/index.html'),
             }),
@@ -77,14 +97,24 @@ module.exports = (env, options) => {
 
         output: {
             path: distPath,
-            filename: 'app.js',
+            filename: '[name].[hash].js',
         },
 
         devServer: {
             contentBase: path.join(distPath),
             hot: true,
             historyApiFallback: true,
-            port: 52203
-        }
+        },
     }
+
+    if (isEnvProduction) {
+        config.optimization = {
+            minimize: true,
+            splitChunks: {
+              chunks: 'all',
+            },
+        };
+    }
+
+    return config;
 };

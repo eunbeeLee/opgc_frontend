@@ -14,7 +14,9 @@
             "@/*": ["./*"],
             "~/*": ["./*"]
         },
-        "target": "ES5"
+        "moduleResolution": "node", // 모듈의 경로탐색 방법을 정의
+        "module": "esnext", // 모듈 해석방식을 정의, commonjs destroys 'dynamic imports' which is used for code splitting
+        "target": "es5"
     },
     "include": [
       "src/**/*"
