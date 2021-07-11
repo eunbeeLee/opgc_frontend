@@ -12,11 +12,19 @@ interface I_PROPS {
     title?: string;
 }
 
-const Avatar: React.FC<I_PROPS> = ({ width = 100, height = 100, imgUrl, type = E_ROUND_TYPE.RECTANGLE, style = {}, alt, title = '' }) => {
+const Avatar: React.FC<I_PROPS> = ({
+    width = 100,
+    height = 100,
+    imgUrl,
+    type = E_ROUND_TYPE.RECTANGLE,
+    style = {},
+    alt,
+    title = '',
+}) => {
     const typeCss = useMemo(() => {
         switch (type) {
             case E_ROUND_TYPE.RECTANGLE:
-                return { borderRadius: '7px'};
+                return { borderRadius: '7px' };
             case E_ROUND_TYPE.CIRCLE:
                 return { borderRadius: width };
         }
@@ -32,7 +40,7 @@ const Avatar: React.FC<I_PROPS> = ({ width = 100, height = 100, imgUrl, type = E
             alt={alt}
             title={title}
         />
-    )
-}
+    );
+};
 
 export default React.memo(Avatar);

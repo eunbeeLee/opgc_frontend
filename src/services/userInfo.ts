@@ -1,4 +1,4 @@
-import { E_TIER_IMG } from '@/constants/user';
+import { E_TIER, E_TIER_IMG } from '@/constants/user';
 
 export function getTierImage(tier: string) {
     switch (tier) {

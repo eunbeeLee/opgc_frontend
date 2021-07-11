@@ -25,6 +25,8 @@ export interface I_API_USER {
     repositories: I_API_REPOSITORY[];
     name: string;
     languages: I_LANGUAGE_INFO[];
+    user_rank: number;
+    tier: string;
 }
 
 export interface I_API_ORGANIZTION {

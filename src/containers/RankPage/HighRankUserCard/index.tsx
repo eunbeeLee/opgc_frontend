@@ -1,8 +1,8 @@
 import Avatar from '@/components/Avatar';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import { getTierImage } from '../service';
 import './style.css';
+import { getTierImage } from '@/services/userInfo';
 
 interface I_PROPS {
     width?: number;

@@ -10,6 +10,7 @@ import {
 import { faGratipay } from '@fortawesome/free-brands-svg-icons';
 import React, { useMemo } from 'react';
 import './style.css';
+import { getTierImage } from '@/services/userInfo';
 
 interface I_PROPS {
     user: I_USER;
@@ -56,16 +57,25 @@ const UserInfo: React.FC<I_PROPS> = ({ user }) => {
         user && (
             <div className="user-info-account">
                 <div className="user-info-account__profile">
-                    <a href={user.githubUrl} target="_blank" rel="noreferrer">
-                        <Avatar
-                            type={E_ROUND_TYPE.RECTANGLE}
-                            imgUrl={
-                                user.profileImgUrl || '/assets/imgs/logo.png'
-                            }
-                            width={170}
-                            height={170}
-                        />
-                    </a>
+                    <div className="user-info-account__avatar">
+                        <a
+                            href={user.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                className="user-info-account__avatar-img"
+                                src={
+                                    user.profileImgUrl ||
+                                    '/assets/imgs/logo.png'
+                                }
+                            />
+                        </a>
+                        <div className="user-info-account__tier-badge">
+                            <img src={getTierImage(user.tier)} />
+                            <span>{user.tier}</span>
+                        </div>
+                    </div>
                     <div className="user-info-account__profile__info">
                         <div className="user-info-account__name">
                             <a

@@ -59,6 +59,8 @@ const parseUser = (data: I_API_USER): I_USER => ({
     name: data.name,
     githubUrl: `${GITHUB_BASE_URL}/${data.username}`,
     languages: data.languages,
+    rank: data.user_rank,
+    tier: data.tier,
 });
 
 export { parseUser };

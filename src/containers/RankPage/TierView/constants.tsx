@@ -2,7 +2,7 @@ import Avatar from '@/components/Avatar';
 import React from 'react';
 import { I_COLUMN } from '@/components/Table/types';
 import { Link } from 'react-router-dom';
-import { getTierImage } from '../service';
+import { getTierImage } from '@/services/userInfo';
 
 export const COLUMNS: I_COLUMN[] = [
     {
