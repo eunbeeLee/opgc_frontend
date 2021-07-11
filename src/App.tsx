@@ -1,13 +1,12 @@
 import React from 'react';
 import '@/assets/css/index.css';
-import { NotFoundPage } from './containers';
 import router from '@/constants/router';
 import Loading from '@/components/Loading';
 import { useSelector } from 'react-redux';
 import { T_ROOT_REDUCER } from '@/modules';
 import RouterView from '@/components/RouterView';
 import ApiErrorModal from '@/containers/ApiErrorModal';
-import '@/';
+import NotFoundPage from './containers/NotFoundPage';
 
 const App: React.FC = () => {
     const { loading, errorModal } = useSelector(
