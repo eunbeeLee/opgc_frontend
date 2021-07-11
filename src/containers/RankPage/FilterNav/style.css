@@ -54,7 +54,6 @@
     .filter-nav__list {
         width: 100%;
         white-space: nowrap;
-        justify-content: center;
     }
 
     .filter-nav__item {
