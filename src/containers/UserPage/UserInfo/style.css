@@ -28,7 +28,7 @@
     overflow: hidden;
     transition: width ease-in-out 80ms;
     background-color: white;
-    z-index: 2;
+    z-index: 1;
 }
 
 .user-info-account__tier-badge:hover {
@@ -127,6 +127,7 @@
     padding: 7px;
     border-radius: 3px;
     align-items: center;
+    min-width: 85px;
 }
 
 .user-info-account__value:nth-child(2n) {
@@ -194,14 +195,7 @@
     .user-info-account__values {
         width: 100%;
         padding: unset;
-    }
-
-    .user-info-account__value {
-        flex-direction: column;
-    }
-
-    .user-info-account__value span {
-        margin: 0;
+        justify-content: center;
     }
 
     .user-info-account__name {
@@ -228,13 +222,19 @@
 
     .user-info-account__value {
         font-size: var(--font-x-micro);
-        width: 20%;
+        width: 16.5%;
         margin: unset;
+        min-width: unset;
         line-height: 1.5em;
+        flex-direction: column;
     }
 
     .user-info-account__value svg {
         display: none;
+    }
+
+    .user-info-account__value span {
+        margin: 0;
     }
 
     .user-info-account__desc {
