@@ -6,6 +6,7 @@ import {
     faPuzzlePiece,
     faCube,
     faUserFriends,
+    faTrophy,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGratipay } from '@fortawesome/free-brands-svg-icons';
 import React, { useMemo } from 'react';
@@ -19,6 +20,12 @@ interface I_PROPS {
 const UserInfo: React.FC<I_PROPS> = ({ user }) => {
     const countInfo = useMemo(
         () => [
+            {
+                icon: faTrophy,
+                title: '순위',
+                name: 'rank',
+                value: user.rank,
+            },
             {
                 icon: faCube,
                 title: '저장소',

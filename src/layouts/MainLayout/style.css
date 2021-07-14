@@ -20,7 +20,7 @@ body {
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: saturate(180%) blur(15px);
-    z-index: 1;
+    z-index: 2;
     font-size: 0.9rem;
 }
 
@@ -173,7 +173,6 @@ body {
         height: var(--height-mobile-header);
         position: fixed;
         height: unset;
-        z-index: 1;
     }
 
     .header__wrap {
