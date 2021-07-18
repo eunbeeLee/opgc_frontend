@@ -12,7 +12,9 @@ export const API_ERROR_MSG: I_API_ERROR_MSG = {
         title: 'Github API 에러',
         statusMsg: {
             '404': 'API를 찾을 수 없습니다.',
-            '403': '요청 횟수 초과입니다. 내일 다시 시도해주세요',
+            '403': '[⚠️ RATE_LIMIT] 검색한 유저는 큐에 저장되었습니다.\n ' +
+                'Github API 호출이 가능한 시점이 되면 유저정보를 생성하거나 업데이트 합니다!\n' +
+                '내일 다시 들어오면 보실수 있을거에요!😄',
         },
     },
     ranks: {
