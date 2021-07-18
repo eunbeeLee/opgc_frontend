@@ -13,3 +13,17 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.tier-view__highest-users .highest-user {
+    width: 200px;
+    height: 180px;
+}
+
+@media (max-width: 576px) {
+    /* 너비가 ~ 576px: 모바일 */
+
+    .tier-view__highest-users .highest-user {
+        width: 150px;
+        height: 180px;
+    }
+}

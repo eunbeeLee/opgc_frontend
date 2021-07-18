@@ -45,17 +45,25 @@ const TierView: React.FC = () => {
                     <>
                         <div className="tier-view__highest-users">
                             <HighRankUserCard
-                                width={200}
-                                height={180}
-                                data={top5Ranks[0]}
+                                id={top5Ranks[0].username}
+                                name={top5Ranks[0].name}
+                                tier={top5Ranks[0].tier}
+                                rank={top5Ranks[0].rank}
+                                point={top5Ranks[0].continuousCommitDay}
+                                profileImgUrl={top5Ranks[0].profileImgUrl}
                             />
                             <ul>
                                 {top5Ranks.slice(1, 5).map((tierInfo) => (
                                     <li key={tierInfo.username}>
                                         <HighRankUserCard
-                                            width={200}
-                                            height={180}
-                                            data={tierInfo}
+                                            id={tierInfo.username}
+                                            name={tierInfo.name}
+                                            tier={tierInfo.tier}
+                                            rank={tierInfo.rank}
+                                            point={tierInfo.continuousCommitDay}
+                                            profileImgUrl={
+                                                tierInfo.profileImgUrl
+                                            }
                                         />
                                     </li>
                                 ))}
