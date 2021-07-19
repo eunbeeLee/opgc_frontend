@@ -35,6 +35,8 @@ React 학습을 위한 토이프로젝트입니다.
 -   React - 컴포넌트개발 라이브러리
 -   Typescript - 타입기반의 javascript superset
 -   Webpack - 빌드 자동화 및 최적화
+-   Jest - unit/intergration test runner & assertion library
+-   Cypress - e2e testing framework
 
 ## Proejct Structure (major factors)
 
@@ -46,8 +48,8 @@ React 학습을 위한 토이프로젝트입니다.
 ├── src
 │   ├── apis # api 비동기 호출 함수들
 │   ├── assets # 정적리소스
-│   ├── components # presentational components, 계층구조없이 구성
-│   ├── containers # container components, page를 root로 계층구조로구성
+│   ├── components # presentational components, atomic 하게 구성
+│   ├── containers # container components, redux에서 상태값을 가져다쓰는 컴포넌트들의 모음 
 │   ├── layouts # 여러 페이지에서 공용으로 사용할 수 있는 레이아웃
 │   ├── constants # 앱 공통으로 사용하는 상수 값, enum
 │   │   ├── api.config.js # api 설정과 관련된 상수
