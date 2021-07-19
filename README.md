@@ -30,10 +30,11 @@ React 학습을 위한 토이프로젝트입니다.
 ## Tech Stack
 
 -   HTML5, CSS3 - 마크업
--   eslint, prettier, husky - 소스 품질관리
--   Redux (ReduxSaga) - 상태관리, 비동기작업
--   React - 컴포넌트개발 라이브러리
 -   Typescript - 타입기반의 javascript superset
+-   eslint, prettier, husky - 소스 품질관리
+-   React - 컴포넌트개발 라이브러리
+-   Redux - 상태관리
+-   ReduxSaga - 비동기작업
 -   Webpack - 빌드 자동화 및 최적화
 -   Jest - unit/intergration test runner & assertion library
 -   Cypress - e2e testing framework
@@ -41,10 +42,7 @@ React 학습을 위한 토이프로젝트입니다.
 ## Proejct Structure (major factors)
 
 ```bash
-├── dist # 빌드파일
-│   ├── assets # 정적리소스 (= /src/assets 와 동일)
-│   ├── app.js
-│   ├── index.html
+├── dist # 빌드산출물 디렉토리
 ├── src
 │   ├── apis # api 비동기 호출 함수들
 │   ├── assets # 정적리소스
