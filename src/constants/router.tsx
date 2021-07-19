@@ -27,7 +27,7 @@ const routes: I_ROUTE[] = [
     {
         name: 'qna',
         path: '/qna',
-        component: loadable(() => import('@/containers/QnAPage'), {
+        component: loadable(() => import('@/containers/QnaPage'), {
             fallback: <Loading />,
         }),
     },
