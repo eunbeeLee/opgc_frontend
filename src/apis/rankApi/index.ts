@@ -13,9 +13,9 @@ export async function getRanks({
     // searchId: string;
 }): Promise<I_RANK[]> {
     const url = addQueryStr({ type: getRankType(type, language) }, '/ranks/');
-    const { data: ranks } = await axios.get<I_API_GET_RANK_RES>(url);
+    const { data } = await axios.get<I_API_GET_RANK_RES>(url);
 
-    return ranks.map((rank) => ({
+    return data.results.map((rank) => ({
         id: rank.id,
         rank: rank.ranking,
         score: rank.score,
