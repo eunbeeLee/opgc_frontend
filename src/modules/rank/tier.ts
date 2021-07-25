@@ -5,7 +5,7 @@ import * as api from '@/apis';
 import { E_TIER } from '@/constants/user';
 
 interface I_STATE {
-    ranks: I_TIER[];
+    ranks: I_RANK[];
     nextPageCursor?: string | null;
     prePageCursor?: string | null;
     pageSize: number;
@@ -38,7 +38,7 @@ const initialState: I_STATE = {
 /**
  * action saga
  */
-const getRanksSaga = createRequestSaga(GET_RANKS, api.getUsersTier);
+const getRanksSaga = createRequestSaga(GET_RANKS, api.getOverallRanks);
 
 /**
  * module saga
@@ -54,7 +54,7 @@ const tier = handleActions(
     {
         [GET_RANKS_SUCCESS]: (
             state: I_STATE,
-            { payload }: { payload: I_PAGE<I_TIER[]> }
+            { payload }: { payload: I_PAGE<I_RANK[]> }
         ) => {
             const { nextPageCursor, prevPageCursor, data } = payload;
 

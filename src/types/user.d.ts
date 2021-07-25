@@ -88,15 +88,3 @@ interface I_REPOSITORY {
     url: string;
     starCnt: number;
 }
-
-interface I_TIER {
-    id: number;
-    rank: number;
-    username: string;
-    name: string;
-    profileImgUrl: string;
-    tier: string;
-    company: string;
-    desc: string;
-    continuousCommitDay: number;
-}
