@@ -6,30 +6,34 @@ interface IRequestParamsData {
     data?: any;
 }
 
-axios.defaults.baseURL = SERVER_HOST;
+const isDev = process.env.NODE_ENV !== 'production';
+
+axios.defaults.baseURL = isDev ? '' : SERVER_HOST;
 axios.defaults.timeout = TIMEOUT;
 
-axios.interceptors.request.use(
-    (config) => {
-        logRequest(config);
-        return config;
-    },
-    (error) => {
-        logRequestError(error);
-        throw error;
-    }
-);
+if (isDev) {
+    axios.interceptors.request.use(
+        (config) => {
+            logRequest(config);
+            return config;
+        },
+        (error) => {
+            logRequestError(error);
+            throw error;
+        }
+    );
 
-axios.interceptors.response.use(
-    (res) => {
-        logResponse(res);
-        return res;
-    },
-    (error) => {
-        logResponseError(error);
-        throw error;
-    }
-);
+    axios.interceptors.response.use(
+        (res) => {
+            logResponse(res);
+            return res;
+        },
+        (error) => {
+            logResponseError(error);
+            throw error;
+        }
+    );
+}
 
 function getTag(tagName: string, color: string, bgColor: string): string[] {
     return [

@@ -5,6 +5,7 @@ import ui, { actions as uiActions } from '@/modules/ui';
 import search, { actions as searchActions } from '@/modules/search';
 import user, { actions as userActions, userSaga } from '@/modules/user';
 import rank, { actions as rankActions } from '@/modules/rank';
+import noti, { actions as notiActions, notiSaga } from '@/modules/noti';
 import { all } from 'redux-saga/effects';
 import { contributionRankSaga } from './rank/contribution';
 import { tierRankSaga } from './rank/tier';
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
         tier: rank.tier,
     }),
     user,
+    noti,
     loading,
     error,
 });
@@ -39,6 +41,7 @@ export function* rootSaga(): Generator {
         followingsRankSaga(),
         followersRankSaga(),
         tierRankSaga(),
+        notiSaga(),
     ]);
 }
 
@@ -49,6 +52,7 @@ export const actions = {
     error: errorActions,
     rank: rankActions,
     ui: uiActions,
+    noti: notiActions,
 };
 
 export type T_ROOT_REDUCER = ReturnType<typeof rootReducer>;
