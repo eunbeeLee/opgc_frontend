@@ -33,13 +33,13 @@ export const RANK_MENU_LIST: I_MENU[] = [
         visible: true,
     },
     {
-        label: '팔로워',
+        label: '인싸력',
         name: 'followers',
         path: '/rank/followers',
         visible: true,
     },
     {
-        label: '팔로잉',
+        label: '덕후력',
         name: 'followings',
         path: '/rank/followings',
         visible: true,
