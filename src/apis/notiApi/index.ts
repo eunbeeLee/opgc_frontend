@@ -4,7 +4,7 @@ import { I_API_GET_NOTIS_RES } from './types';
 import { format } from 'date-fns';
 
 export async function getNotis(): Promise<I_PAGE<I_NOTI[]>> {
-    const { data } = await axios.get<I_API_GET_NOTIS_RES>('/notices');
+    const { data } = await axios.get<I_API_GET_NOTIS_RES>('/notices/');
 
     const results = {
         nextPageCursor: data.next,
