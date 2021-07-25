@@ -32,6 +32,13 @@ const routes: I_ROUTE[] = [
         }),
     },
     {
+        name: 'noti',
+        path: '/noti',
+        component: loadable(() => import('@/containers/NotiPage'), {
+            fallback: <Loading />,
+        }),
+    },
+    {
         name: 'rank',
         path: '/rank',
         component: loadable(() => import('@/containers/RankPage'), {
