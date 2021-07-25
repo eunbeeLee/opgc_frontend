@@ -110,7 +110,6 @@ module.exports = (env, options) => {
                     secure: false,
                     changeOrigin: true
                 },
-
             }
         },
     }
