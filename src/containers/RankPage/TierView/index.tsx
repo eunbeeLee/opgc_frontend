@@ -20,8 +20,8 @@ const TierView: React.FC = () => {
         tier: { ranks },
     } = rankState;
 
-    const top5Ranks = useMemo(() => ranks.slice(0, 5), [ranks]);
-    const leftRanks = useMemo(() => ranks.slice(5), [ranks]);
+    const top5Ranks = useMemo<I_RANK_USER[]>(() => ranks.slice(0, 5), [ranks]);
+    const leftRanks = useMemo<I_RANK_USER[]>(() => ranks.slice(5), [ranks]);
 
     useEffect(() => {
         dispatch(getRanks());
@@ -45,24 +45,24 @@ const TierView: React.FC = () => {
                     <>
                         <div className="tier-view__highest-users">
                             <HighRankUserCard
-                                id={top5Ranks[0].username}
-                                name={top5Ranks[0].name}
+                                id={top5Ranks[0].githubId}
+                                name={top5Ranks[0].username}
                                 tier={top5Ranks[0].tier}
                                 rank={top5Ranks[0].rank}
-                                point={top5Ranks[0].continuousCommitDay}
-                                profileImgUrl={top5Ranks[0].profileImgUrl}
+                                point={top5Ranks[0].score}
+                                profileImgUrl={top5Ranks[0].profileImageUrl}
                             />
                             <ul>
                                 {top5Ranks.slice(1, 5).map((tierInfo) => (
                                     <li key={tierInfo.username}>
                                         <HighRankUserCard
-                                            id={tierInfo.username}
-                                            name={tierInfo.name}
+                                            id={tierInfo.githubId}
+                                            name={tierInfo.username}
                                             tier={tierInfo.tier}
                                             rank={tierInfo.rank}
-                                            point={tierInfo.continuousCommitDay}
+                                            point={tierInfo.score}
                                             profileImgUrl={
-                                                tierInfo.profileImgUrl
+                                                tierInfo.profileImageUrl
                                             }
                                         />
                                     </li>

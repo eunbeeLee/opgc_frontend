@@ -8,7 +8,7 @@ interface I_PROPS {
     id: string;
     name: string;
     tier: string;
-    rank: string;
+    rank: number;
     point: number | string;
     profileImgUrl: string;
 }
@@ -33,9 +33,9 @@ const HighRankUserCard: React.FC<I_PROPS> = ({
                 </div>
 
                 <p className="highest-user__name">
-                    {id}
+                    {name}
                     <br />
-                    <span>{name}</span>
+                    <span>{id}</span>
                 </p>
                 <p className="highest-user__tier-info">
                     <Avatar

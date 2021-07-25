@@ -14,13 +14,13 @@ export const COLUMNS: I_COLUMN[] = [
     {
         display: '아이디',
         name: 'githubId',
-        render: (d: I_TIER): React.ReactElement => {
+        render: (d: I_RANK_USER): React.ReactElement => {
             return (
-                <Link to={`/users/${d.username}`} style={{ cursor: 'pointer' }}>
+                <Link to={`/users/${d.githubId}`} style={{ cursor: 'pointer' }}>
                     <Avatar
                         width={30}
                         height={30}
-                        imgUrl={d.profileImgUrl || '/assets/imgs/logo.png'}
+                        imgUrl={d.profileImageUrl || '/assets/imgs/logo.png'}
                         style={{ transform: 'translateY(calc(50% - 5px))' }}
                     />
                     <span style={{ marginLeft: '5px', cursor: 'inherit' }}>
@@ -33,7 +33,7 @@ export const COLUMNS: I_COLUMN[] = [
     {
         display: '티어',
         name: 'tier',
-        render: (d: I_TIER): React.ReactElement => (
+        render: (d: I_RANK_USER): React.ReactElement => (
             <>
                 <Avatar
                     width={20}
@@ -46,5 +46,9 @@ export const COLUMNS: I_COLUMN[] = [
                 </span>
             </>
         ),
+    },
+    {
+        display: '점수',
+        name: 'score',
     },
 ];
