@@ -1,9 +1,7 @@
-import React, { ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import './style.css';
 import './TierView/style.css';
 import FilterNav from './FilterNav';
-import { actions, T_ROOT_REDUCER } from '@/modules';
 
 import MainLayout from '@/layouts/MainLayout';
 

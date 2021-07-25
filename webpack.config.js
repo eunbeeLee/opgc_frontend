@@ -104,6 +104,14 @@ module.exports = (env, options) => {
             contentBase: path.join(distPath),
             hot: true,
             historyApiFallback: true,
+            proxy: {
+                '/': {
+                    target: process.env.BASE_URL,
+                    secure: false,
+                    changeOrigin: true
+                },
+
+            }
         },
     }
 
