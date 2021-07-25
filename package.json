@@ -31,6 +31,7 @@
     "@nivo/core": "^0.71.0",
     "@nivo/pie": "^0.71.0",
     "axios": "^0.21.1",
+    "date-fns": "^2.23.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
