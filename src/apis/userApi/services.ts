@@ -1,19 +1,6 @@
 import { GITHUB_BASE_URL } from '@/constants/application';
 import { I_API_ORGANIZTION, I_API_REPOSITORY, I_API_USER } from './types';
-
-const getUserUpdateDate = (updateDateStr: string): string => {
-    const date = new Date(updateDateStr);
-
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDate();
-
-    const hour = date.getHours();
-    const min = date.getMinutes();
-    const sec = date.getSeconds();
-
-    return `${year}-${month}-${day} ${hour}:${min}:${sec}`;
-};
+import { format } from 'date-fns';
 
 const parseRepository = (
     data: I_API_REPOSITORY,
@@ -53,7 +40,7 @@ const parseUser = (data: I_API_USER): I_USER => ({
     profileImgUrl: data.avatar_url,
     publicReposCnt: data.public_repos,
     totalContributionCnt: data.total_contribution,
-    updated: getUserUpdateDate(data.updated),
+    updated: format(new Date(data.updated), 'yyyy-MM-dd hh:mm:ss'),
     username: data.username,
     totalStarCnt: data.total_stargazers_count,
     name: data.name,
