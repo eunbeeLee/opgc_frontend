@@ -14,7 +14,7 @@ const parseRepository = (
     organizationName: data.organization,
     languages: data.languages,
     repLanguage: data.rep_language,
-    url: `${GITHUB_BASE_URL}/${userGithubId}/${data.name}`,
+    url: `${GITHUB_BASE_URL}/${data.full_name}`,
     starCnt: data.stargazers_count,
 });
 
