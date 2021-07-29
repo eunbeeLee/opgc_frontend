@@ -36,7 +36,7 @@ export async function getRanks({
  * @returns
  */
 export async function getOverallRanks(): Promise<I_PAGE<I_RANK_USER[]>> {
-    const { data } = await axios.get<I_API_GET_RANKS_OVERALL>('/ranks/overall');
+    const { data } = await axios.get<I_API_GET_RANKS_OVERALL>('/ranks/overall/');
 
     return {
         nextPageCursor: data.next,
