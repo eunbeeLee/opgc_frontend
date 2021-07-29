@@ -6,6 +6,12 @@ export const MAIN_MENU_LIST: I_MENU[] = [
         visible: true,
     },
     {
+        label: '유저들',
+        name: 'users',
+        path: '/users',
+        visible: true,
+    },
+    {
         label: '검색',
         name: 'main',
         path: '/main',

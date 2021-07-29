@@ -69,6 +69,27 @@ interface I_USER {
     rank: number;
 }
 
+interface I_LIST_USER {
+    githubUrl: string;
+    created: string;
+    followingCnt: any;
+    totalStarCnt: any;
+    totalContributionCnt: any;
+    publicReposCnt: any;
+    tier: string;
+    profileImgUrl: any;
+    name: string;
+    organizations: I_ORGANIZATION[];
+    rank: any;
+    company: string;
+    id: number;
+    updated: string;
+    followersCnt: any;
+    username: string;
+    desc: any
+}
+
+
 interface I_ORGANIZATION {
     id: number;
     name: string;
