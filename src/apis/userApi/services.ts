@@ -56,10 +56,10 @@ const parseUser = (data: I_API_USER): I_USER => ({
 });
 
 
-const parseUserList = (data: I_API_GET_USER_LIST_RES): { prevPageCursor: string; nextPageCursor: string; results: I_LIST_USER[] } => ({
+const parseUserList = (data: I_API_GET_USER_LIST_RES): I_PAGE<I_LIST_USER[]> => ({
     nextPageCursor: data.next,
     prevPageCursor: data.previous,
-    results: data.results.map((user) => ({
+    data: data.results.map((user) => ({
         id: user.id,
         created: format(new Date(user.created), 'yyyy-MM-dd hh:mm:ss'),
         updated: format(new Date(user.updated), 'yyyy-MM-dd hh:mm:ss'),

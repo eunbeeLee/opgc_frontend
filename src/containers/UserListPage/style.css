@@ -1,0 +1,57 @@
+.user-list-base {
+    /*float: left;*/
+}
+
+.user-list__profile {
+    float: left;
+    width: 200px;
+    height: 300px;
+    border: 1px solid var(--color-light-white);
+    text-align: center;
+    margin: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: 0px 0px 10px -1px var(--color-light-grey);
+    -moz-box-shadow: 0px 0px 10px -1px var(--color-light-grey);
+    box-shadow: 0px 0px 10px -1px var(--color-light-grey);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: box-shadow ease-in-out 100ms;
+}
+
+.page-button {
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.page-button button {
+    margin: 10px;
+    font-size: var(--font-regular);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4em 1em;
+    color: var(--color-white);
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-dark-green);
+    font-weight: var(--weight-semi-bold);
+    cursor: pointer;
+}
+
+.user-list__profile ul {
+    margin: 8px;
+    font-size: small;
+}
+
+.user-list__profile__organization {
+    align-items: center;
+}
+
+.user-list__profile__belong-title {
+    font-size: var(--font-micro);
+    opacity: 0.7;
+    margin-right: 5px;
+}
