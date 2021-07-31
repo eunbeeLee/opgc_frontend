@@ -7,43 +7,52 @@ import Avatar from "@/components/Avatar";
 import './style.css';
 import {E_ROUND_TYPE} from "@/components/Avatar/type";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faArrowRight, faAt, faBuilding, faCode, faStar, faTrophy} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faArrowRight, faBuilding, faCode, faStar, faTrophy} from "@fortawesome/free-solid-svg-icons";
 import {getTierImage} from "@/services/userInfo";
+import {GET_USERS} from "@/modules/userList";
 
 interface I_PROPS {}
 
 const UserListPage: React.FC<I_PROPS> = () => {
     const { getUsers } = actions.userList;
+    const uiActions = actions.ui.app;
     const { users, nextPageCursor, prevPageCursor } = useSelector((state: T_ROOT_REDUCER) => state.userList);
+    const {loading: loadingState} = useSelector((state: T_ROOT_REDUCER) => state);
+
     const dispatch = useDispatch();
     const [company, setCompany] = useState<string>('');
     const [username, setUsername] = useState<string>('');
     const [tier, setTier] = useState<string>('');
+    const pateSize = 30;
 
     // 이전 페이지
     const handleClickNextPage = () => {
         dispatch(getUsers({
-            page_size: 30, cursor: nextPageCursor, company: company, username: username, tier: tier
+            page_size: pateSize, cursor: nextPageCursor, company: company, username: username, tier: tier
         }));
     };
 
     // 다음 페이지
     const handleClickPrevPage = () => {
         dispatch(getUsers({
-            page_size: 30, cursor: prevPageCursor, company:company, username: username, tier: tier
+            page_size: pateSize, cursor: prevPageCursor, company:company, username: username, tier: tier
         }));
     };
 
     // 필터 적용
     const filterSet = () => {
         dispatch(getUsers({
-            page_size: 30, company: company, username: username, tier: tier
+            page_size: pateSize, company: company, username: username, tier: tier
         }));
     };
 
     useEffect(() => {
-        dispatch(getUsers({page_size: 30}));
+        dispatch(getUsers({page_size: pateSize}));
     }, []);
+
+    useEffect(() => {
+        dispatch(uiActions.setLoading(loadingState[GET_USERS]));
+    }, [loadingState[GET_USERS]]);
 
     const renderUserList = () => {
         return (
