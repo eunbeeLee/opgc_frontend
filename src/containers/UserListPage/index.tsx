@@ -59,26 +59,26 @@ const UserListPage: React.FC<I_PROPS> = () => {
                                         imgUrl={user.profileImgUrl || '/assets/imgs/logo.png'}
                                         style={{ margin: '8px 8px 0px 8px' }}
                                     />
-                                    <ul style={{fontSize: '20px', fontWeight: 'bold'}}>
+                                    <div style={{fontSize: '20px', fontWeight: 'bold'}}>
                                         <Avatar width={25} height={25} imgUrl={getTierImage(user.tier)}/>
                                         <span style={{ verticalAlign: 'text-top'}}> {user.username}</span>
-                                    </ul>
-                                    <ul>
+                                    </div>
+                                    <div className="user-list__profile__inform">
                                         <span>{user.name || '-'}</span>
-                                    </ul>
-                                    <ul>
+                                    </div>
+                                    <div className="user-list__profile__inform">
                                         <FontAwesomeIcon icon={faTrophy}/><span> {user.rank}</span>
-                                    </ul>
-                                    <ul>
+                                    </div>
+                                    <div className="user-list__profile__inform">
                                         <FontAwesomeIcon icon={faAt}/><span> {user.company}</span>
-                                    </ul>
-                                    <ul>
+                                    </div>
+                                    <div className="user-list__profile__inform">
                                         <FontAwesomeIcon icon={faCode}/><span> {user.totalContributionCnt}</span>
-                                    </ul>
-                                    <ul>
+                                    </div>
+                                    <div className="user-list__profile__inform">
                                         <FontAwesomeIcon icon={faStar}/><span> {user.totalStarCnt}</span>
-                                    </ul>
-                                    <ul>
+                                    </div>
+                                    <div className="user-list__profile__inform">
                                         <span className="user-list__profile__belong-title-title">
                                             a member of
                                         </span>
@@ -103,7 +103,7 @@ const UserListPage: React.FC<I_PROPS> = () => {
                                                 </div>
                                             )}
                                         </div>
-                                    </ul>
+                                    </div>
                                 </div>
                             </Link>
                         );
