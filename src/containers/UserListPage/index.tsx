@@ -16,10 +16,9 @@ interface I_PROPS {}
 const UserListPage: React.FC<I_PROPS> = () => {
     const { getUsers } = actions.userList;
     const uiActions = actions.ui.app;
+    const dispatch = useDispatch();
     const { users, nextPageCursor, prevPageCursor } = useSelector((state: T_ROOT_REDUCER) => state.userList);
     const {loading: loadingState} = useSelector((state: T_ROOT_REDUCER) => state);
-
-    const dispatch = useDispatch();
     const [company, setCompany] = useState<string>('');
     const [username, setUsername] = useState<string>('');
     const [tier, setTier] = useState<string>('');
@@ -53,6 +52,9 @@ const UserListPage: React.FC<I_PROPS> = () => {
     useEffect(() => {
         dispatch(uiActions.setLoading(loadingState[GET_USERS]));
     }, [loadingState[GET_USERS]]);
+
+    // 페이지 상단으로 이동
+    window.scrollTo(0,0);
 
     const renderUserList = () => {
         return (
