@@ -16,19 +16,33 @@ const UserListPage: React.FC<I_PROPS> = () => {
     const { getUsers } = actions.userList;
     const { users, nextPageCursor, prevPageCursor } = useSelector((state: T_ROOT_REDUCER) => state.userList);
     const dispatch = useDispatch();
+    const [company, setCompany] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
+    const [tier, setTier] = useState<string>('');
 
     // 이전 페이지
     const handleClickNextPage = () => {
-        dispatch(getUsers(nextPageCursor));
+        dispatch(getUsers({
+            page_size: 30, cursor: nextPageCursor, company: company, username: username, tier: tier
+        }));
     };
 
     // 다음 페이지
     const handleClickPrevPage = () => {
-        dispatch(getUsers(prevPageCursor));
+        dispatch(getUsers({
+            page_size: 30, cursor: prevPageCursor, company:company, username: username, tier: tier
+        }));
+    };
+
+    // 필터 적용
+    const filterSet = () => {
+        dispatch(getUsers({
+            page_size: 30, company: company, username: username, tier: tier
+        }));
     };
 
     useEffect(() => {
-        dispatch(getUsers());
+        dispatch(getUsers({page_size: 30}));
     }, []);
 
     const renderUserList = () => {
@@ -95,27 +109,42 @@ const UserListPage: React.FC<I_PROPS> = () => {
                         );
                     })}
                 </div>
-                <div className="page-button">
-                    <button onClick={handleClickPrevPage}>
-                        <FontAwesomeIcon
-                            icon={faArrowLeft}
-                        />
-                    </button>
-                    <button onClick={handleClickNextPage}>
-                        <FontAwesomeIcon
-                            icon={faArrowRight}
-                        />
-                    </button>
-                </div>
             </>
         );
     };
 
     return (
         <MainLayout>
+            <button className="button-left" onClick={handleClickPrevPage}>
+                <FontAwesomeIcon
+                    icon={faArrowLeft}
+                />
+            </button>
             <div className="user-list-base">
+                <div className="filter">
+                    <select onChange={({ target: { value } }) => {setTier(value);}}>
+                      <option value="" disabled selected>티어</option>
+                      <option value="35">Challenger</option>
+                      <option value="30">Master</option>
+                      <option value="25">Diamond</option>
+                      <option value="20">Platinum</option>
+                      <option value="15">Gold</option>
+                      <option value="10">Silver</option>
+                      <option value="5">Bronze</option>
+                      <option value="0">UnRank</option>
+                      <option value="">All</option>
+                    </select>
+                    <input placeholder="회사" onChange={({ target: { value } }) => {setCompany(value);}}/>
+                    <input placeholder="깃헙 아이디" onChange={({ target: { value } }) => {setUsername(value);}}/>
+                    <button className="filter-button" onClick={filterSet}>필터 적용</button>
+                </div>
                 <div>{renderUserList()}</div>
             </div>
+            <button className="button-right" onClick={handleClickNextPage}>
+                <FontAwesomeIcon
+                    icon={faArrowRight}
+                />
+            </button>
         </MainLayout>
     );
 };

@@ -18,9 +18,11 @@ export async function patchUser(username: string): Promise<I_USER> {
     return parseUser(data);
 }
 
-export async function getUserList(cursor: string | null): Promise<I_PAGE<I_LIST_USER[]>> {
+export async function getUserList(
+    params: {page_size: number, cursor: string | null, company: string | null, username: string | null}
+): Promise<I_PAGE<I_LIST_USER[]>> {
     const { data } = await axios.get<I_API_GET_USER_LIST_RES>(
-        `/githubs/users/`, {params: {page_size: 30, cursor: cursor}}
+        `/githubs/users/`, {params: params}
     );
 
     return parseUserList(data);
