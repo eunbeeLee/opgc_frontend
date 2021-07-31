@@ -1,7 +1,6 @@
 export interface I_NOTI {
     id: number;
-    created: string;
-    updated: string;
+    date: string;
     title: string;
     content: string;
 }

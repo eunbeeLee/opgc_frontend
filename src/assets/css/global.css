@@ -46,6 +46,11 @@ h1 {
     display: none !important;
 }
 
+.utterances {
+    max-width: unset !important;
+    margin: 0 !important;
+}
+
 @media (max-width: 576px) {
     /* 너비가 ~ 576px: 모바일 */
     .pc-only {

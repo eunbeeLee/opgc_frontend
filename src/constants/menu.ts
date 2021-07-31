@@ -1,8 +1,8 @@
 export const MAIN_MENU_LIST: I_MENU[] = [
     {
         label: '공지사항',
-        name: 'noti',
-        path: '/noti',
+        name: 'notice',
+        path: '/notice',
         visible: true,
     },
     {

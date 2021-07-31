@@ -2,21 +2,32 @@ import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, T_ROOT_REDUCER } from '@/modules';
-import NotiCard from '@/components/NotiCard';
 import './style.css';
-import { getNotis } from '@/apis/notiApi';
+import { I_NOTI } from '@/types/noti';
+import Notice from '@/components/Notice';
+import Overlay from '@/components/Overlay';
 
 interface I_PROPS {}
 
 const NotiPage: React.FC<I_PROPS> = () => {
-    const { getNotis } = actions.noti;
     const dispatch = useDispatch();
+    const [selectedNoti, setSelectedNoti] = useState<I_NOTI>(null);
+
+    const { getNotis } = actions.noti;
 
     const { notis } = useSelector((state: T_ROOT_REDUCER) => state.noti);
 
     useEffect(() => {
         dispatch(getNotis());
     }, []);
+
+    const handleClickNoti = (noti: I_NOTI) => {
+        setSelectedNoti(noti);
+    };
+
+    const handleCloseNoti = () => {
+        setSelectedNoti(null);
+    };
 
     const renderNotis = () => {
         return (
@@ -31,12 +42,14 @@ const NotiPage: React.FC<I_PROPS> = () => {
                         >
                             {!isLast && <div className="noti__time-line"></div>}
                             <div className="noti__time-node"></div>
-                            <div className="noti__item">
-                                <NotiCard
-                                    date={noti.date}
-                                    title={noti.title}
-                                    content={noti.content}
-                                />
+                            <div className="noti-item__date">{noti.date}</div>
+                            <div
+                                className="noti__item noti-item"
+                                onClick={() => handleClickNoti(noti)}
+                            >
+                                <div className="noti-item__title">
+                                    {noti.title}
+                                </div>
                             </div>
                         </li>
                     );
@@ -49,6 +62,11 @@ const NotiPage: React.FC<I_PROPS> = () => {
         <MainLayout>
             <div className="noti-page">
                 <div className="noti-page__items">{renderNotis()}</div>
+                {selectedNoti && (
+                    <Overlay onClick={handleCloseNoti}>
+                        <Notice data={selectedNoti} onClose={handleCloseNoti} />
+                    </Overlay>
+                )}
             </div>
         </MainLayout>
     );

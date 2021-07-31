@@ -11,6 +11,7 @@ import UserInfo from './UserInfo';
 import LanguagesChart from './LanguagesChart';
 import ErrorLayout from '@/layouts/ErrorLayout';
 import MainLayout from '@/layouts/MainLayout';
+import Utterances from '@/components/Utterances';
 
 interface I_PROPS {}
 
@@ -74,12 +75,11 @@ const UserPage: React.FC<I_PROPS> = () => {
                                 : `최근업데이트: ${user.updated}`}
                         </span>
                     </div>
-                    {/* Top */}
+
                     <section className="user-info__summary">
                         <UserInfo user={user} />
                     </section>
 
-                    {/* Bottom */}
                     <section className="user-info__detail">
                         <section>
                             <h1>Languages</h1>
@@ -89,6 +89,11 @@ const UserPage: React.FC<I_PROPS> = () => {
                         <section className="user-info__repositories">
                             <h1>Repositories</h1>
                             <RepoList repos={user?.repositories} />
+                        </section>
+
+                        <section className="user-info__visitor-books">
+                            <h1>Visitor Books</h1>
+                            <Utterances />
                         </section>
                     </section>
                 </div>
