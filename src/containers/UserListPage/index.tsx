@@ -7,7 +7,7 @@ import Avatar from "@/components/Avatar";
 import './style.css';
 import {E_ROUND_TYPE} from "@/components/Avatar/type";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faArrowRight, faAt, faCode, faStar, faTrophy} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faArrowRight, faAt, faBuilding, faCode, faStar, faTrophy} from "@fortawesome/free-solid-svg-icons";
 import {getTierImage} from "@/services/userInfo";
 
 interface I_PROPS {}
@@ -70,7 +70,7 @@ const UserListPage: React.FC<I_PROPS> = () => {
                                         <FontAwesomeIcon icon={faTrophy}/><span> {user.rank}</span>
                                     </div>
                                     <div className="user-list__profile__inform">
-                                        <FontAwesomeIcon icon={faAt}/><span> {user.company}</span>
+                                        <FontAwesomeIcon icon={faBuilding}/><span> {user.company || '-'}</span>
                                     </div>
                                     <div className="user-list__profile__inform">
                                         <FontAwesomeIcon icon={faCode}/><span> {user.totalContributionCnt}</span>
