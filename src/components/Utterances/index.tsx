@@ -13,7 +13,7 @@ const Utterances: React.FC<I_PROPS> = ({ id = '' }) => {
 
     useLayoutEffect(() => {
         const utterances = document.createElement('script');
-        const term = location.href.replace(location.origin, '') + id;
+        const term = id ?? location.pathname;
 
         const attributes = {
             src,
