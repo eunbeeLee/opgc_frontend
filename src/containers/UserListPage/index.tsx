@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, T_ROOT_REDUCER } from '@/modules';
-
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -75,19 +74,27 @@ const UserListPage: React.FC<I_PROPS> = () => {
 
     return (
         <MainLayout>
-            <button className="button-left" onClick={handleClickPrevPage}>
-                <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-            <div className="user-list-base">
-                <UserFilter onApplyFilter={applyFilter} />
-                <div>
+            <div className="user-list">
+                <div className="user-list__top">
+                    <UserFilter onApplyFilter={applyFilter} />
+                </div>
+                <div className="user-list__bottom">
                     {users.map((user) => {
                         return <UserListCard data={user} />;
                     })}
                 </div>
             </div>
-            <button className="button-right" onClick={handleClickNextPage}>
+            <button
+                className="user-list__next-btn"
+                onClick={handleClickNextPage}
+            >
                 <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+            <button
+                className="user-list__prev-btn"
+                onClick={handleClickPrevPage}
+            >
+                <FontAwesomeIcon icon={faArrowLeft} />
             </button>
         </MainLayout>
     );
