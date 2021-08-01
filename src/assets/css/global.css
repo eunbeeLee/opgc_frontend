@@ -52,6 +52,6 @@ h1 {
         display: none !important;
     }
     .mobile-only {
-        display: block !important;
+        display: inherit !important;
     }
 }

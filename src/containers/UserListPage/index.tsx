@@ -64,6 +64,13 @@ const UserListPage: React.FC<I_PROPS> = () => {
         );
     };
 
+    const renderPageBtnGroup = (
+        <div className="user-list__page-btns">
+            <span onClick={handleClickPrevPage}>PREV</span>/
+            <span onClick={handleClickNextPage}>NEXT</span>
+        </div>
+    );
+
     useEffect(() => {
         dispatch(getUsers({ page_size: pateSize }));
     }, []);
@@ -79,23 +86,17 @@ const UserListPage: React.FC<I_PROPS> = () => {
                     <UserFilter onApplyFilter={applyFilter} />
                 </div>
                 <div className="user-list__bottom">
-                    {users.map((user) => {
-                        return <UserListCard data={user} />;
-                    })}
+                    {renderPageBtnGroup}
+                    <div className="user-list__list">
+                        {users.map((user) => {
+                            return (
+                                <UserListCard data={user} key={user.username} />
+                            );
+                        })}
+                    </div>
+                    {renderPageBtnGroup}
                 </div>
             </div>
-            <button
-                className="user-list__next-btn"
-                onClick={handleClickNextPage}
-            >
-                <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-            <button
-                className="user-list__prev-btn"
-                onClick={handleClickPrevPage}
-            >
-                <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
         </MainLayout>
     );
 };

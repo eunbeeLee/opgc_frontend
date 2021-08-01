@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Avatar from '@/components/Avatar';
-import { E_ROUND_TYPE } from '@/components/Avatar/type';
 import {
     faBuilding,
     faCode,
@@ -15,90 +13,61 @@ import './style.css';
 interface I_PROPS {
     data: I_USER;
 }
+
 const UserListCard: React.FC<I_PROPS> = ({ data: user }) => {
     return (
         <Link
             to={`/users/${user.username}`}
-            style={{ cursor: 'pointer' }}
             key={`${user.username}`}
+            className="c-user-list-card"
         >
-            <div className="c-user-list-card">
-                <Avatar
-                    width={70}
-                    height={70}
-                    imgUrl={user.profileImgUrl || '/assets/imgs/logo.png'}
-                    style={{ margin: '8px 8px 0px 8px' }}
+            <div className="c-user-list-card__avatar-wrap">
+                <img
+                    className="c-user-list-card__avatar"
+                    src={user.profileImgUrl || '/assets/imgs/logo.png'}
                 />
-                <div
-                    style={{
-                        fontSize: '20px',
-                        fontWeight: 'bold',
-                    }}
-                >
-                    <Avatar
-                        width={25}
-                        height={25}
-                        imgUrl={getTierImage(user.tier)}
-                    />
-                    <span
-                        style={{
-                            verticalAlign: 'text-top',
-                        }}
-                    >
-                        {' '}
-                        {user.username}
-                    </span>
+            </div>
+            <div className="c-user-list-card__title-wrap">
+                <div className="c-user-list-card__id">
+                    {/* <img src={getTierImage(user.tier)} className="pc-only" /> */}
+                    {user.username}
                 </div>
-                <div className="c-user-list-card__inform">
-                    <span>{user.name || '-'}</span>
-                </div>
-                <div className="c-user-list-card__inform">
+                <div className="c-user-list-card__name">{user.name || '-'}</div>
+            </div>
+            <ul className="c-user-list-card__infos">
+                <li className="c-user-list-card__tier">
+                    <img src={getTierImage(user.tier)} />
+                    {user.tier}
+                </li>
+                <li>
                     <FontAwesomeIcon icon={faTrophy} />
                     <span> {user.rank}</span>
-                </div>
-                <div className="c-user-list-card__inform">
+                </li>
+                <li>
                     <FontAwesomeIcon icon={faBuilding} />
                     <span> {user.company || '-'}</span>
-                </div>
-                <div className="c-user-list-card__inform">
+                </li>
+                <li>
                     <FontAwesomeIcon icon={faCode} />
                     <span> {user.totalContributionCnt}</span>
-                </div>
-                <div className="c-user-list-card__inform">
+                </li>
+                <li>
                     <FontAwesomeIcon icon={faStar} />
                     <span> {user.totalStarCnt}</span>
-                </div>
-                <div className="c-user-list-card__inform">
-                    <span className="c-user-list-card__belong-title-title">
-                        a member of
-                    </span>
-                    <div style={{ marginTop: '5px' }}>
-                        {user.organizations.length > 0 && (
-                            <div className="c-user-list-card__organization">
-                                {user.organizations.map((organization, idx) => {
-                                    if (idx < 7)
-                                        return (
-                                            <Avatar
-                                                key={organization.name}
-                                                type={E_ROUND_TYPE.RECTANGLE}
-                                                imgUrl={
-                                                    organization.logoUrl ||
-                                                    '/assets/imgs/logo.png'
-                                                }
-                                                width="18"
-                                                height="18"
-                                                title={organization.name}
-                                            />
-                                        );
-                                })}
-                                {user.organizations.length >= 7 && (
-                                    <span>...</span>
-                                )}
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
+                </li>
+                <li>
+                    {user.organizations.map((organization) => (
+                        <img
+                            className="c-user-list-card__organization"
+                            key={organization.name}
+                            src={
+                                organization.logoUrl || '/assets/imgs/logo.png'
+                            }
+                            title={organization.name}
+                        />
+                    ))}
+                </li>
+            </ul>
         </Link>
     );
 };

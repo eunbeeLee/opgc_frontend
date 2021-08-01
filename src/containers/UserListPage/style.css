@@ -12,90 +12,30 @@
 
 .user-list__bottom {
     margin-top: 20px;
+}
+
+.user-list__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.page-button {
-    margin: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.user-list__page-btns {
+    text-align: center;
+    padding: 20px 0;
+    opacity: 0.7;
+    font-weight: bolder;
 }
 
-.user-list__next-btn {
-    position: fixed;
-    top: 50%;
-    right: 10%;
-    margin: 10px;
-    font-size: var(--font-regular);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.4em 1em;
-    color: var(--color-white);
-    border-radius: var(--size-border-radius);
-    background-color: var(--color-dark-green);
-    font-weight: var(--weight-semi-bold);
+.user-list__page-btns span {
     cursor: pointer;
-}
-
-.user-list__prev-btn {
-    position: fixed;
-    top: 50%;
-    left: 10%;
-    margin: 10px;
-    font-size: var(--font-regular);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.4em 1em;
-    color: var(--color-white);
-    border-radius: var(--size-border-radius);
-    background-color: var(--color-dark-green);
-    font-weight: var(--weight-semi-bold);
-    cursor: pointer;
+    margin: 0 15px;
 }
 
 /* ### 모바일 ### */
 @media (max-width: 576px) {
     /* 너비가 0 ~ 576px: 모바일 */
-    .user-list__next-btn {
-        position: fixed;
-        top: 50%;
-        right: 1%;
-        width: 10px;
-        height: 100px;
-        margin: 10px;
-        font-size: var(--font-regular);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.4em 1em;
-        color: var(--color-white);
-        border-radius: var(--size-border-radius);
-        background-color: var(--color-dark-green);
-        font-weight: var(--weight-semi-bold);
-        cursor: pointer;
-    }
-
-    .user-list__prev-btn {
-        position: fixed;
-        top: 50%;
-        left: 1%;
-        width: 10px;
-        height: 100px;
-        margin: 10px;
-        font-size: var(--font-regular);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.4em 1em;
-        color: var(--color-white);
-        border-radius: var(--size-border-radius);
-        background-color: var(--color-dark-green);
-        font-weight: var(--weight-semi-bold);
-        cursor: pointer;
+    .user-list__page-btns {
+        font-weight: unset;
     }
 }

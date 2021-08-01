@@ -74,9 +74,9 @@ const UserFilter: React.FC<I_PROPS> = ({
                     setUserName(value);
                 }}
             />
-            <button className="c-filter-btn" onClick={handleClickApply}>
+            <div className="c-filter-btn" onClick={handleClickApply}>
                 필터 적용
-            </button>
+            </div>
         </div>
     );
 };
