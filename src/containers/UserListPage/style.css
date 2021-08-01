@@ -32,20 +32,6 @@
     justify-content: center;
 }
 
-.filter-button {
-    margin: 10px;
-    width: 100px;
-    font-size: small;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.4em 1em;
-    color: var(--color-white);
-    border-radius: var(--size-border-radius);
-    background-color: var(--color-dark-green);
-    font-weight: var(--weight-semi-bold);
-}
-
 .button-right {
     position: fixed;
     top: 50%;
@@ -80,27 +66,6 @@
     cursor: pointer;
 }
 
-.filter {
-    display: inline-flex;
-    margin-bottom: 20px;
-}
-
-.filter input, select {
-    height: 40px;
-    margin: 10px;
-    padding: 10px;
-    font-size: var(--font-micro);
-    min-width: 100px;
-    background: none;
-    border: none;
-    box-sizing: border-box;
-    outline: none;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-    -moz-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-    box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-}
-
 .user-list__profile__inform {
     margin: 8px;
     font-size: small;
@@ -116,45 +81,9 @@
     margin-right: 5px;
 }
 
-
 /* ### 모바일 ### */
 @media (max-width: 576px) {
     /* 너비가 0 ~ 576px: 모바일 */
-    .filter {
-        display: inline;
-        margin-bottom: 20px;
-    }
-
-    .filter input, select {
-        height: 40px;
-        margin: 10px;
-        padding: 10px;
-        font-size: var(--font-micro);
-        min-width: 250px;
-        background: none;
-        border: none;
-        box-sizing: border-box;
-        outline: none;
-        border-radius: 10px;
-        -webkit-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-        -moz-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-        box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-    }
-
-    .filter-button {
-        margin: 10px;
-        width: 100px;
-        height: 40px;
-        font-size: small;
-        display: inline-block;
-        justify-content: center;
-        align-items: center;
-        padding: 0.4em 1em;
-        color: var(--color-white);
-        border-radius: var(--size-border-radius);
-        background-color: var(--color-dark-green);
-        font-weight: var(--weight-semi-bold);
-    }
 
     .user-list__profile {
         float: left;
