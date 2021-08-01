@@ -3,28 +3,6 @@
     padding: 5px 5px;
 }
 
-.user-list__profile {
-    float: left;
-    width: 200px;
-    height: 300px;
-    border: 1px solid var(--color-light-white);
-    text-align: center;
-    margin: 8px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    -webkit-box-shadow: 0px 0px 10px -1px var(--color-light-grey);
-    -moz-box-shadow: 0px 0px 10px -1px var(--color-light-grey);
-    box-shadow: 0px 0px 10px -1px var(--color-light-grey);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: box-shadow ease-in-out 100ms;
-}
-
-.user-list__profile:hover {
-    box-shadow: 0px 0px 10px 2px var(--color-green);
-}
-
 .page-button {
     margin: 20px;
     width: 100%;
@@ -64,21 +42,6 @@
     background-color: var(--color-dark-green);
     font-weight: var(--weight-semi-bold);
     cursor: pointer;
-}
-
-.user-list__profile__inform {
-    margin: 8px;
-    font-size: small;
-}
-
-.user-list__profile__organization {
-    align-items: center;
-}
-
-.user-list__profile__belong-title {
-    font-size: var(--font-micro);
-    opacity: 0.7;
-    margin-right: 5px;
 }
 
 /* ### 모바일 ### */
