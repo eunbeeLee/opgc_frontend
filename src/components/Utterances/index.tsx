@@ -1,7 +1,7 @@
 import React, { createRef, useLayoutEffect } from 'react';
 
 const src = 'https://utteranc.es/client.js';
-const repo = 'DirtyBoyz/opgc_frontend';
+const repo = 'DirtyBoyz/opgc-comment-log';
 const theme = 'github-light';
 
 interface I_PROPS {
@@ -13,7 +13,7 @@ const Utterances: React.FC<I_PROPS> = ({ id = '' }) => {
 
     useLayoutEffect(() => {
         const utterances = document.createElement('script');
-        const term = location.href.replace(location.origin, '') + id;
+        const term = id ?? location.pathname;
 
         const attributes = {
             src,

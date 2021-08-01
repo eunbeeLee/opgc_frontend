@@ -93,7 +93,7 @@ const UserPage: React.FC<I_PROPS> = () => {
 
                         <section className="user-info__visitor-books">
                             <h1>Visitor Books</h1>
-                            <Utterances />
+                            <Utterances id={`user/${userId}`} />
                         </section>
                     </section>
                 </div>
