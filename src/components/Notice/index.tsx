@@ -25,7 +25,7 @@ const Notice: React.FC<I_PROPS> = ({
             </header>
             <main dangerouslySetInnerHTML={{ __html: content }}></main>
             <footer>
-                <Utterances id={String(id)} />
+                <Utterances id={`notice/${id}`} />
             </footer>
         </div>
     );
