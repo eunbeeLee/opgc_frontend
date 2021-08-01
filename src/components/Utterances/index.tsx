@@ -1,7 +1,7 @@
 import React, { createRef, useLayoutEffect } from 'react';
 
 const src = 'https://utteranc.es/client.js';
-const repo = 'DirtyBoyz/opgc_frontend';
+const repo = 'DirtyBoyz/opgc-comment-log';
 const theme = 'github-light';
 
 interface I_PROPS {
