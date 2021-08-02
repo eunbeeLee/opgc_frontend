@@ -25,9 +25,9 @@ const routes: I_ROUTE[] = [
         }),
     },
     {
-        name: 'qna',
-        path: '/qna',
-        component: loadable(() => import('@/containers/QnaPage'), {
+        name: 'faq',
+        path: '/faq',
+        component: loadable(() => import('@/containers/FaqPage'), {
             fallback: <Loading />,
         }),
     },
