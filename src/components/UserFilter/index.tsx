@@ -44,39 +44,43 @@ const UserFilter: React.FC<I_PROPS> = ({
 
     return (
         <div className="c-filter">
-            <select
-                onChange={({ target: { value } }) => {
-                    setTier(value);
-                }}
-            >
-                <option value="" disabled selected>
-                    티어
-                </option>
-                <option value="35">Challenger</option>
-                <option value="30">Master</option>
-                <option value="25">Diamond</option>
-                <option value="20">Platinum</option>
-                <option value="15">Gold</option>
-                <option value="10">Silver</option>
-                <option value="5">Bronze</option>
-                <option value="0">UnRank</option>
-                <option value="">All</option>
-            </select>
-            <input
-                placeholder="회사"
-                onChange={({ target: { value } }) => {
-                    setCompany(value);
-                }}
-            />
-            <input
-                placeholder="깃헙 아이디"
-                onChange={({ target: { value } }) => {
-                    setUserName(value);
-                }}
-            />
-            <div className="c-filter-btn" onClick={handleClickApply}>
-                필터 적용
-            </div>
+            <form onSubmit={handleClickApply}>
+                <select
+                    value={tier}
+                    className="c-filter__tier-select"
+                    onChange={({ target: { value } }) => {
+                        setTier(value);
+                    }}
+                >
+                    <option value="" disabled selected>
+                        티어
+                    </option>
+                    <option value="35">Challenger</option>
+                    <option value="30">Master</option>
+                    <option value="25">Diamond</option>
+                    <option value="20">Platinum</option>
+                    <option value="15">Gold</option>
+                    <option value="10">Silver</option>
+                    <option value="5">Bronze</option>
+                    <option value="0">UnRank</option>
+                    <option value="">All</option>
+                </select>
+                <input
+                    type="text"
+                    placeholder="회사"
+                    className="c-filter__company-input"
+                    value={company}
+                    onChange={({ target: { value } }) => setCompany(value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Github 계정"
+                    className="c-filter__id-input"
+                    value={userName}
+                    onChange={({ target: { value } }) => setUserName(value)}
+                />
+                <input type="submit" value="검색" className="c-filter-btn" />
+            </form>
         </div>
     );
 };

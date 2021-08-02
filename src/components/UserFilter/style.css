@@ -1,73 +1,56 @@
-.c-filter {
-    display: inline-flex;
-}
-
-.c-filter input,
-select {
-    height: 40px;
-    margin: 10px;
-    padding: 10px;
-    font-size: var(--font-micro);
-    min-width: 100px;
-    background: none;
-    border: none;
-    box-sizing: border-box;
-    outline: none;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-    -moz-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-    box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-}
-
-.c-filter-btn {
-    margin: 10px;
-    width: 100px;
-    font-size: small;
+.c-filter form {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.4em 1em;
-    color: var(--color-white);
+}
+
+.c-filter form input,
+.c-filter form select {
+    height: 35px;
+    border: none;
+    outline: none;
+    font-size: 13px;
     border-radius: var(--size-border-radius);
-    background-color: var(--color-dark-green);
-    font-weight: var(--weight-semi-bold);
+}
+
+.c-filter form input,
+.c-filter form select {
+    border: 1px solid var(--color-dark-white);
+    padding: 0 8px;
+}
+
+.c-filter form > * {
+    margin: 0 5px;
+}
+
+.c-filter__tier-placeholder {
+    color: blue;
+}
+.c-filter__company-input {
+    width: 110px;
+}
+
+.c-filter__id-input {
+    width: 140px;
+}
+
+.c-filter form input[type="text"]::placeholder {
+    color: var(--color-dark-white);
+}
+
+.c-filter form input[type="submit"] {
+    margin-left: 7px;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    padding: 0 18px;
 }
 
 @media (max-width: 576px) {
-    .c-filter {
-        display: inline;
-        margin-bottom: 20px;
+    .c-filter form {
+        flex-wrap: wrap;
     }
 
-    .c-filter input,
-    select {
-        height: 40px;
-        margin: 10px;
-        padding: 10px;
-        font-size: var(--font-micro);
-        min-width: 250px;
-        background: none;
-        border: none;
-        box-sizing: border-box;
-        outline: none;
-        border-radius: 10px;
-        -webkit-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-        -moz-box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-        box-shadow: 0px 3px 14px -2px rgba(220, 220, 220, 1);
-    }
-
-    .c-filter-btn {
-        margin: 10px;
-        width: 100px;
-        height: 40px;
-        font-size: small;
-        display: inline-block;
-        justify-content: center;
-        align-items: center;
-        padding: 0.4em 1em;
-        color: var(--color-white);
-        border-radius: var(--size-border-radius);
-        background-color: var(--color-dark-green);
-        font-weight: var(--weight-semi-bold);
+    .c-filter form > * {
+        margin: 8px 5px;
     }
 }
