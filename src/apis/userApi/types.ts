@@ -1,4 +1,5 @@
 export type I_API_GET_USER_RES = I_API_USER;
+export type I_API_GET_USER_LIST_RES = I_API_USER_LIST;
 
 export interface I_API_GET_USERS_TIER_RES {
     next?: string | null;
@@ -27,6 +28,34 @@ export interface I_API_USER {
     languages: I_LANGUAGE_INFO[];
     user_rank: number;
     tier: string;
+}
+
+
+interface I_API_SIMPLE_USER {
+    id: number;
+    created: string;
+    updated: string;
+    username: string;
+    avatar_url: string; // url
+    total_contribution: number;
+    total_stargazers_count: number;
+    company: string;
+    bio: string; // 자기소개
+    blog: string; // url
+    public_repos: number;
+    followers: number;
+    following: number;
+    status: E_USER_STATUS;
+    organizations: I_API_ORGANIZTION[];
+    name: string;
+    user_rank: number;
+    tier: string;
+}
+
+export interface I_API_USER_LIST {
+    next?: string | null;
+    previous?: string | null;
+    results: I_API_SIMPLE_USER[];
 }
 
 export interface I_API_ORGANIZTION {

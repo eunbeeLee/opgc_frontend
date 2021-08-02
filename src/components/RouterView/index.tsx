@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router';
 
 interface I_PROPS {
-    router: any[];
+    router: I_ROUTE[];
     NotFoundPage: any;
 }
 

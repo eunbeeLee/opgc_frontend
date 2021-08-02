@@ -5,25 +5,35 @@ import './style.css';
 
 interface I_PROPS {
     children?: any;
+    showHistoryBack?: boolean;
+    width?: number | string;
+    height?: number | string;
 }
 
-const LoginLayout: React.FC<I_PROPS> = ({ children }) => {
+const ErrorLayout: React.FC<I_PROPS> = ({
+    children,
+    showHistoryBack = true,
+    width,
+    height,
+}) => {
     const handleBack = useCallback(() => {
         history.back();
     }, []);
 
     return (
-        <div className="error-layout">
+        <div className="error-layout" style={{ width, height }}>
             <FontAwesomeIcon
                 icon={faTimesCircle}
                 style={{ fontSize: '5rem' }}
             />
             <div className="error-layout__content">{children}</div>
-            <a className="error-layout__back" href="#" onClick={handleBack}>
-                이전페이지로 돌아가기
-            </a>
+            {showHistoryBack && (
+                <a className="error-layout__back" href="#" onClick={handleBack}>
+                    이전페이지로 돌아가기
+                </a>
+            )}
         </div>
     );
 };
 
-export default React.memo(LoginLayout);
+export default React.memo(ErrorLayout);

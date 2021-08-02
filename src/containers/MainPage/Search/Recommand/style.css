@@ -26,7 +26,7 @@
 
 .recommand__list li {
     font-size: var(--font-micro);
-    float: left;
+    display: inline-block;
     padding: 15px 25px;
     width: 50%;
 }
