@@ -1,17 +1,10 @@
-.user-list {
-    padding: 5px 5px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
 .user-list__top {
     display: flex;
     justify-content: center;
 }
 
 .user-list__bottom {
-    margin-top: 20px;
+    padding: 20px 0;
 }
 
 .user-list__list {
@@ -30,6 +23,11 @@
 .user-list__page-btns span {
     cursor: pointer;
     margin: 0 15px;
+}
+
+.user-list__page-btns span[data-disabled="true"] {
+    color: var(--color-dark-white);
+    cursor: default;
 }
 
 /* ### 모바일 ### */
