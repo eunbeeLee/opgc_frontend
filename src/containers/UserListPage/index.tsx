@@ -6,6 +6,7 @@ import './style.css';
 import { GET_USERS } from '@/modules/userList';
 import UserFilter from '@/components/UserFilter';
 import UserListCard from '@/components/UserListCard';
+import ErrorLayout from '@/layouts/ErrorLayout';
 
 interface I_PROPS {}
 
@@ -104,6 +105,11 @@ const UserListPage: React.FC<I_PROPS> = () => {
                     <UserFilter onApplyFilter={applyFilter} />
                 </div>
                 <div className="user-list__bottom">
+                    {users.length === 0 && (
+                        <ErrorLayout showHistoryBack={false} height="300px">
+                            검색된 개발자가 없습니다.
+                        </ErrorLayout>
+                    )}
                     {renderPageBtnGroup}
                     <div className="user-list__list">
                         {users.map((user) => {
