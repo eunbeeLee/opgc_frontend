@@ -78,7 +78,7 @@ const UserListPage: React.FC<I_PROPS> = () => {
         );
     };
 
-    const renderPageBtnGroup = users.length >= pageSize && (
+    const renderPageBtnGroup = (prevPageCursor || nextPageCursor) && (
         <div className="user-list__page-btns">
             <span onClick={handleClickPrevPage} data-disabled={!prevPageCursor}>
                 PREV
