@@ -103,6 +103,7 @@ body {
     align-items: center;
     padding: var(--height-header) 0 0 0;
     min-height: calc(100vh - var(--height-footer));
+    height: 100%;
 }
 
 #content > div {

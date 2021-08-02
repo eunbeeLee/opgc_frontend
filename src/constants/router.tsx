@@ -39,6 +39,13 @@ const routes: I_ROUTE[] = [
         }),
     },
     {
+        name: 'users',
+        path: '/users',
+        component: loadable(() => import('@/containers/UserListPage'), {
+            fallback: <Loading />,
+        }),
+    },
+    {
         name: 'rank',
         path: '/rank',
         component: loadable(() => import('@/containers/RankPage'), {

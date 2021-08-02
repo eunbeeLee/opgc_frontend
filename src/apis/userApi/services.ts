@@ -1,5 +1,10 @@
 import { GITHUB_BASE_URL } from '@/constants/application';
-import { I_API_ORGANIZTION, I_API_REPOSITORY, I_API_USER } from './types';
+import {
+    I_API_ORGANIZTION,
+    I_API_REPOSITORY,
+    I_API_USER,
+    I_API_GET_USER_LIST_RES
+} from './types';
 import { format } from 'date-fns';
 
 const parseRepository = (
@@ -50,4 +55,29 @@ const parseUser = (data: I_API_USER): I_USER => ({
     tier: data.tier,
 });
 
-export { parseUser };
+
+const parseUserList = (data: I_API_GET_USER_LIST_RES): I_PAGE<I_LIST_USER[]> => ({
+    nextPageCursor: data.next,
+    prevPageCursor: data.previous,
+    data: data.results.map((user) => ({
+        id: user.id,
+        created: format(new Date(user.created), 'yyyy-MM-dd hh:mm:ss'),
+        updated: format(new Date(user.updated), 'yyyy-MM-dd hh:mm:ss'),
+        profileImgUrl: user.avatar_url,
+        username: user.username,
+        name: user.name,
+        desc: user.bio ?? `Hello! I'm ${user.username}`,
+        company: user.company,
+        followersCnt: user.followers,
+        followingCnt: user.following,
+        rank: user.user_rank,
+        tier: user.tier,
+        githubUrl: `${GITHUB_BASE_URL}/${user.username}`,
+        publicReposCnt: user.public_repos,
+        totalContributionCnt: user.total_contribution,
+        totalStarCnt: user.total_stargazers_count,
+        organizations: user.organizations.map((o) => parseOrganization(o)),
+    })),
+});
+
+export { parseUser, parseUserList };

@@ -9,12 +9,12 @@ body {
     padding: 0px;
 }
 
-html,
+/* html,
 body,
 #app,
 .root {
     height: 100%;
-}
+} */
 
 a,
 button,
@@ -57,6 +57,6 @@ h1 {
         display: none !important;
     }
     .mobile-only {
-        display: block !important;
+        display: inherit !important;
     }
 }
